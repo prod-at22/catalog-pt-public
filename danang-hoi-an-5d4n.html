@@ -489,6 +489,9 @@ footer.page-footer {
   font-weight: 700;
   white-space: nowrap;
 }
+/* A honeymoon package names a room rather than a group size, which is too
+   long to hold on one line. */
+.price-table.per-package .pax { white-space: normal; text-align: left; min-width: 14rem; }
 /* The navy rail is one continuous column, so the zebra striping above must
    not tint it — it would read as a break in the rail. */
 .price-table tbody tr:nth-child(even) td.pax { background: var(--navy); }
@@ -766,8 +769,7 @@ footer.page-footer {
   <div class="price-wrap">
     <table class="price-table">
       <thead>
-        <tr>
-          <th>No. of Pax</th>          <th>Adult<span class="age">9 years above</span></th>          <th>Child With Bed<span class="age">6-8 years old</span></th>          <th>Child Without Bed<span class="age">2-5 years old</span></th>        </tr>
+        <tr><th>No. of Pax</th>          <th>Adult<span class="age">9 years above</span></th>          <th>Child With Bed<span class="age">6-8 years old</span></th>          <th>Child Without Bed<span class="age">2-5 years old</span></th>        </tr>
       </thead>
       <tbody>        <tr>
           <td class="pax">2 - 4</td>          <td class="amount">RM2,377</td>          <td class="amount">RM2,177</td>          <td class="amount">RM1,977</td>        </tr>        <tr>
