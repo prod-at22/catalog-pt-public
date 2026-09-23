@@ -582,7 +582,7 @@ footer.page-footer {
    Group Tour catalog serves. */
 @page {
   size: A4;
-  margin: 12mm 10mm;
+  margin: 10mm 9mm;
 }
 
 @media print {
@@ -649,7 +649,82 @@ footer.page-footer {
      says which row is which. */
   .price-table thead th, .price-table .pax,
   .surcharge-table thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* ----------------------------------------------------------------------
+     Print density
+     ----------------------------------------------------------------------
+     The Group Tour rule above makes every .card atomic, which on a Private
+     Tour catalog wastes most of the document: each card jumps to a fresh
+     page rather than filling the one it is on, and Seoul Basic came out at
+     7 pages with pages 4, 5 and 7 between half and 80% empty.
+
+     That rule was written for cards built out of tiles and boxes, where a
+     split strands a header-less fragment on the next page. The fix is to
+     move the guarantee down a level — let a card flow, but keep the things
+     that actually must not break (a single add-on row, a &#34;What to Expect&#34;
+     tile, one table row) whole, and keep every heading attached to what
+     follows it. A long Includes list or Important Notes section splitting
+     across a page boundary reads perfectly well; a price row torn in half
+     does not.
+     ---------------------------------------------------------------------- */
+  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  .itinerary-card .card-body { padding: 0.85rem 1rem; }
+  .card h2 {
+    font-size: 0.92rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    break-after: avoid;
+  }
+  /* A heading stranded at the foot of a page is the one break that always
+     looks broken, so every one of them stays with its content. */
+  .split-two h3, .notes-subhead, .itinerary-group-label { break-after: avoid; }
+  .split-two ul, .notes-list { orphans: 2; widows: 2; }
+
+  /* The units that genuinely cannot be cut. */
+  .addon, .expect-item, .accom-item, .carrier-card, .leg,
+  .price-table tr, .surcharge-table tr, .itin-table tr,
+  .deposit-box, .highlights-strip { break-inside: avoid; }
+
+  /* Includes/Excludes is the one card that must stay whole. It is two
+     columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
+     at the top — split it and the continuation page shows two unlabelled
+     lists of similar-looking bullet points, where mistaking one column for
+     the other inverts the meaning of every line. The tables that do split
+     are safe because they repeat their header row instead. */
+  .split-two { break-inside: avoid; }
+
+  /* Never let the footer start a page on its own — it stranded the Maldives
+     catalog&#39;s last page at 7% full. */
+  .page-footer { break-before: avoid; }
+
+  /* The hero is sized for a screen landing; in a printed catalog that much
+     red is just a cover taking a third of page one away from the price. */
+  .hero { padding: 1.1rem 1.25rem 0.9rem; margin-bottom: 0.85rem; }
+  .hero h1 { font-size: 1.4rem; }
+  .hero .route { margin-bottom: 0.6rem; font-size: 0.88rem; }
+  .hero .facts { gap: 1.25rem; }
+  .hero .facts b { font-size: 1.1rem; }
+  .hero-footer { margin-top: 0.6rem; }
+  .highlights-strip { padding: 0.55rem 0.5rem; margin-bottom: 0.8rem; gap: 0.5rem 1.5rem; }
+
+  /* Tighter, not smaller: the type stays readable, the gaps between things
+     come down. */
+  .split-two { gap: 1.1rem; }
+  .split-two li { margin-bottom: 0.25rem; }
+  .notes-list li { margin-bottom: 0.3rem; }
+  .addon { margin-bottom: 0.5rem; }
+  .addon-info { padding: 0.5rem 0.75rem; }
+  .addon-price-col { padding: 0.5rem 0.75rem; }
+  .expect-grid { gap: 0.6rem; }
+  .expect-item { padding: 0.75rem 0.7rem; }
+  .accom-list { gap: 0.5rem; }
+  .accom-item { padding: 0.55rem 0.65rem; }
+  .price-table td, .surcharge-table td { padding: 0.4rem 0.6rem; }
+  .price-table thead th, .surcharge-table thead th { padding: 0.45rem 0.6rem; }
+  .itin-table td { padding: 0.55rem 0.7rem; }
+  .page-footer { padding: 0.75rem 0.25rem; }
 }
+
 </style>
 </head>
 <body>
