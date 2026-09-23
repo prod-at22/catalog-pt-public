@@ -423,23 +423,11 @@ footer.page-footer {
    international flight sitting in Price Excludes.
    ========================================================================== */
 
-/* Toolbar gets a second, quieter button beside Download PDF: the TC-facing
-   destination Knowledge Base. Outlined rather than filled so the red
-   Download PDF stays the single primary action, matching GT&#39;s toolbar. */
+/* The toolbar carries exactly one action: Download PDF. A link to the
+   destination Knowledge Base used to sit beside it, and was removed —
+   the KB sites are internal TC reference, and this page&#39;s URL is what
+   gets sent to customers. */
 .toolbar .actions { display: flex; align-items: center; gap: 0.5rem; }
-.toolbar .kb-btn {
-  display: inline-block;
-  font: inherit;
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: var(--brand);
-  text-decoration: none;
-  background: transparent;
-  border: 1px solid var(--brand);
-  border-radius: 999px;
-  padding: 0.5rem 1.05rem;
-}
-.toolbar .kb-btn:hover { background: var(--brand-soft); }
 
 /* Hero facts carry one more item than GT&#39;s (Duration, Basis, Valid Until),
    so they wrap on narrow screens instead of squeezing. */
@@ -578,13 +566,23 @@ footer.page-footer {
 @media (max-width: 640px) {
   .toolbar { flex-wrap: wrap; gap: 0.5rem; }
   .toolbar .actions { width: 100%; }
-  .toolbar .kb-btn, .toolbar .download-btn { flex: 1; text-align: center; }
+  .toolbar .download-btn { flex: 1; text-align: center; }
   /* Both wide tables scroll rather than compress: squeezing a price column
      to fit is how a TC misreads RM2,397 as the child rate. */
   .price-wrap, .surcharge-wrap { overflow-x: auto; }
   .price-table { min-width: 460px; }
   .surcharge-table { min-width: 560px; }
   .price-footnotes { flex-direction: column; }
+}
+
+/* The Download PDF on each page is that same page printed to PDF, so the
+   sheet size cannot be left to whatever the printing machine defaults to —
+   Chrome picks Letter or A4 depending on locale, which would give two
+   catalogs different page geometry for no reason. Pin A4, matching what the
+   Group Tour catalog serves. */
+@page {
+  size: A4;
+  margin: 12mm 10mm;
 }
 
 @media print {
@@ -651,16 +649,14 @@ footer.page-footer {
      says which row is which. */
   .price-table thead th, .price-table .pax,
   .surcharge-table thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  /* No toolbar in print, so the KB link would print as a dead button. */
-  .toolbar .kb-btn { display: none; }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <span class="meta">PT &middot; Seoul &middot; Basic &middot; v2 &middot; updated 2026-03-12</span>
-  <span class="actions">    <a class="kb-btn" href="https://prod-at22.github.io/korea-kb/" target="_blank" rel="noopener">Knowledge Base</a>    <a class="download-btn" href="seoul-basic.pdf" download="PT Seoul Basic 5D4N v2_120326.pdf">Download PDF</a>
+  <span class="meta">PT &middot; Seoul &middot; Basic &middot; v2 &middot; updated 2026-03-12</span><span class="actions">
+    <a class="download-btn" href="seoul-basic.pdf" download="PT Seoul Basic 5D4N v2_120326.pdf">Download PDF</a>
   </span>
 </div>
 
