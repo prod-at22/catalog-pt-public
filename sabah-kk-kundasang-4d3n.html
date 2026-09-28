@@ -491,7 +491,7 @@ footer.page-footer {
 }
 /* A honeymoon package names a room rather than a group size, which is too
    long to hold on one line. */
-.price-table.per-package .pax { white-space: normal; text-align: left; min-width: 14rem; }
+.price-table.per-package .pax { white-space: normal; min-width: 14rem; }
 /* The navy rail is one continuous column, so the zebra striping above must
    not tint it — it would read as a break in the rail. */
 .price-table tbody tr:nth-child(even) td.pax { background: var(--navy); }
@@ -777,7 +777,7 @@ footer.page-footer {
           <td class="pax">6 - 7</td>          <td class="amount">RM1,157</td>          <td class="amount">RM1,057</td>          <td class="amount">RM957</td>        </tr>        <tr>
           <td class="pax">8 - 10</td>          <td class="amount">RM1,097</td>          <td class="amount">RM997</td>          <td class="amount">RM897</td>        </tr>      </tbody>
     </table>
-  </div>  <p class="price-note">A solo traveller rate is quoted at 1 pax. The child columns are not applicable at that group size.</p></div><div class="card">
+  </div>  <div class="price-footnotes">    <span>Single supplement: Additional RM450 per person</span>  </div></div><div class="card">
   <h2>Price Includes / Excludes</h2>
   <div class="split-two">
     <div class="includes">
@@ -789,7 +789,33 @@ footer.page-footer {
       <ul>        <li>Personal Expenses        </li>        <li>Extra meals        </li>        <li>Flight Ticket        </li>        <li>Travel insurance        </li>        <li>Entrance Fees, Tourism Tax &amp; Surcharge for Non Malaysian        </li>      </ul>
     </div>
   </div>
-</div><div class="card itinerary-card">
+</div><div class="card">
+  <h2>Surcharge — Accommodation Upgrade &amp; Peak Season</h2>  <div class="surcharge-wrap">
+    <table class="surcharge-table">
+      <thead>
+        <tr>
+          <th colspan="2">Accommodation</th>          <th>Upgrade Surcharge (Additional)</th>          <th>Peak Season Surcharge<span class="period">See peak season dates below</span></th>        </tr>
+      </thead>
+      <tbody>        <tr>
+          <td class="accom-type">3 Star Hotel</td>
+          <td class="accom-name">Kundasang: Kinabalu Pine Resort, Celyn, HBenjamin or similar · Kota Kinabalu: Ming Garden Hotel, Dreamtel Hotel <span class="similar">or similar</span></td>          <td class="rate none">-</td>          <td class="rate">RM40/pax/night</td>        </tr>        <tr>
+          <td class="accom-type">3.5 Star Hotel</td>
+          <td class="accom-name">Kundasang: Perkasa, Dreamworld <span class="similar">or similar</span></td>          <td class="rate">Add RM80/pax/night</td>          <td class="rate">RM60/pax/night</td>        </tr>        <tr>
+          <td class="accom-type">4 Star Hotel</td>
+          <td class="accom-name">Kota Kinabalu: Promenade, Palace Hotel <span class="similar">or similar</span></td>          <td class="rate">Add RM150/pax/night</td>          <td class="rate">RM90/pax/night</td>        </tr>      </tbody>
+    </table>
+  </div>  <div class="surcharge-wrap">
+    <table class="surcharge-table">
+      <thead>
+        <tr><th>Season</th><th>Travel Dates</th><th>Surcharge</th></tr>
+      </thead>
+      <tbody>        <tr>
+          <td class="lead">Surcharge Travel Date 2027</td>
+          <td class="sub">January - June 2027</td>
+          <td class="rate">Add RM100/pax</td>
+        </tr>      </tbody>
+    </table>
+  </div>  <p class="addon-note">Peak season dates 2026: 15 July - 20 August 2026 | 28 August - 1 September 2026 | 16 September 2026 | 6 - 10 November 2026 | 20 December 2026 - 3 January 2027 | 4 - 10 February 2027</p></div><div class="card itinerary-card">
   <div class="card-body">
   <h2>Travel Itinerary</h2>
 <div class="itin-table-wrap">
@@ -808,22 +834,22 @@ footer.page-footer {
         <div class="day-title"><span class="day-num">Day 1</span>Kota Kinabalu - Kundasang</div>        <ul class="activities">          <li>Arrive at Kota Kinabalu          </li>          <li>Depart to Kundasang          </li>          <li>Rumah Terbalik (Upside Down House)          </li>          <li>Polumpang Melangkap Camp View Site          </li>          <li>Nabalu Market (Local fresh farm market)          </li>          <li>Pekan Kundasang          </li>          <li>Check in Hotel in Kundasang &amp; Rest          </li>        </ul>      </td>
       <td>Private Transport</td>
       <td>Dinner</td>
-      <td>3-Star Hotel</td>
+      <td>3-Star Hotel (Kundasang)</td>
     </tr>    <tr>
       <td class="col-activities">
         <div class="day-title"><span class="day-num">Day 2</span>Kundasang Tour</div>        <ul class="activities">          <li>DESA Dairy Farm          </li>          <li>Fish Spa          </li>          <li>Rabbit Farm          </li>          <li>Jambatan Tamparuli (Suspension Bridge)          </li>          <li>Anjung Senja Seafood          </li>          <li>Check in Hotel in Kota Kinabalu &amp; Rest          </li>        </ul>      </td>
       <td>Private Transport</td>
       <td>Breakfast</td>
-      <td>3-Star Hotel</td>
+      <td>3-Star Hotel (Kota Kinabalu)</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 3</span>Manukan &amp; Sapi Island Tour (Sic)</div>        <ul class="activities">          <li>Depart to Private Jetty          </li>          <li>Snorkeling &amp; Swimming at Sapi Island &amp;          </li>          <li>Depart to Manukan Island Boat (Shared Tour)          </li>          <li>Back to Jetty          </li>          <li>Sunset at Tanjung Aru Beach          </li>          <li>Free &amp; Easy          </li>        </ul>      </td>
-      <td>Private Transport</td>
+        <div class="day-title"><span class="day-num">Day 3</span>Manukan &amp; Sapi Island Tour (SIC)</div>        <ul class="activities">          <li>Depart to Private Jetty          </li>          <li>Snorkeling &amp; Swimming at Sapi Island          </li>          <li>Depart to Manukan Island          </li>          <li>Back to Jetty          </li>          <li>Sunset at Tanjung Aru Beach          </li>          <li>Free &amp; Easy          </li>        </ul>      </td>
+      <td>Private Transport, Boat (Shared Tour)</td>
       <td>Breakfast, Lunch</td>
-      <td>3-Star Hotel</td>
+      <td>3-Star Hotel (Kota Kinabalu)</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 4</span>Kota Kinabalu City Tour</div>        <ul class="activities">          <li>Check out          </li>          <li>Bandaraya Mosque          </li>          <li>Yayasan Building          </li>          <li>Filipino Market          </li>          <li>Jamilah Souvenir Shop          </li>          <li>Depart to Kota Kinabalu Airport          </li>          <li>SIC = Boat and activity sharing with other tourist          </li>        </ul>      </td>
+        <div class="day-title"><span class="day-num">Day 4</span>Kota Kinabalu City Tour</div>        <ul class="activities">          <li>Check out          </li>          <li>Bandaraya Mosque          </li>          <li>Yayasan Building          </li>          <li>Filipino Market          </li>          <li>Jamilah Souvenir Shop          </li>          <li>Depart to Kota Kinabalu Airport          </li>        </ul>      </td>
       <td>Private Transport</td>
       <td>Breakfast</td>
       <td>-</td>
@@ -832,26 +858,74 @@ footer.page-footer {
 </div>
   </div>
 </div><div class="card">
+  <h2>Add-on</h2>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Poring Hot Spring + Canopy Walk (Ranau)</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM15/pax</div>      <div class="addon-price-line">Minimum 1 person to book</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Parasailing</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM90/pax</div>      <div class="addon-price-line">Minimum 1 person to book</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Seawalking</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM180/pax</div>      <div class="addon-price-line">Minimum 1 person to book</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Banana Boat</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM50/pax</div>      <div class="addon-price-line">Minimum 3 persons to book</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Mari-mari Cultural Village (swap with island trip)</div><div class="addon-meta">Includes: Transport &amp; Lunch/Tea</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM120/transport</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Mari-mari Cultural Village (add-on)</div><div class="addon-meta">Includes: Transport &amp; Lunch/Tea</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM160/pax adult</div>      <div class="addon-price-line">RM150/pax child</div>    </div>
+  </div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid">    <div class="expect-item">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" />
-  <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" />
-  <path d="M10 20h4" />
-  <circle cx="16" cy="20" r="2" />
-  <circle cx="8" cy="20" r="2" /></svg>
-      <h3>Luggage Allocation</h3>
-      <p>Please bring a maximum of 1 luggage per pax, as it affects car capacity.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" />
+  <circle cx="12" cy="12" r="2" />
+  <path d="M6 12h.01M18 12h.01" /></svg>
+      <h3>Not Mentioned in the Itinerary</h3>
+      <p>Things not mentioned in the itinerary must be paid by customers, e.g. shower room, shopping etc.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" />
+  <circle cx="12" cy="12" r="2" />
+  <path d="M6 12h.01M18 12h.01" /></svg>
+      <h3>Prepare Cash</h3>
+      <p>Prepare cash if you plan to shop at Sabah Town Market. Cards and QR are not available at some shops and street stalls.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6" />
+  <path d="M15 6v6" />
+  <path d="M2 12h19.6" />
+  <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
+  <circle cx="7" cy="18" r="2" />
+  <path d="M9 18h5" />
+  <circle cx="16" cy="18" r="2" /></svg>
+      <h3>Airport Transfer</h3>
+      <p>Private transport will be used for all activity transfers.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16" />
+  <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+  <path d="M2 17h20" />
+  <path d="M6 8v9" /></svg>
+      <h3>Triple Room Bed</h3>
+      <p>Triple sharing room with 1 single bed will be provided based on availability. An extra bed will be added if no triple bed is available in the travel period.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+  <path d="M7 2v20" />
+  <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
+      <h3>Meals</h3>
+      <p>Meals provided during the trip (breakfast) will be local food. Other meals (lunch &amp; dinner) can be decided during the trip with the driver.</p>    </div>    <div class="expect-item">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
   <path d="M12 16v-4" />
   <path d="M12 8h.01" /></svg>
-      <h3>Not Mentioned in the Itinerary</h3>
-      <p>Anything not mentioned in the itinerary must be paid by the customer.</p>    </div>  </div>
+      <h3>For Non Malaysian</h3>
+      <p>Entrance fees, tourism tax &amp; surcharge for non-Malaysians can be paid during the trip.</p>    </div>  </div>
 </div><div class="card notes-card">
   <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>All itinerary, flight, price or quotation is subject to change.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting flights.</li>  </ul></div><div class="card">
+  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Price for single supplement is additional RM450 per person.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
+  <ul class="notes-list">    <li>All itinerary, flight, price or quotation is subject to change.</li>    <li>The itinerary during the trip is subject to change due to weather, traffic, safety and similar factors.</li>    <li>Final itinerary and accommodation arrangements will be shared 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting flights.</li>    <li>Any free activity is non-exchangeable for other activities, vouchers or cash if the client does not join, or due to availability and weather conditions.</li>    <li>Entrance fees, tourism tax &amp; surcharge for non-Malaysians are normally around RM170 - RM370 per person.</li>    <li>SIC = boat and activity sharing with other tourists.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
-  <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
+  <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person</div>    <div><span class="figure">30 days</span> prior to departure for full payment</div>  </div>
 </div>
   <footer class="page-footer">
     <span>PRIVATE TOUR KK - KUNDASANG STANDARD &middot; v3 &middot; last updated 2026-07-01 &middot; www.arbatravel.com</span>

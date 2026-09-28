@@ -491,7 +491,7 @@ footer.page-footer {
 }
 /* A honeymoon package names a room rather than a group size, which is too
    long to hold on one line. */
-.price-table.per-package .pax { white-space: normal; text-align: left; min-width: 14rem; }
+.price-table.per-package .pax { white-space: normal; min-width: 14rem; }
 /* The navy rail is one continuous column, so the zebra striping above must
    not tint it — it would read as a break in the rail. */
 .price-table tbody tr:nth-child(even) td.pax { background: var(--navy); }
@@ -776,7 +776,7 @@ footer.page-footer {
           <td class="pax">8 - 10</td>          <td class="amount">RM1,257</td>          <td class="amount">RM1,057</td>          <td class="amount">RM857</td>        </tr>        <tr>
           <td class="pax">11 - 15</td>          <td class="amount">RM1,197</td>          <td class="amount">RM997</td>          <td class="amount">RM797</td>        </tr>      </tbody>
     </table>
-  </div>  <div class="price-footnotes">    <span class="infant">Infant: FOC</span>  </div></div><div class="card">
+  </div>  <div class="price-footnotes">    <span class="infant">Infant: FOC</span>    <span>Single supplement: additional RM550 per person</span>  </div></div><div class="card">
   <h2>Price Includes / Excludes</h2>
   <div class="split-two">
     <div class="includes">
@@ -788,7 +788,20 @@ footer.page-footer {
       <ul>        <li>Return Flight Tickets        </li>        <li>Luggage, In Flight Meal &amp; Airport Tax        </li>        <li>Additional Tours &amp; Meals        </li>        <li>Personal Expenses        </li>        <li>Travel Insurance        </li>      </ul>
     </div>
   </div>
-</div><div class="card itinerary-card">
+</div><div class="card">
+  <h2>Surcharge — Accommodation Upgrade &amp; Peak Season</h2>  <div class="surcharge-wrap">
+    <table class="surcharge-table">
+      <thead>
+        <tr>
+          <th colspan="2">Accommodation</th>          <th>Upgrade Surcharge</th>          <th>Peak Season Surcharge<span class="period">15 - 30 Mar 2026, 25 May - 5 Jun 2026, 20 Dec 2026 - 5 Jan 2027, 5 - 25 Feb 2027, 5 Mar - 15 Apr 2027</span></th>        </tr>
+      </thead>
+      <tbody>        <tr>
+          <td class="accom-type">3 Star Hotel</td>
+          <td class="accom-name">Emersia Hotel, Luxury Hotel <span class="similar">or similar</span></td>          <td class="rate none">-</td>          <td class="rate">RM120/pax/night</td>        </tr>        <tr>
+          <td class="accom-type">4 Star Hotel</td>
+          <td class="accom-name">The 101 Yogyakarta Tugu Hotel <span class="similar">or similar</span></td>          <td class="rate">Weekday (Sun-Thu) RM100/person/night · Weekend (Fri-Sat) RM120/person/night</td>          <td class="rate">RM180/pax/night</td>        </tr>      </tbody>
+    </table>
+  </div></div><div class="card itinerary-card">
   <div class="card-body">
   <h2>Travel Itinerary</h2>
 <div class="itin-table-wrap">
@@ -831,26 +844,87 @@ footer.page-footer {
 </div>
   </div>
 </div><div class="card">
+  <h2>Additional Activities</h2>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Jeep Gumuk Pasir</div><div class="addon-meta">Includes: Medium Route Jeep Ride (4 pax/jeep), Videos and Photos</div><div class="addon-meta">Excludes: Meals, Personal expenses</div><div class="addon-meta">Duration: 2 hours 30 minutes Ride</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM157/Jeep</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">ATV Gumuk Pasir</div><div class="addon-meta">Includes: 1 ATV (2 pax/ATV)</div><div class="addon-meta">Excludes: Meals, Personal expenses</div><div class="addon-meta">Duration: 1 hour Ride</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM100/ATV</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Gondola Timang Beach</div><div class="addon-meta">Includes: Return Gondola Ride at Timang Beach (1 pax)</div><div class="addon-meta">Excludes: Meals, Personal expenses</div><div class="addon-meta">Duration: 15 minutes</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM60/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Borobudur Temple</div><div class="addon-meta">Includes: Entrance fee for Temple Ground Area or Structure Area</div><div class="addon-meta">Excludes: Meals, Personal expenses, Temple Structure Area</div><div class="addon-meta">Duration: 1 - 2 hour tour</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM130/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Horse Carriage Ride</div><div class="addon-meta">Includes: Horse Carriage Ride (max 6 pax/carriage) at Malioboro Area</div><div class="addon-meta">Excludes: Meals, Personal expenses</div><div class="addon-meta">Duration: 30 minutes</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM70/carriage</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Goa Pindul &amp; Cave Tubing</div><div class="addon-meta">Includes: Transport to Goa Pindul &amp; Jomblang Cave Tubing Activity</div><div class="addon-meta">Excludes: Meals, Personal expenses and Additional Activities</div><div class="addon-meta">Duration: 2 hours</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM75/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Gamplong Studio Alam</div><div class="addon-meta">Includes: Entrance ticket to Gamplong Studio Alam</div><div class="addon-meta">Excludes: Meals, Personal expenses and Additional Activities</div><div class="addon-meta">Duration: 1 hour</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM10/pax</div>    </div>
+  </div>  <p class="addon-note">Kindly note that all listed entrance fees and activity prices include applicable service charges and currency exchange differences, and may differ from Indonesia Ground handling (Local Rates).</p></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid">    <div class="expect-item">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" />
-  <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" />
-  <path d="M10 20h4" />
-  <circle cx="16" cy="20" r="2" />
-  <circle cx="8" cy="20" r="2" /></svg>
-      <h3>Luggage Allocation</h3>
-      <p>Please bring a maximum of 1 luggage per pax, as it affects car capacity.</p>    </div>    <div class="expect-item">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
-  <path d="M12 16v-4" />
-  <path d="M12 8h.01" /></svg>
-      <h3>Not Mentioned in the Itinerary</h3>
-      <p>Anything not mentioned in the itinerary must be paid by the customer.</p>    </div>  </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" />
+  <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" />
+  <path d="M16 17h4" />
+  <path d="M4 13h4" /></svg>
+      <h3>Walking Distance</h3>
+      <p>Distance between 3 Star Hotel to Malioboro Street is within 1km and 15 mins walk.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22v-6.57" />
+  <path d="M12 11h.01" />
+  <path d="M12 7h.01" />
+  <path d="M14 15.43V22" />
+  <path d="M15 16a5 5 0 0 0-6 0" />
+  <path d="M16 11h.01" />
+  <path d="M16 7h.01" />
+  <path d="M8 11h.01" />
+  <path d="M8 7h.01" />
+  <rect x="4" y="2" width="16" height="20" rx="2" /></svg>
+      <h3>Double Sharing Occupancy</h3>
+      <p>For 3 Star Hotel, triple sharing has to use an extra bed. Triple sharing with a proper bed is only available at 4 Star Hotel.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6" />
+  <path d="M15 6v6" />
+  <path d="M2 12h19.6" />
+  <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
+  <circle cx="7" cy="18" r="2" />
+  <path d="M9 18h5" />
+  <circle cx="16" cy="18" r="2" /></svg>
+      <h3>Transportation</h3>
+      <p>Tour to Timang Beach will be using Jeep (max 4 pax / Jeep). Journey to Timang will be bumpy and perilous.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+  <path d="M7 2v20" />
+  <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
+      <h3>Meals</h3>
+      <p>Meals provided during the trip will be local Indonesian food.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6" />
+  <path d="M15 6v6" />
+  <path d="M2 12h19.6" />
+  <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
+  <circle cx="7" cy="18" r="2" />
+  <path d="M9 18h5" />
+  <circle cx="16" cy="18" r="2" /></svg>
+      <h3>Heavy Traffic</h3>
+      <p>Please expect some delays during the trip due to frequent heavy traffic.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" /></svg>
+      <h3>Arrival / Departure</h3>
+      <p>Suggested arrival and departure times are at noon. Late arrivals or early departures will not be refunded for activities and meals.</p>    </div>  </div>
 </div><div class="card notes-card">
   <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>All itinerary, flight, price or quotation is subject to change.</li>    <li>The itinerary during the trip is subject to change due to weather, traffic, safety and similar factors.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting flights.</li>  </ul></div><div class="card">
+  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single supplement: additional RM550 per person.</li>    <li>Late booking surcharge of RM50/booking will apply for bookings made less than 45 days before the departure date.</li>    <li>This package is valid until the 31st March 2027 travel period.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
+  <ul class="notes-list">    <li>Itinerary, price and flight are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flight.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
-  <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
+  <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person upon confirmation</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
 </div>
   <footer class="page-footer">
     <span>PRIVATE TOUR JOGJAKARTA &middot; v3 &middot; last updated 2026-04-27 &middot; www.arbatravel.com</span>
