@@ -491,7 +491,7 @@ footer.page-footer {
 }
 /* A honeymoon package names a room rather than a group size, which is too
    long to hold on one line. */
-.price-table.per-package .pax { white-space: normal; text-align: left; min-width: 14rem; }
+.price-table.per-package .pax { white-space: normal; min-width: 14rem; }
 /* The navy rail is one continuous column, so the zebra striping above must
    not tint it — it would read as a break in the rail. */
 .price-table tbody tr:nth-child(even) td.pax { background: var(--navy); }
@@ -558,7 +558,7 @@ footer.page-footer {
 .surcharge-table td.accom-name,
 .surcharge-table td.sub { text-align: left; color: var(--ink-soft); }
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
-.surcharge-table .rate { font-weight: 700; color: var(--brand-dark); white-space: nowrap; }
+.surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
@@ -670,7 +670,11 @@ footer.page-footer {
      across a page boundary reads perfectly well; a price row torn in half
      does not.
      ---------------------------------------------------------------------- */
-  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  /* Every section stays whole: one that fits on a page moves to the next
+     page rather than leaving its tail there. A section taller than a page
+     still starts on a fresh page and then flows, repeating its table header
+     and never cutting a row. */
+  .card { break-inside: avoid; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
   .itinerary-card .card-body { padding: 0.85rem 1rem; }
   .card h2 {
     font-size: 0.92rem;
@@ -686,7 +690,7 @@ footer.page-footer {
   /* The units that genuinely cannot be cut. */
   .addon, .expect-item, .accom-item, .carrier-card, .leg,
   .price-table tr, .surcharge-table tr, .itin-table tr,
-  .deposit-box, .highlights-strip { break-inside: avoid; }
+  .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
      columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
@@ -726,6 +730,21 @@ footer.page-footer {
   .price-table thead th, .surcharge-table thead th { padding: 0.45rem 0.6rem; }
   .itin-table td { padding: 0.55rem 0.7rem; }
   .page-footer { padding: 0.75rem 0.25rem; }
+
+  /* Page one is the price page: hero, price table and Includes/Excludes
+     together, so a customer reads what the price buys without turning
+     over. These trims buy the space for that without shrinking prices. */
+  .hero { padding: 0.9rem 1.1rem 0.7rem; margin-bottom: 0.6rem; }
+  .hero h1 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+  .hero .route { margin-bottom: 0.45rem; }
+  .hero-footer { margin-top: 0.35rem; }
+  .highlights-strip { padding: 0.35rem 0.5rem; margin-bottom: 0.55rem; }
+  .price-table td { padding: 0.3rem 0.6rem; }
+  .price-table thead th { padding: 0.38rem 0.6rem; }
+  .price-footnotes { margin-top: 0.4rem; }
+  .split-two { font-size: 0.84rem; line-height: 1.35; gap: 1rem; }
+  .split-two li { margin-bottom: 0.12rem; }
+  .split-two h3 { margin-bottom: 0.3rem; }
 }
 
 </style>
@@ -780,19 +799,34 @@ footer.page-footer {
           <td class="pax">11 - 13</td>          <td class="amount">RM4,097</td>          <td class="amount">RM3,897</td>          <td class="amount">RM3,697</td>        </tr>        <tr>
           <td class="pax">14 - 15</td>          <td class="amount">RM3,997</td>          <td class="amount">RM3,797</td>          <td class="amount">RM3,597</td>        </tr>      </tbody>
     </table>
-  </div>  <div class="price-footnotes">    <span class="infant">Infant: RM200</span>  </div>  <p class="price-note">Groups of 2 to 9 pax travel with a driving guide. From 10 pax the package includes a private driver and a professional tour guide.</p></div><div class="card">
+  </div>  <div class="price-footnotes">    <span class="infant">Infant: RM200</span>  </div></div><div class="card">
   <h2>Price Includes / Excludes</h2>
   <div class="split-two">
     <div class="includes">
       <h3>Includes</h3>
-      <ul>        <li>3 Star Hotel with Breakfast        </li>        <li>Private Airport Transfer        </li>        <li>Private Transportation (10 Hours Basis)        </li>        <li>Professional Licensed Driving Guide (English Speaking) (10 Hours Basis)        </li>        <li>Entrance Fees:        </li>        <li>Nami Island        </li>        <li>Gyeongbok Palace        </li>        <li>Namsan Cable Car        </li>        <li>Seongsan Ilchulbong        </li>        <li>Cheonjeyeon        </li>        <li>Yongmeori        </li>        <li>Return Domestic Flight (20 kg luggage)        </li>        <li>Tipping Fee        </li>        <li>K-ETA Application - Complementary For Malaysian (1 time)        </li>      </ul>
+      <ul>        <li>3 Star Hotel with Breakfast        </li>        <li>Private Airport Transfer        </li>        <li>Private Transportation (10 Hours Basis)        </li>        <li>Professional Licensed Driving Guide (English Speaking) (10 Hours Basis)        </li>        <li>Entrance Fees          <ul><li>Nami Island</li><li>Gyeongbok Palace</li><li>Namsan Cable Car</li><li>Seongsan Ilchulbong</li><li>Cheonjeyeon</li><li>Yongmeori</li></ul>        </li>        <li>Return Domestic Flight (20 kg luggage)        </li>        <li>Tipping Fee        </li>        <li>K-ETA Application - Complementary For Malaysian (1 time)        </li>      </ul>
     </div>
     <div class="excludes">
       <h3>Excludes</h3>
       <ul>        <li>Lunch &amp; Dinner        </li>        <li>Private Driver &amp; Guide is base on 10 hours basis. 30,000 - 60,000 KRW will be charged for every extra hour usage.        </li>        <li>International Flight        </li>        <li>Personal Expenses        </li>        <li>Optional Activity        </li>        <li>Travel Insurance        </li>        <li>K-ETA Re-Application (RM70)        </li>      </ul>
     </div>
   </div>
-</div><div class="card itinerary-card">
+</div><div class="card">
+  <h2>Surcharge — Accommodation Upgrade &amp; Peak Season</h2>  <div class="surcharge-wrap">
+    <table class="surcharge-table">
+      <thead>
+        <tr>
+          <th colspan="2">Accommodation</th>          <th>Upgrade Surcharge (Additional)</th>          <th>Peak Season Surcharge<span class="period">1-30 April · 1-31 May · 1-31 October</span></th>          <th>Super Peak Season Surcharge<span class="period">16 December - 1 January</span></th>        </tr>
+      </thead>
+      <tbody>        <tr>
+          <td class="accom-type">Apartment</td>
+          <td class="accom-name">Hongdae Area</td>          <td class="rate none">-</td>          <td class="rate">RM70/night/pax</td>          <td class="rate">RM70/night/pax</td>        </tr>        <tr>
+          <td class="accom-type">3 Star Hotel</td>
+          <td class="accom-name">Travelodge Hotel, Jeju Parkside Hotel <span class="similar">or similar</span></td>          <td class="rate none">-</td>          <td class="rate">RM90/night/pax</td>          <td class="rate">RM140/night/pax</td>        </tr>        <tr>
+          <td class="accom-type">4 Star Hotel</td>
+          <td class="accom-name">Migliore Myeongdong <span class="similar">or similar</span></td>          <td class="rate">RM60/night/pax</td>          <td class="rate">RM130/night/pax</td>          <td class="rate">RM170/night/pax</td>        </tr>      </tbody>
+    </table>
+  </div></div><div class="card itinerary-card">
   <div class="card-body">
   <h2>Travel Itinerary</h2>
 <div class="itin-table-wrap">
@@ -808,38 +842,38 @@ footer.page-footer {
   </thead>
   <tbody>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 1</span>Nami Island</div>        <ul class="activities">          <li>Arrival at Incheon Airport          </li>          <li>Nami Island (filming location for Winter Sonata)          </li>          <li>Dongdaemun Design Plaza (DDP)          </li>          <li>Check in Seoul Hotel          </li>        </ul>      </td>
+        <div class="day-title"><span class="day-num">Day 1</span>Nami Island</div>        <ul class="activities">          <li>Arrival at Incheon International Airport          </li>          <li>Nami Island (filming location for Winter Sonata)          </li>          <li>Dongdaemun Design Plaza (DDP)          </li>          <li>Check in Seoul Hotel          </li>        </ul>      </td>
       <td>Private Transport</td>
       <td>-</td>
-      <td>3-Star Hotel</td>
+      <td>3-Star Seoul</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 2</span>Seoul City</div>        <ul class="activities">          <li>Gyeongbokgung Palace (the main royal historical palace)          </li>          <li>Cheonggyecheon Stream (unique river in Seoul)          </li>          <li>Itaewon Street (ﬁrst Mosque in South Korea)          </li>          <li>Flight          </li>          <li>Songsudong Market (street with trendy shops)          </li>        </ul>      </td>
+        <div class="day-title"><span class="day-num">Day 2</span>Seoul City</div>        <ul class="activities">          <li>Gyeongbokgung Palace (the main royal historical palace)          </li>          <li>Cheonggyecheon Stream (unique river in Seoul)          </li>          <li>Itaewon Street (first Mosque in South Korea)          </li>          <li>Songsudong Market (street with trendy shops)          </li>        </ul>      </td>
       <td>Private Transport</td>
       <td>Breakfast</td>
-      <td>3-Star Hotel</td>
+      <td>3-Star Seoul</td>
     </tr>    <tr>
       <td class="col-activities">
         <div class="day-title"><span class="day-num">Day 3</span>Jeju Island</div>        <ul class="activities">          <li>Airport Transfer to Gimpo Airport          </li>          <li>Flight to Jeju (Morning flight)          </li>          <li>Airport Pickup at Jeju Airport          </li>          <li>Osulloc Green Tea Farm and Innisfree Jeju House          </li>          <li>Yongmeori Coast Beach (hydrovolcano rocky shore)          </li>          <li>Cheonjeyeon Waterfalls (famous three-tiered waterfall)          </li>        </ul>      </td>
       <td>Private Transport</td>
       <td>Breakfast</td>
-      <td>3-Star Hotel</td>
+      <td>3-Star Jeju</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 4</span>Jeju Island</div>        <ul class="activities">          <li>Songeup Folk Village (Korean traditional village)          </li>          <li>Seopjikoji (sunrise peak, a crater, one)          </li>          <li>Gimnyeong Beach          </li>          <li>Seongsan Ilchulbong          </li>          <li>Seasonal Tour (entrance fee included):          </li>          <li>Autumn: Sangumburi Park - Silver Grass, Pink Muhly          </li>          <li>Winter: Hallabong Farm - Tangerine Fruit picking          </li>          <li>Spring: Canola Field / Cherry Blossom          </li>          <li>Summer: Sunflower Park / Hydrangea Flowers          </li>        </ul>      </td>
+        <div class="day-title"><span class="day-num">Day 4</span>Jeju Island</div>        <ul class="activities">          <li>Songeup Folk Village (Korean traditional village)          </li>          <li>Seopjikoji (sunrise peak, a crater, one)          </li>          <li>Gimnyeong Beach          </li>          <li>Seongsan Ilchulbong          </li>          <li>Seasonal Tour (entrance fee included):            <ul class="sub-activities"><li>Autumn: Sangumburi Park - Silver Grass, Pink Muhly</li><li>Winter: Hallabong Farm - Tangerine Fruit picking</li><li>Spring: Canola Field / Cherry Blossom</li><li>Summer: Sunflower Park / Hydrangea Flowers</li></ul>          </li>        </ul>      </td>
       <td>Private Transport</td>
       <td>Breakfast</td>
-      <td>3-Star Hotel</td>
+      <td>3-Star Jeju</td>
     </tr>    <tr>
       <td class="col-activities">
         <div class="day-title"><span class="day-num">Day 5</span>Seoul City</div>        <ul class="activities">          <li>Airport Transfer to Jeju          </li>          <li>Flight to Seoul (Morning flight)          </li>          <li>Namdaemun Market (shopping for souvenirs)          </li>          <li>Namsan Cable Car          </li>          <li>Myeongdong Street (shopping for Korean skincare)          </li>        </ul>      </td>
       <td>Private Transport</td>
       <td>Breakfast</td>
-      <td>3-Star Hotel</td>
+      <td>3-Star Seoul</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 6</span>Departure Day</div>        <ul class="activities">          <li>Airport          </li>          <li>Check out Hotel          </li>          <li>Transfer          </li>          <li>Airport Transfer          </li>        </ul>      </td>
-      <td>Private Transport</td>
+        <div class="day-title"><span class="day-num">Day 6</span>Departure Day</div>        <ul class="activities">          <li>Check out Hotel          </li>          <li>Airport Transfer          </li>        </ul>      </td>
+      <td>Airport Transfer</td>
       <td>Breakfast</td>
       <td>-</td>
     </tr>  </tbody>
@@ -847,26 +881,63 @@ footer.page-footer {
 </div>
   </div>
 </div><div class="card">
+  <h2>Additional Activities</h2><div class="addon-tail">  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Hanbok Rental at Gyeongbok Palace</div><div class="addon-meta">Includes: Basic Hanbok Attire</div><div class="addon-meta">Excludes: Extra equipment for rental</div><div class="addon-meta">Duration: 4 Hours</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">Adult &amp; Child:</div>      <div class="addon-price-line">RM80/person</div>    </div>
+  </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid">    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22v-6.57" />
+  <path d="M12 11h.01" />
+  <path d="M12 7h.01" />
+  <path d="M14 15.43V22" />
+  <path d="M15 16a5 5 0 0 0-6 0" />
+  <path d="M16 11h.01" />
+  <path d="M16 7h.01" />
+  <path d="M8 11h.01" />
+  <path d="M8 7h.01" />
+  <rect x="4" y="2" width="16" height="20" rx="2" /></svg>
+      <h3>Accommodation</h3>
+      <p>Rooms are small, typically 15-20 sqf (Korean standard). Triple rooms offer even less space.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" />
+  <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" />
+  <path d="M16 17h4" />
+  <path d="M4 13h4" /></svg>
+      <h3>Lots of Walking</h3>
+      <p>Please wear comfortable shoes.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+  <path d="M7 2v20" />
+  <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
+      <h3>Lunch &amp; Dinner Excluded</h3>
+      <p>No lunch and dinner, and no breakfast if you choose the apartment. The guide will bring you to a halal-friendly restaurant or convenience store.</p>    </div>    <div class="expect-item">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" />
   <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" />
   <path d="M10 20h4" />
   <circle cx="16" cy="20" r="2" />
   <circle cx="8" cy="20" r="2" /></svg>
-      <h3>Luggage Allocation</h3>
+      <h3>Airport Transfer</h3>
       <p>Please bring a maximum of 1 luggage per pax, as it affects car capacity.</p>    </div>    <div class="expect-item">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
-  <path d="M12 16v-4" />
-  <path d="M12 8h.01" /></svg>
-      <h3>Not Mentioned in the Itinerary</h3>
-      <p>Anything not mentioned in the itinerary must be paid by the customer.</p>    </div>  </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5" />
+  <path d="M20 21a8 8 0 0 0-16 0" /></svg>
+      <h3>Driving Guide</h3>
+      <p>Korean English-speaking driving guide.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6" />
+  <path d="M15 6v6" />
+  <path d="M2 12h19.6" />
+  <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
+  <circle cx="7" cy="18" r="2" />
+  <path d="M9 18h5" />
+  <circle cx="16" cy="18" r="2" /></svg>
+      <h3>Driving Guide &amp; Transport</h3>
+      <p>10 hours basis. 30,000 - 60,000 KRW will be charged for each extra hour.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" /></svg>
+      <h3>Domestic Flight</h3>
+      <p>1 luggage (20 kg) and 1 piece hand carry (7 kg).</p>    </div>  </div>
 </div><div class="card notes-card">
-  <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>All itinerary, flight, price or quotation is subject to change.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting flights.</li>  </ul></div><div class="card">
+  <h2>Important Notes</h2>  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single supplement: additional RM1,500/person.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>    <li>This package is valid until the 31st December 2026 travel period.</li>    <li>Private transportation &amp; driving guide is based on 10 hours basis. 30,000 - 60,000 KRW will be charged for every extra hour usage. Payment must be made in cash.</li>    <li>A driving guide will be provided for groups of 2 to 9 pax.</li>    <li>A private driver and a professional tour guide will be provided for groups of 10 pax and above.</li>    <li>Itinerary, price and flight are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flights.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
-  <div class="deposit-box">    <div><span class="figure">RM 500</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
+  <div class="deposit-box">    <div><span class="figure">RM 500</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to arrival for full payment</div>  </div>
 </div>
   <footer class="page-footer">
     <span>PRIVATE TOUR SEOUL - JEJU STANDARD &middot; v2 &middot; last updated 2026-08-10 &middot; www.arbatravel.com</span>
