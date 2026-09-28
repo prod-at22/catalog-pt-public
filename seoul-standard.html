@@ -558,7 +558,7 @@ footer.page-footer {
 .surcharge-table td.accom-name,
 .surcharge-table td.sub { text-align: left; color: var(--ink-soft); }
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
-.surcharge-table .rate { font-weight: 700; color: var(--brand-dark); white-space: nowrap; }
+.surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
@@ -670,7 +670,11 @@ footer.page-footer {
      across a page boundary reads perfectly well; a price row torn in half
      does not.
      ---------------------------------------------------------------------- */
-  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  /* Every section stays whole: one that fits on a page moves to the next
+     page rather than leaving its tail there. A section taller than a page
+     still starts on a fresh page and then flows, repeating its table header
+     and never cutting a row. */
+  .card { break-inside: avoid; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
   .itinerary-card .card-body { padding: 0.85rem 1rem; }
   .card h2 {
     font-size: 0.92rem;
@@ -686,7 +690,7 @@ footer.page-footer {
   /* The units that genuinely cannot be cut. */
   .addon, .expect-item, .accom-item, .carrier-card, .leg,
   .price-table tr, .surcharge-table tr, .itin-table tr,
-  .deposit-box, .highlights-strip { break-inside: avoid; }
+  .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
      columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
@@ -780,7 +784,7 @@ footer.page-footer {
           <td class="pax">12 - 13</td>          <td class="amount">RM2,597</td>          <td class="amount">RM2,397</td>          <td class="amount">RM2,197</td>        </tr>        <tr>
           <td class="pax">14 - 15</td>          <td class="amount">RM2,397</td>          <td class="amount">RM2,197</td>          <td class="amount">RM1,997</td>        </tr>      </tbody>
     </table>
-  </div>  <div class="price-footnotes">    <span class="infant">Infant: RM200</span>    <span>Single supplement: RM1,000/person</span>  </div>  <p class="price-note">Groups of 2 to 9 pax travel with a driving guide. From 10 pax the package includes a private driver and a professional tour guide.</p></div><div class="card">
+  </div>  <div class="price-footnotes">    <span class="infant">Infant: RM200</span>  </div></div><div class="card">
   <h2>Price Includes / Excludes</h2>
   <div class="split-two">
     <div class="includes">
@@ -860,11 +864,11 @@ footer.page-footer {
     <div class="addon-info">
       <div class="addon-name">Everland Theme Park</div><div class="addon-meta">Includes: Private Transportation, Driving Guide, Entrance fees</div><div class="addon-meta">Excludes: Meals</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">RM160/pax</div>    </div>
-  </div>  <div class="addon">
+  </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Vivaldi Ski Park</div><div class="addon-meta">Includes: Private Transportation, Driving Guide</div><div class="addon-meta">Excludes: Meals, Snowyland (walk-in)</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">2 pax: RM290/pax</div>      <div class="addon-price-line">3 pax &amp; above: RM240/pax</div>    </div>
-  </div></div><div class="card">
+  </div></div></div><div class="card">
   <h2>Additional Activities</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Hanbok Rental at Gyeongbok Palace</div><div class="addon-meta">Includes: Basic Hanbok Attire</div><div class="addon-meta">Excludes: Extra equipment for rental</div><div class="addon-meta">Duration: 4 Hours</div>    </div>
@@ -877,11 +881,11 @@ footer.page-footer {
     <div class="addon-info">
       <div class="addon-name">Lotte World Seoul Ticket</div><div class="addon-meta">Includes: Entrance Ticket</div><div class="addon-meta">Excludes: Fast Lane, Meals, Extra Activities</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">Adult &amp; Child:</div>      <div class="addon-price-line">RM100/person</div>    </div>
-  </div>  <div class="addon">
+  </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Snowyland</div><div class="addon-meta">Includes: Entrance Ticket</div><div class="addon-meta">Excludes: Fast Lane, Meals, Extra Activities</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">Adult &amp; Child:</div>      <div class="addon-price-line">RM150/person</div>    </div>
-  </div></div><div class="card">
+  </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid">    <div class="expect-item">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" />
@@ -922,9 +926,7 @@ footer.page-footer {
       <h3>Accommodation</h3>
       <p>Rooms are small, typically 15-20 sqf (Korean standard). Triple rooms offer even less space.</p>    </div>  </div>
 </div><div class="card notes-card">
-  <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single supplement: additional RM1,000/person.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>    <li>This package is valid until the 31st December 2026 travel period.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>Private transportation &amp; driving guide is based on 10 hours basis. 30,000 - 60,000 KRW will be charged for every extra hour usage. Payment must be made in cash.</li>    <li>A driving guide will be provided for groups of 2 to 9 pax.</li>    <li>A private driver and a professional tour guide will be provided for groups of 10 pax and above.</li>    <li>Itinerary, price and flight are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flights.</li>  </ul></div><div class="card">
+  <h2>Important Notes</h2>  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single supplement: additional RM1,000/person.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>    <li>This package is valid until the 31st December 2026 travel period.</li>    <li>Private transportation &amp; driving guide is based on 10 hours basis. 30,000 - 60,000 KRW will be charged for every extra hour usage. Payment must be made in cash.</li>    <li>A driving guide will be provided for groups of 2 to 9 pax.</li>    <li>A private driver and a professional tour guide will be provided for groups of 10 pax and above.</li>    <li>Itinerary, price and flight are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flights.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
   <div class="deposit-box">    <div><span class="figure">RM 500</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to arrival for full payment</div>  </div>
 </div>

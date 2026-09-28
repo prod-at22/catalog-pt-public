@@ -558,7 +558,7 @@ footer.page-footer {
 .surcharge-table td.accom-name,
 .surcharge-table td.sub { text-align: left; color: var(--ink-soft); }
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
-.surcharge-table .rate { font-weight: 700; color: var(--brand-dark); white-space: nowrap; }
+.surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
@@ -670,7 +670,11 @@ footer.page-footer {
      across a page boundary reads perfectly well; a price row torn in half
      does not.
      ---------------------------------------------------------------------- */
-  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  /* Every section stays whole: one that fits on a page moves to the next
+     page rather than leaving its tail there. A section taller than a page
+     still starts on a fresh page and then flows, repeating its table header
+     and never cutting a row. */
+  .card { break-inside: avoid; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
   .itinerary-card .card-body { padding: 0.85rem 1rem; }
   .card h2 {
     font-size: 0.92rem;
@@ -686,7 +690,7 @@ footer.page-footer {
   /* The units that genuinely cannot be cut. */
   .addon, .expect-item, .accom-item, .carrier-card, .leg,
   .price-table tr, .surcharge-table tr, .itin-table tr,
-  .deposit-box, .highlights-strip { break-inside: avoid; }
+  .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
      columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
@@ -776,7 +780,7 @@ footer.page-footer {
           <td class="pax">8 - 10</td>          <td class="amount">RM1,257</td>          <td class="amount">RM1,057</td>          <td class="amount">RM857</td>        </tr>        <tr>
           <td class="pax">11 - 15</td>          <td class="amount">RM1,197</td>          <td class="amount">RM997</td>          <td class="amount">RM797</td>        </tr>      </tbody>
     </table>
-  </div>  <div class="price-footnotes">    <span class="infant">Infant: FOC</span>    <span>Single supplement: additional RM550 per person</span>  </div></div><div class="card">
+  </div>  <div class="price-footnotes">    <span class="infant">Infant: FOC</span>  </div></div><div class="card">
   <h2>Price Includes / Excludes</h2>
   <div class="split-two">
     <div class="includes">
@@ -868,11 +872,11 @@ footer.page-footer {
     <div class="addon-info">
       <div class="addon-name">Goa Pindul &amp; Cave Tubing</div><div class="addon-meta">Includes: Transport to Goa Pindul &amp; Jomblang Cave Tubing Activity</div><div class="addon-meta">Excludes: Meals, Personal expenses and Additional Activities</div><div class="addon-meta">Duration: 2 hours</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">RM75/pax</div>    </div>
-  </div>  <div class="addon">
+  </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Gamplong Studio Alam</div><div class="addon-meta">Includes: Entrance ticket to Gamplong Studio Alam</div><div class="addon-meta">Excludes: Meals, Personal expenses and Additional Activities</div><div class="addon-meta">Duration: 1 hour</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">RM10/pax</div>    </div>
-  </div>  <p class="addon-note">Kindly note that all listed entrance fees and activity prices include applicable service charges and currency exchange differences, and may differ from Indonesia Ground handling (Local Rates).</p></div><div class="card">
+  </div>  <p class="addon-note">Kindly note that all listed entrance fees and activity prices include applicable service charges and currency exchange differences, and may differ from Indonesia Ground handling (Local Rates).</p></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid">    <div class="expect-item">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" />
@@ -920,9 +924,7 @@ footer.page-footer {
       <h3>Arrival / Departure</h3>
       <p>Suggested arrival and departure times are at noon. Late arrivals or early departures will not be refunded for activities and meals.</p>    </div>  </div>
 </div><div class="card notes-card">
-  <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single supplement: additional RM550 per person.</li>    <li>Late booking surcharge of RM50/booking will apply for bookings made less than 45 days before the departure date.</li>    <li>This package is valid until the 31st March 2027 travel period.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>Itinerary, price and flight are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flight.</li>  </ul></div><div class="card">
+  <h2>Important Notes</h2>  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single supplement: additional RM550 per person.</li>    <li>Late booking surcharge of RM50/booking will apply for bookings made less than 45 days before the departure date.</li>    <li>This package is valid until the 31st March 2027 travel period.</li>    <li>Itinerary, price and flight are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flight.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
   <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person upon confirmation</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
 </div>

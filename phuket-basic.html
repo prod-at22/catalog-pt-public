@@ -558,7 +558,7 @@ footer.page-footer {
 .surcharge-table td.accom-name,
 .surcharge-table td.sub { text-align: left; color: var(--ink-soft); }
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
-.surcharge-table .rate { font-weight: 700; color: var(--brand-dark); white-space: nowrap; }
+.surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
@@ -670,7 +670,11 @@ footer.page-footer {
      across a page boundary reads perfectly well; a price row torn in half
      does not.
      ---------------------------------------------------------------------- */
-  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  /* Every section stays whole: one that fits on a page moves to the next
+     page rather than leaving its tail there. A section taller than a page
+     still starts on a fresh page and then flows, repeating its table header
+     and never cutting a row. */
+  .card { break-inside: avoid; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
   .itinerary-card .card-body { padding: 0.85rem 1rem; }
   .card h2 {
     font-size: 0.92rem;
@@ -686,7 +690,7 @@ footer.page-footer {
   /* The units that genuinely cannot be cut. */
   .addon, .expect-item, .accom-item, .carrier-card, .leg,
   .price-table tr, .surcharge-table tr, .itin-table tr,
-  .deposit-box, .highlights-strip { break-inside: avoid; }
+  .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
      columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
@@ -874,11 +878,11 @@ footer.page-footer {
     <div class="addon-info">
       <div class="addon-name">Banana Boat Coral Island</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">RM67 - RM87/person</div>    </div>
-  </div>  <div class="addon">
+  </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Parasailing Coral Island</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">RM157 - RM197/person</div>    </div>
-  </div></div><div class="card">
+  </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid">    <div class="expect-item">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13v7a2 2 0 0 0 4 0" />
@@ -911,9 +915,7 @@ footer.page-footer {
       <h3>Not Mentioned in the Itinerary</h3>
       <p>Things not mentioned in the itinerary must be paid by customers, e.g. add-on activities on-site, toilet.</p>    </div>  </div>
 </div><div class="card notes-card">
-  <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room (single supplement quoted upon request).</li>    <li>Fare is not applicable during peak seasons; please refer to the peak season surcharge.</li>    <li>Late booking surcharge of RM50/booking will apply for bookings made less than 45 days before the departure date.</li>    <li>This package is valid until 31st December 2026 travel period.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>Private transportation &amp; tour guide is based on 10 hours basis. Additional fees will be charged for every extra hour usage. Payment must be made in cash.</li>    <li>Quotation, itinerary and price are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements will be confirmed at least 15 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flights.</li>    <li>Seat-in-coach (shared tour) means the boat and activities are shared with other tourists.</li>  </ul></div><div class="card">
+  <h2>Important Notes</h2>  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room (single supplement quoted upon request).</li>    <li>Fare is not applicable during peak seasons; please refer to the peak season surcharge.</li>    <li>Late booking surcharge of RM50/booking will apply for bookings made less than 45 days before the departure date.</li>    <li>This package is valid until 31st December 2026 travel period.</li>    <li>Private transportation &amp; tour guide is based on 10 hours basis. Additional fees will be charged for every extra hour usage. Payment must be made in cash.</li>    <li>Quotation, itinerary and price are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements will be confirmed at least 15 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flights.</li>    <li>Seat-in-coach (shared tour) means the boat and activities are shared with other tourists.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
   <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to arrival for full payment</div>  </div>
 </div>

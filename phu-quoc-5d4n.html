@@ -558,7 +558,7 @@ footer.page-footer {
 .surcharge-table td.accom-name,
 .surcharge-table td.sub { text-align: left; color: var(--ink-soft); }
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
-.surcharge-table .rate { font-weight: 700; color: var(--brand-dark); white-space: nowrap; }
+.surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
@@ -670,7 +670,11 @@ footer.page-footer {
      across a page boundary reads perfectly well; a price row torn in half
      does not.
      ---------------------------------------------------------------------- */
-  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  /* Every section stays whole: one that fits on a page moves to the next
+     page rather than leaving its tail there. A section taller than a page
+     still starts on a fresh page and then flows, repeating its table header
+     and never cutting a row. */
+  .card { break-inside: avoid; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
   .itinerary-card .card-body { padding: 0.85rem 1rem; }
   .card h2 {
     font-size: 0.92rem;
@@ -686,7 +690,7 @@ footer.page-footer {
   /* The units that genuinely cannot be cut. */
   .addon, .expect-item, .accom-item, .carrier-card, .leg,
   .price-table tr, .surcharge-table tr, .itin-table tr,
-  .deposit-box, .highlights-strip { break-inside: avoid; }
+  .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
      columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
@@ -780,7 +784,7 @@ footer.page-footer {
           <td class="pax">11 - 13</td>          <td class="amount">RM2,177</td>          <td class="amount">RM1,977</td>          <td class="amount">RM1,777</td>        </tr>        <tr>
           <td class="pax">14 - 16</td>          <td class="amount">RM2,147</td>          <td class="amount">RM1,947</td>          <td class="amount">RM1,747</td>        </tr>      </tbody>
     </table>
-  </div>  <div class="price-footnotes">    <span class="infant">Infant: FOC</span>    <span>Single supplement: Quoted on request</span>  </div></div><div class="card">
+  </div>  <div class="price-footnotes">    <span class="infant">Infant: FOC</span>  </div></div><div class="card">
   <h2>Price Includes / Excludes</h2>
   <div class="split-two">
     <div class="includes">
@@ -918,9 +922,7 @@ footer.page-footer {
       <h3>Luggage Allocations</h3>
       <p>Please bring a maximum of 1 luggage per pax, as it affects car capacity.</p>    </div>  </div>
 </div><div class="card notes-card">
-  <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single supplement: quoted on request.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>    <li>Last minute surcharge will be charged if the booking is made less than 3 weeks before departure (refer to the Last Minute Surcharge table above).</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>All itinerary, flight, price or quotation is subject to change.</li>    <li>The itinerary during the trip is subject to change due to weather, traffic, safety and similar factors.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting flights.</li>    <li>Any free activity is non-exchangeable for other activities, vouchers or cash if the client does not join, or due to availability and weather conditions.</li>  </ul></div><div class="card">
+  <h2>Important Notes</h2>  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single supplement: quoted on request.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>    <li>Last minute surcharge will be charged if the booking is made less than 3 weeks before departure (refer to the Last Minute Surcharge table above).</li>    <li>All itinerary, flight, price or quotation is subject to change.</li>    <li>The itinerary during the trip is subject to change due to weather, traffic, safety and similar factors.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting flights.</li>    <li>Any free activity is non-exchangeable for other activities, vouchers or cash if the client does not join, or due to availability and weather conditions.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
   <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
 </div>
