@@ -491,7 +491,7 @@ footer.page-footer {
 }
 /* A honeymoon package names a room rather than a group size, which is too
    long to hold on one line. */
-.price-table.per-package .pax { white-space: normal; text-align: left; min-width: 14rem; }
+.price-table.per-package .pax { white-space: normal; min-width: 14rem; }
 /* The navy rail is one continuous column, so the zebra striping above must
    not tint it — it would read as a break in the rail. */
 .price-table tbody tr:nth-child(even) td.pax { background: var(--navy); }
@@ -558,7 +558,7 @@ footer.page-footer {
 .surcharge-table td.accom-name,
 .surcharge-table td.sub { text-align: left; color: var(--ink-soft); }
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
-.surcharge-table .rate { font-weight: 700; color: var(--brand-dark); white-space: nowrap; }
+.surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
@@ -670,7 +670,11 @@ footer.page-footer {
      across a page boundary reads perfectly well; a price row torn in half
      does not.
      ---------------------------------------------------------------------- */
-  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  /* Every section stays whole: one that fits on a page moves to the next
+     page rather than leaving its tail there. A section taller than a page
+     still starts on a fresh page and then flows, repeating its table header
+     and never cutting a row. */
+  .card { break-inside: avoid; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
   .itinerary-card .card-body { padding: 0.85rem 1rem; }
   .card h2 {
     font-size: 0.92rem;
@@ -686,7 +690,7 @@ footer.page-footer {
   /* The units that genuinely cannot be cut. */
   .addon, .expect-item, .accom-item, .carrier-card, .leg,
   .price-table tr, .surcharge-table tr, .itin-table tr,
-  .deposit-box, .highlights-strip { break-inside: avoid; }
+  .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
      columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
@@ -726,6 +730,21 @@ footer.page-footer {
   .price-table thead th, .surcharge-table thead th { padding: 0.45rem 0.6rem; }
   .itin-table td { padding: 0.55rem 0.7rem; }
   .page-footer { padding: 0.75rem 0.25rem; }
+
+  /* Page one is the price page: hero, price table and Includes/Excludes
+     together, so a customer reads what the price buys without turning
+     over. These trims buy the space for that without shrinking prices. */
+  .hero { padding: 0.9rem 1.1rem 0.7rem; margin-bottom: 0.6rem; }
+  .hero h1 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+  .hero .route { margin-bottom: 0.45rem; }
+  .hero-footer { margin-top: 0.35rem; }
+  .highlights-strip { padding: 0.35rem 0.5rem; margin-bottom: 0.55rem; }
+  .price-table td { padding: 0.3rem 0.6rem; }
+  .price-table thead th { padding: 0.38rem 0.6rem; }
+  .price-footnotes { margin-top: 0.4rem; }
+  .split-two { font-size: 0.84rem; line-height: 1.35; gap: 1rem; }
+  .split-two li { margin-bottom: 0.12rem; }
+  .split-two h3 { margin-bottom: 0.3rem; }
 }
 
 </style>
@@ -789,7 +808,27 @@ footer.page-footer {
     </div>
   </div>
 </div><div class="card">
-  <h2>Peak Season &amp; Blockout Dates</h2>  <div class="surcharge-wrap">
+  <h2>Surcharge — Accommodation Upgrade &amp; Peak Season</h2>  <div class="surcharge-wrap">
+    <table class="surcharge-table">
+      <thead>
+        <tr>
+          <th colspan="2">Accommodation</th>          <th>Upgrade Surcharge (Additional)</th>          <th>Peak Season Surcharge</th>        </tr>
+      </thead>
+      <tbody>        <tr>
+          <td class="accom-type">3 Star Hotel</td>
+          <td class="accom-name">Favehotel Kartika Plaza / Swiss Belexpress Legian / Hotel Zia Kuta</td>          <td class="rate none">-</td>          <td class="rate">RM40/pax/night</td>        </tr>        <tr>
+          <td class="accom-type">4 Star Hotel</td>
+          <td class="accom-name">The One Legian / The Akmani Legian / Sun Island Hotel &amp; Spa, Legian</td>          <td class="rate">RM60/pax/night</td>          <td class="rate">RM60/pax/night</td>        </tr>        <tr>
+          <td class="accom-type">4 Star Hotel</td>
+          <td class="accom-name">Adhi Jaya Hotel / Wyndham Garden Hotel</td>          <td class="rate">RM80/pax/night</td>          <td class="rate">RM100/pax/night</td>        </tr>        <tr>
+          <td class="accom-type">Private Pool Villa</td>
+          <td class="accom-name">Asa Bali Villas &amp; Spa / The Sakaye Villa &amp; Spa / Maca Villas Umalas</td>          <td class="rate">Add RM460/couple/night</td>          <td class="rate">RM160/couple/night</td>        </tr>        <tr>
+          <td class="accom-type">Private Pool Villa</td>
+          <td class="accom-name">Alaya Dedaun Kuta Villa / Lumbini Villa &amp; Spa</td>          <td class="rate">Add RM650/couple/night</td>          <td class="rate">RM250/couple/night</td>        </tr>        <tr>
+          <td class="accom-type">Private Pool Villa</td>
+          <td class="accom-name">Asterra Villa Seminyak</td>          <td class="rate">Add RM780/couple/night</td>          <td class="rate">RM250/couple/night</td>        </tr>      </tbody>
+    </table>
+  </div>  <div class="surcharge-wrap">
     <table class="surcharge-table">
       <thead>
         <tr><th>Season</th><th>Travel Dates</th><th>Surcharge</th></tr>
@@ -803,17 +842,25 @@ footer.page-footer {
           <td class="sub">1 - 5 January 2026</td>
           <td class="rate">Peak season</td>
         </tr>        <tr>
-          <td class="lead">Hari Nyepi (Bali religious day)</td>
-          <td class="sub">19 - 31 March 2026</td>
-          <td class="rate">Peak season · blockout 18 - 20 March 2026</td>
-        </tr>        <tr>
           <td class="lead">Hari Raya Aidilfitri</td>
+          <td class="sub">19 - 31 March 2026</td>
+          <td class="rate">Peak season · Blockout 20 - 23 March 2026</td>
+        </tr>        <tr>
+          <td class="lead">Hari Nyepi (Bali Religious Day)</td>
+          <td class="sub">18 - 20 March 2026</td>
+          <td class="rate">Blockout date</td>
+        </tr>        <tr>
+          <td class="lead">Super Peak Season in Bali</td>
           <td class="sub">1 - 31 August 2026</td>
           <td class="rate">Peak season</td>
         </tr>        <tr>
-          <td class="lead">Super Peak Season in Bali</td>
+          <td class="lead">Christmas Holiday</td>
           <td class="sub">20 - 31 December 2026</td>
-          <td class="rate">Super peak</td>
+          <td class="rate">Peak season</td>
+        </tr>        <tr>
+          <td class="lead">New Year School Holiday</td>
+          <td class="sub">1 - 5 January 2027</td>
+          <td class="rate">Peak season</td>
         </tr>      </tbody>
     </table>
   </div></div><div class="card itinerary-card">
@@ -871,27 +918,127 @@ footer.page-footer {
     <div class="addon-info">
       <div class="addon-name">Uma Ceking Rice Terrace + Bali Swing</div><div class="addon-meta">Includes: Entrance ticket, swing ticket, transportation</div><div class="addon-meta">Excludes: Meals, other activities, personal expenses</div><div class="addon-meta">Duration: 1-2 hours</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">RM117/pax</div>    </div>
-  </div></div><div class="card">
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Garuda Wisnu Kencana Cultural Park</div><div class="addon-meta">Includes: Entrance ticket &amp; Transportation</div><div class="addon-meta">Excludes: Meals, Other Activities, Personal Expenses</div><div class="addon-meta">Duration: 1-2 hours (Available during Nusa Dua Tour Only)</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM67/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Banana Boat at Nusa Dua</div><div class="addon-meta">Includes: Watersport Activity Insurance + 1 Time Ride</div><div class="addon-meta">Excludes: Meals, Other Activities, Personal Expenses</div><div class="addon-meta">Duration: 1 hour</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM67/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Jet Ski Ride at Nusa Dua</div><div class="addon-meta">Includes: Watersport Activity Insurance + 1 Time Ride</div><div class="addon-meta">Excludes: Other Activities or Personal Expenses</div><div class="addon-meta">Duration: 1-2 hours</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM157/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Fly Fish at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 2 Time Fly</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 1-2 hours Activity</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM177/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Tubing Ride at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 1 Time Ride</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 1 hour Activity</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM127/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Parasailing Adventure at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 1 Time Ride</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 1 hour Activity</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM237/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Fly Board at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 15 Minutes Ride</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 15 minutes Ride</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM327/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Glass Bottom Boat + Turtle Island at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 1 hour Ride</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 1 hour Activity</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM197/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Snorkeling at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 1 hour Ride</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 1 hour Activity</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM157/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Sea Walking at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 40 Minutes Sea Walking</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 40 Minutes</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM347/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Snorkeling Nusa Penida (Sharing Boat)</div><div class="addon-meta">Includes: Life Jacket + Snorkelling Gear + Sharing Boat Transfer; 3 Snorkelling Points (Greenbowl Bay, Gamat Bay, Crystal Bay)</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM107/pax</div>    </div>
+  </div><div class="addon-tail">  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Snorkeling Nusa Penida (Private Boat)</div><div class="addon-meta">Includes: Life Jacket + Snorkelling Gear + Private Boat Transfer; 4 Snorkelling Points (Manta Bay, Greenbowl Bay, Gamat Bay, Crystal Bay)</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM297/pax</div>    </div>
+  </div></div></div><div class="card">
+  <h2>Additional Honeymoon Dinner &amp; Room Decoration</h2>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Romantic Dinner at Bale Udang</div><div class="addon-meta">Includes: Simple table decoration at Main Dining Area for couple; 3 course Menu includes Appetizer, 2x Main Course, Cake &amp; 2 Drinks</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM150/couple</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Intimate Dinner at Bale Udang</div><div class="addon-meta">Includes: Table Decoration at Floating Deck area with flower petals decoration; 3 Course Meals includes Appetizer, 2x Main Course, Cake &amp; 2 Drinks; 1 Flower Bouquet</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM250/couple</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Floating Breakfast at Water Villa</div><div class="addon-meta">Includes: Additional Floating Basket for Floating Breakfast at Private Pool Villa</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM50/couple</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Honeymoon Sunset Dinner at Jimbaran</div><div class="addon-meta">Includes: Table Decoration at Jimbaran Beach with Flower Petals Deco; Welcome Drinks, Main Course (Includes Lobster 300g) and Fruits; Honeymoon/birthday Cake + Singing</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM450/couple</div>    </div>
+  </div><div class="addon-tail">  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Honeymoon Bedroom Decoration for Asa Bali Villa</div><div class="addon-meta">Includes: Bedroom Flower Petals Decoration; Hand bouquet upon arrival at Asa Bali Villa</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM150/couple</div>    </div>
+  </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid">    <div class="expect-item">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" />
-  <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" />
-  <path d="M10 20h4" />
-  <circle cx="16" cy="20" r="2" />
-  <circle cx="8" cy="20" r="2" /></svg>
-      <h3>Luggage Allocation</h3>
-      <p>Please bring a maximum of 1 luggage per pax, as it affects car capacity.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" />
+  <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" />
+  <path d="M16 17h4" />
+  <path d="M4 13h4" /></svg>
+      <h3>Nusa Penida</h3>
+      <p>The trails to the photo spot area will be bumpy and steep, which requires a significant amount of walking.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22v-6.57" />
+  <path d="M12 11h.01" />
+  <path d="M12 7h.01" />
+  <path d="M14 15.43V22" />
+  <path d="M15 16a5 5 0 0 0-6 0" />
+  <path d="M16 11h.01" />
+  <path d="M16 7h.01" />
+  <path d="M8 11h.01" />
+  <path d="M8 7h.01" />
+  <rect x="4" y="2" width="16" height="20" rx="2" /></svg>
+      <h3>Double Sharing Room</h3>
+      <p>3-star hotel only offers double-sharing rooms as standard. If you require a triple-sharing room, extra bed will be provided.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16" />
+  <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+  <path d="M2 17h20" />
+  <path d="M6 8v9" /></svg>
+      <h3>Accommodation</h3>
+      <p>Min. 3 consecutive night stay during 22 Dec - 4 Jan 2027. Check-out is not allowed on 31st December.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6" />
+  <path d="M15 6v6" />
+  <path d="M2 12h19.6" />
+  <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
+  <circle cx="7" cy="18" r="2" />
+  <path d="M9 18h5" />
+  <circle cx="16" cy="18" r="2" /></svg>
+      <h3>Transportation</h3>
+      <p>2 - 5 pax (Avanza), 6 - 7 pax (Innova), 8 - 12 pax (Hiace). Transport &amp; Guide 12 hours Basis. Extra Hour 150,000 IDR/hour (pay cash to driver).</p>    </div>    <div class="expect-item">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
   <path d="M12 16v-4" />
   <path d="M12 8h.01" /></svg>
-      <h3>Not Mentioned in the Itinerary</h3>
-      <p>Anything not mentioned in the itinerary must be paid by the customer.</p>    </div>  </div>
+      <h3>Hari Nyepi / Hari Raya</h3>
+      <p>Blockout dates: 18 - 20 March 2026 and 20 - 23 March 2026.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
+      <h3>Heavy Traffic</h3>
+      <p>Please expect some delays during the trip due to frequent heavy traffic.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z" /></svg>
+      <h3>Arrival / Departure</h3>
+      <p>Suggested arrival and departure times are at noon. Late arrivals or early departures will not be refunded for activities and meals.</p>    </div>  </div>
 </div><div class="card notes-card">
-  <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>All itinerary, flight, price or quotation is subject to change.</li>    <li>The itinerary during the trip is subject to change due to weather, traffic, safety and similar factors.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting flights.</li>  </ul></div><div class="card">
+  <h2>Important Notes</h2>  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single Supplement: additional RM250 per person.</li>    <li>Late Booking Surcharge of RM50/booking will apply for bookings made less than 45 days before the departure date.</li>    <li>Minimum 3 consecutive night stay during 22 Dec 2026 - 4 Jan 2027.</li>    <li>Check-out is not allowed on 31st December 2026.</li>    <li>This package is valid until 31st December 2026 travel period.</li>    <li>Private Driver &amp; Guide is based on 12 hours basis. 150,000 IDR/hour will be charged for every extra hour usage. Payment must be made in cash.</li>    <li>Itinerary, Price, Hotel and Flight are subject to change accordingly.</li>    <li>Final Itinerary and hotel arrangements 14 days before trip &amp; subject to availability.</li>    <li>Hotel confirmation and selection is subject to availability at the time of booking.</li>    <li>Please check with our staff on the trip validity or before booking any connecting domestic flight.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
-  <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
+  <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person upon confirmation</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
 </div>
   <footer class="page-footer">
     <span>PRIVATE TOUR BALI STANDARD &middot; v3 &middot; last updated 2026-03-01 &middot; www.arbatravel.com</span>
