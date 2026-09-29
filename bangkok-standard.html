@@ -491,7 +491,7 @@ footer.page-footer {
 }
 /* A honeymoon package names a room rather than a group size, which is too
    long to hold on one line. */
-.price-table.per-package .pax { white-space: normal; text-align: left; min-width: 14rem; }
+.price-table.per-package .pax { white-space: normal; min-width: 14rem; }
 /* The navy rail is one continuous column, so the zebra striping above must
    not tint it — it would read as a break in the rail. */
 .price-table tbody tr:nth-child(even) td.pax { background: var(--navy); }
@@ -558,7 +558,7 @@ footer.page-footer {
 .surcharge-table td.accom-name,
 .surcharge-table td.sub { text-align: left; color: var(--ink-soft); }
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
-.surcharge-table .rate { font-weight: 700; color: var(--brand-dark); white-space: nowrap; }
+.surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
@@ -670,7 +670,11 @@ footer.page-footer {
      across a page boundary reads perfectly well; a price row torn in half
      does not.
      ---------------------------------------------------------------------- */
-  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  /* Every section stays whole: one that fits on a page moves to the next
+     page rather than leaving its tail there. A section taller than a page
+     still starts on a fresh page and then flows, repeating its table header
+     and never cutting a row. */
+  .card { break-inside: avoid; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
   .itinerary-card .card-body { padding: 0.85rem 1rem; }
   .card h2 {
     font-size: 0.92rem;
@@ -686,7 +690,7 @@ footer.page-footer {
   /* The units that genuinely cannot be cut. */
   .addon, .expect-item, .accom-item, .carrier-card, .leg,
   .price-table tr, .surcharge-table tr, .itin-table tr,
-  .deposit-box, .highlights-strip { break-inside: avoid; }
+  .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
      columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
@@ -726,6 +730,21 @@ footer.page-footer {
   .price-table thead th, .surcharge-table thead th { padding: 0.45rem 0.6rem; }
   .itin-table td { padding: 0.55rem 0.7rem; }
   .page-footer { padding: 0.75rem 0.25rem; }
+
+  /* Page one is the price page: hero, price table and Includes/Excludes
+     together, so a customer reads what the price buys without turning
+     over. These trims buy the space for that without shrinking prices. */
+  .hero { padding: 0.9rem 1.1rem 0.7rem; margin-bottom: 0.6rem; }
+  .hero h1 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+  .hero .route { margin-bottom: 0.45rem; }
+  .hero-footer { margin-top: 0.35rem; }
+  .highlights-strip { padding: 0.35rem 0.5rem; margin-bottom: 0.55rem; }
+  .price-table td { padding: 0.3rem 0.6rem; }
+  .price-table thead th { padding: 0.38rem 0.6rem; }
+  .price-footnotes { margin-top: 0.4rem; }
+  .split-two { font-size: 0.84rem; line-height: 1.35; gap: 1rem; }
+  .split-two li { margin-bottom: 0.12rem; }
+  .split-two h3 { margin-bottom: 0.3rem; }
 }
 
 </style>
@@ -787,7 +806,22 @@ footer.page-footer {
       <ul>        <li>Private Driver &amp; Guide is based on 12 hours basis; additional fees apply for every extra hour        </li>        <li>Flight Ticket        </li>        <li>Personal Insurance        </li>        <li>Personal Expenses        </li>        <li>Excess Baggage Fee        </li>        <li>Additional Meal        </li>        <li>Optional activity        </li>      </ul>
     </div>
   </div>
-</div><div class="card itinerary-card">
+</div><div class="card">
+  <h2>Surcharge — Accommodation Upgrade &amp; Peak Season</h2>  <div class="surcharge-wrap">
+    <table class="surcharge-table">
+      <thead>
+        <tr>
+          <th colspan="2">Accommodation</th>          <th>Upgrade Surcharge</th>          <th>Peak Season Surcharge<span class="period">20 Dec 2026 - 5 Jan 2027 (Christmas &amp; New Year) · 5 - 7 Feb 2027 (Chinese New Year) · 13 - 15 April 2027 (Songkran Festival)</span></th>        </tr>
+      </thead>
+      <tbody>        <tr>
+          <td class="accom-type">3 Star Hotel</td>
+          <td class="accom-name">Almas Hotel / Regent Ramkhamhaeng Hotel <span class="similar">or similar</span></td>          <td class="rate none">-</td>          <td class="rate">RM80/pax/night</td>        </tr>        <tr>
+          <td class="accom-type">4 Star Hotel</td>
+          <td class="accom-name">Nouvo City Hotel <span class="similar">or similar</span></td>          <td class="rate">RM50/pax/night</td>          <td class="rate">RM80/pax/night</td>        </tr>        <tr>
+          <td class="accom-type">5 Star Hotel</td>
+          <td class="accom-name">Al-Meroz Hotel <span class="similar">or similar</span></td>          <td class="rate">RM60/pax/night</td>          <td class="rate">RM80/pax/night</td>        </tr>      </tbody>
+    </table>
+  </div></div><div class="card itinerary-card">
   <div class="card-body">
   <h2>Travel Itinerary</h2>
 <div class="itin-table-wrap">
@@ -815,7 +849,7 @@ footer.page-footer {
       <td>3-Star Hotel</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 3</span>Bangkok City</div>        <ul class="activities">          <li>Breakfast at hotel          </li>          <li>The Grand Palace OR Wat Arun Temple          </li>          <li>Chatuchak Market (world&#39;s largest weekend market)          </li>          <li>Siam Paragon          </li>          <li>Lumpini Park          </li>          <li>Pratunam Market          </li>          <li>OR Kanchanaburi Safari Park full day tour (add on RM160 per pax, 3 hours one way)          </li>        </ul>      </td>
+        <div class="day-title"><span class="day-num">Day 3</span>Bangkok City</div>        <ul class="activities">          <li>Breakfast at Hotel          </li>          <li>The Grand Palace OR Wat Arun Temple          </li>          <li>Chatuchak Market (World Largest Weekend Market)          </li>          <li>Siam Paragon          </li>          <li>Lumpini Park          </li>          <li>Pratunam Market          </li>          <li>OR Kanchanaburi Safari Park Full Day Tour (Add On: RM160 per pax, 3 hours one way journey)          </li>          <li>OR Safari World Bangkok Half Day Tour (Add On: RM150 per pax)          </li>          <li>OR Pattaya Full Day Tour (Add: RM80 per pax, 2-3 hours one way journey)          </li>        </ul>      </td>
       <td>Private Transport</td>
       <td>Breakfast</td>
       <td>3-Star Hotel</td>
@@ -830,26 +864,71 @@ footer.page-footer {
 </div>
   </div>
 </div><div class="card">
+  <h2>Add On Tour</h2>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Pattaya Beach Tour</div><div class="addon-meta">Includes: Pattaya Town, Hard Rock Cafe Pattaya</div><div class="addon-meta">Duration: 2-3 Hours Journey from Bangkok</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM80/pax</div>    </div>
+  </div>  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Kanchanaburi + Safari Park Kanchanaburi (Including Ticket)</div><div class="addon-meta">Includes: Safari World Kanchanaburi Admission, River Kwai, Sunflower Field (December - February only, entrance fee not included)</div><div class="addon-meta">Excludes: Giraffe Encounter (add RM135/pax)</div><div class="addon-meta">Duration: 2-3 Hours Journey from Bangkok</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM160/pax</div>    </div>
+  </div><div class="addon-tail">  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Safari World Bangkok (Including ticket)</div><div class="addon-meta">Includes: Safari Park Admission, Marine Park Admission, Shopping in Bangkok after finishing Safari World tour</div><div class="addon-meta">Duration: 45 minutes Journey from Bangkok</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM150/pax</div>    </div>
+  </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid">    <div class="expect-item">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" />
-  <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" />
-  <path d="M10 20h4" />
-  <circle cx="16" cy="20" r="2" />
-  <circle cx="8" cy="20" r="2" /></svg>
-      <h3>Luggage Allocation</h3>
-      <p>Please bring a maximum of 1 luggage per pax, as it affects car capacity.</p>    </div>    <div class="expect-item">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
-  <path d="M12 16v-4" />
-  <path d="M12 8h.01" /></svg>
-      <h3>Not Mentioned in the Itinerary</h3>
-      <p>Anything not mentioned in the itinerary must be paid by the customer.</p>    </div>  </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" />
+  <circle cx="12" cy="12" r="2" />
+  <path d="M6 12h.01M18 12h.01" /></svg>
+      <h3>Personal Expense</h3>
+      <p>Items not stated in the itinerary are at customers&#39; own expense. Eg: Giraffe Encounter, Sunflower field, Long Tail Boat.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" />
+  <circle cx="12" cy="12" r="2" />
+  <path d="M6 12h.01M18 12h.01" /></svg>
+      <h3>Prepare Cash</h3>
+      <p>Prepare cash if you plan to shop at Night market. Cards and QR are not available at some shops and street stalls.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6" />
+  <path d="M15 6v6" />
+  <path d="M2 12h19.6" />
+  <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
+  <circle cx="7" cy="18" r="2" />
+  <path d="M9 18h5" />
+  <circle cx="16" cy="18" r="2" /></svg>
+      <h3>Driver &amp; Transport</h3>
+      <p>Transport is on 12 hours basis. Extra hours will be charged 500THB/Hour.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z" />
+  <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z" />
+  <path d="M16 17h4" />
+  <path d="M4 13h4" /></svg>
+      <h3>Lots of Walking</h3>
+      <p>Expect lots of walking during trips to Safari, Shopping at Night Market, Temple and City Tour.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13v7a2 2 0 0 0 4 0" />
+  <path d="M12 2v2" />
+  <path d="M20.992 13a1 1 0 0 0 .97-1.274 10.284 10.284 0 0 0-19.923 0A1 1 0 0 0 3 13z" /></svg>
+      <h3>Wet Season</h3>
+      <p>November - Feb are wet season in Bangkok. Prepare suitable attire for possible rains.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16" />
+  <path d="M2 8h18a2 2 0 0 1 2 2v10" />
+  <path d="M2 17h20" />
+  <path d="M6 8v9" /></svg>
+      <h3>Triple Room Bed</h3>
+      <p>Triple sharing room with 3 single beds will be provided based on availability. Extra bed will be added if no triple bed available on travel period.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+  <path d="M7 2v20" />
+  <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>
+      <h3>Meals</h3>
+      <p>Meals not provided during the trip (Lunch and Dinner). The driver will drop you off at a local Thai or Malay restaurant. The cost of the meals will be at your own expense. Breakfast is included and will be served as a buffet at the hotel.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10a4 4 0 0 1-8 0" />
+  <path d="M3.103 6.034h17.794" />
+  <path d="M3.4 5.467a2 2 0 0 0-.4 1.2V20a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6.667a2 2 0 0 0-.4-1.2l-2-2.667A2 2 0 0 0 17 2H7a2 2 0 0 0-1.6.8z" /></svg>
+      <h3>Market</h3>
+      <p>Ramkhamhaeng: open daily. Pratunam: open daily. Chatuchak: weekend only.</p>    </div>  </div>
 </div><div class="card notes-card">
-  <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>All itinerary, flight, price or quotation is subject to change.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting flights.</li>  </ul></div><div class="card">
+  <h2>Important Notes</h2>  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room (Additional RM450/person for Single Supplement).</li>    <li>Price is not applicable during peak seasons; please refer to the peak season surcharge.</li>    <li>Late Booking Surcharge of RM50/booking will apply for bookings made less than 45 days before the departure date.</li>    <li>This package is valid until 31st March 2027 travel period.</li>    <li>Private Transportation &amp; Tour Guide is based on 12 hours basis. Additional fees will be charged for every extra hour usage. Payment must be made in cash.</li>    <li>Quotation, consequence of itinerary and price are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements will be confirmed at least 15 days before trip.</li>    <li>Please check with our staff on the trip validity or before booking any connecting domestic flights.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
-  <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
+  <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to arrival for full payment</div>  </div>
 </div>
   <footer class="page-footer">
     <span>PRIVATE TOUR BANGKOK STANDARD &middot; v3 &middot; last updated 2026-07-01 &middot; www.arbatravel.com</span>

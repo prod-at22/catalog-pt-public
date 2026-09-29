@@ -491,7 +491,7 @@ footer.page-footer {
 }
 /* A honeymoon package names a room rather than a group size, which is too
    long to hold on one line. */
-.price-table.per-package .pax { white-space: normal; text-align: left; min-width: 14rem; }
+.price-table.per-package .pax { white-space: normal; min-width: 14rem; }
 /* The navy rail is one continuous column, so the zebra striping above must
    not tint it — it would read as a break in the rail. */
 .price-table tbody tr:nth-child(even) td.pax { background: var(--navy); }
@@ -558,7 +558,7 @@ footer.page-footer {
 .surcharge-table td.accom-name,
 .surcharge-table td.sub { text-align: left; color: var(--ink-soft); }
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
-.surcharge-table .rate { font-weight: 700; color: var(--brand-dark); white-space: nowrap; }
+.surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
@@ -670,7 +670,11 @@ footer.page-footer {
      across a page boundary reads perfectly well; a price row torn in half
      does not.
      ---------------------------------------------------------------------- */
-  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  /* Every section stays whole: one that fits on a page moves to the next
+     page rather than leaving its tail there. A section taller than a page
+     still starts on a fresh page and then flows, repeating its table header
+     and never cutting a row. */
+  .card { break-inside: avoid; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
   .itinerary-card .card-body { padding: 0.85rem 1rem; }
   .card h2 {
     font-size: 0.92rem;
@@ -686,7 +690,7 @@ footer.page-footer {
   /* The units that genuinely cannot be cut. */
   .addon, .expect-item, .accom-item, .carrier-card, .leg,
   .price-table tr, .surcharge-table tr, .itin-table tr,
-  .deposit-box, .highlights-strip { break-inside: avoid; }
+  .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
      columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
@@ -726,6 +730,21 @@ footer.page-footer {
   .price-table thead th, .surcharge-table thead th { padding: 0.45rem 0.6rem; }
   .itin-table td { padding: 0.55rem 0.7rem; }
   .page-footer { padding: 0.75rem 0.25rem; }
+
+  /* Page one is the price page: hero, price table and Includes/Excludes
+     together, so a customer reads what the price buys without turning
+     over. These trims buy the space for that without shrinking prices. */
+  .hero { padding: 0.9rem 1.1rem 0.7rem; margin-bottom: 0.6rem; }
+  .hero h1 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+  .hero .route { margin-bottom: 0.45rem; }
+  .hero-footer { margin-top: 0.35rem; }
+  .highlights-strip { padding: 0.35rem 0.5rem; margin-bottom: 0.55rem; }
+  .price-table td { padding: 0.3rem 0.6rem; }
+  .price-table thead th { padding: 0.38rem 0.6rem; }
+  .price-footnotes { margin-top: 0.4rem; }
+  .split-two { font-size: 0.84rem; line-height: 1.35; gap: 1rem; }
+  .split-two li { margin-bottom: 0.12rem; }
+  .split-two h3 { margin-bottom: 0.3rem; }
 }
 
 </style>
@@ -784,6 +803,37 @@ footer.page-footer {
       <ul>        <li>International Flight Ticket        </li>        <li>In-Flight Meal        </li>        <li>Additional Tours &amp; Meals        </li>        <li>Personal Expenses        </li>        <li>Travel Insurance        </li>        <li>Dinner        </li>      </ul>
     </div>
   </div>
+</div><div class="card">
+  <h2>Surcharge — Travel Date 2026</h2>  <div class="surcharge-wrap">
+    <table class="surcharge-table">
+      <thead>
+        <tr><th>Season</th><th>Travel Dates</th><th>Surcharge</th></tr>
+      </thead>
+      <tbody>        <tr>
+          <td class="lead">Peak Season</td>
+          <td class="sub">11 Jan 2026 - 30 Apr 2026</td>
+          <td class="rate">RM250/Pax</td>
+        </tr>        <tr>
+          <td class="lead">Peak Season</td>
+          <td class="sub">01 Nov 2026 - 31 Dec 2026</td>
+          <td class="rate">RM300/Pax</td>
+        </tr>        <tr>
+          <td class="lead">May - June</td>
+          <td class="sub">-</td>
+          <td class="rate">No Additional Surcharge</td>
+        </tr>      </tbody>
+    </table>
+  </div></div><div class="card">
+  <h2>Accommodation</h2>
+  <div class="accom-list">    <div class="accom-item">
+      <div class="city">Krabi</div>      <div class="stars">★★★ (3-star)</div>      <div>Aonang Silver Orchid Resort or similar</div>
+    </div>    <div class="accom-item">
+      <div class="city">Krabi</div>      <div class="stars">★★★ (3-star)</div>      <div>Apasari Resort or similar</div>
+    </div>    <div class="accom-item">
+      <div class="city">Krabi</div>      <div class="stars">★★★★ (4-star)</div>      <div>Krabi Cha-Da Resort or similar</div>
+    </div>    <div class="accom-item">
+      <div class="city">Krabi</div>      <div class="stars">★★★★ (4-star)</div>      <div>Krabi Heritage Hotel or similar</div>
+    </div>  </div>
 </div><div class="card itinerary-card">
   <div class="card-body">
   <h2>Travel Itinerary</h2>
@@ -812,7 +862,7 @@ footer.page-footer {
       <td>Hotel of your choice (Krabi)</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 3</span>Chosen by Customer</div>        <ul class="activities">          <li>Emerald Pool (shared tour)            <ul class="sub-activities"><li>Klongthom hot spring</li><li>Emerald Pool</li><li>Tiger Cave Temple tour</li></ul>          </li>          <li>OR Phi Phi Island (add RM100/person, shared tour)            <ul class="sub-activities"><li>Via speedboat</li><li>Bamboo Island and visit Maya Bay</li><li>Pileh Cove, Viking Cave and Monkey Beach</li></ul>          </li>        </ul>      </td>
+        <div class="day-title"><span class="day-num">Day 3</span>Chosen by Customer</div>        <ul class="activities">          <li>Emerald Pool (shared tour)            <ul class="sub-activities"><li>Klongthom hot spring</li><li>Emerald Pool</li><li>Tiger Cave Temple tour</li></ul>          </li>          <li>OR Phi Phi Island (add RM100/person, shared tour)            <ul class="sub-activities"><li>Via speedboat</li><li>Bamboo Island and visit Maya Bay</li><li>Pileh Cove, Viking Cave and Monkey Beach</li><li>Phi Phi Don Island</li><li>Tonsai Village for shopping</li></ul>          </li>        </ul>      </td>
       <td>Sharing Basis Boat</td>
       <td>Breakfast, Lunch</td>
       <td>Hotel of your choice (Krabi)</td>
@@ -827,26 +877,46 @@ footer.page-footer {
 </div>
   </div>
 </div><div class="card">
+  <h2>Additional Activities</h2><div class="addon-tail">  <div class="addon">
+    <div class="addon-info">
+      <div class="addon-name">Day 2 Upgrade from 4 Islands tour to 7 Islands Sunset Cruise + Plankton (1pm-8pm)</div><div class="addon-meta">Includes: Yawasom Island, Chicken Island, Tup Island, Mor Island, Sunset Dinner at Poda Island, night snorkeling with bioluminescent plankton at Koh Raeng; Land Transfer &amp; Longtail boat (SIC basis), guide, snorkeling equipment, BBQ dinner</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line">RM80/person</div>    </div>
+  </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid">    <div class="expect-item">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" />
-  <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" />
-  <path d="M10 20h4" />
-  <circle cx="16" cy="20" r="2" />
-  <circle cx="8" cy="20" r="2" /></svg>
-      <h3>Luggage Allocation</h3>
-      <p>Please bring a maximum of 1 luggage per pax, as it affects car capacity.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 13v7a2 2 0 0 0 4 0" />
+  <path d="M12 2v2" />
+  <path d="M20.992 13a1 1 0 0 0 .97-1.274 10.284 10.284 0 0 0-19.923 0A1 1 0 0 0 3 13z" /></svg>
+      <h3>Subject to Weather Conditions</h3>
+      <p>Heavy rain and thunderstorm may affect island activities.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" />
+  <circle cx="12" cy="12" r="2" />
+  <path d="M6 12h.01M18 12h.01" /></svg>
+      <h3>Prepare Cash</h3>
+      <p>Prepare cash if you plan to shop or snack, as most places prefer cash.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6v6" />
+  <path d="M15 6v6" />
+  <path d="M2 12h19.6" />
+  <path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3" />
+  <circle cx="7" cy="18" r="2" />
+  <path d="M9 18h5" />
+  <circle cx="16" cy="18" r="2" /></svg>
+      <h3>Sharing Transport</h3>
+      <p>Sharing transport will be used for all activity transfers.</p>    </div>    <div class="expect-item">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
   <path d="M12 16v-4" />
   <path d="M12 8h.01" /></svg>
-      <h3>Not Mentioned in the Itinerary</h3>
-      <p>Anything not mentioned in the itinerary must be paid by the customer.</p>    </div>  </div>
+      <h3>Watch out for Monkeys</h3>
+      <p>They can be aggressive. Keep an eye on your belongings.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" />
+  <circle cx="12" cy="12" r="2" />
+  <path d="M6 12h.01M18 12h.01" /></svg>
+      <h3>Things Not Mentioned in the Itinerary</h3>
+      <p>Must be paid by customers, e.g. add-on activities on-site, toilet.</p>    </div>  </div>
 </div><div class="card notes-card">
-  <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>All itinerary, flight, price or quotation is subject to change.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting flights.</li>    <li>Shared tour means the boat and activities are shared with other tourists.</li>  </ul></div><div class="card">
+  <h2>Important Notes</h2>  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room (Single Supplement: add RM450/person).</li>    <li>Fare is not applicable during peak seasons; please refer to the peak season surcharge.</li>    <li>Late booking surcharge of RM50/booking will apply for bookings made less than 45 days before the departure date.</li>    <li>This package is valid until the 31st December 2026 travel period.</li>    <li>Private transportation &amp; tour guide is based on 10 hours basis. Additional fees will be charged for every extra hour usage. Payment must be paid in cash.</li>    <li>Quotation, itinerary and price are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements will be confirmed at least 15 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flights.</li>    <li>Seat-In-Coach means the boat and activities are shared with other tourists.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
-  <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
+  <div class="deposit-box">    <div><span class="figure">RM 250</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to arrival for full payment</div>  </div>
 </div>
   <footer class="page-footer">
     <span>PAKEJ KRABI STANDARD &middot; v1 &middot; last updated 2026-08-07 &middot; www.arbatravel.com</span>
