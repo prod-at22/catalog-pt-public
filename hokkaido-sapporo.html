@@ -491,7 +491,7 @@ footer.page-footer {
 }
 /* A honeymoon package names a room rather than a group size, which is too
    long to hold on one line. */
-.price-table.per-package .pax { white-space: normal; text-align: left; min-width: 14rem; }
+.price-table.per-package .pax { white-space: normal; min-width: 14rem; }
 /* The navy rail is one continuous column, so the zebra striping above must
    not tint it — it would read as a break in the rail. */
 .price-table tbody tr:nth-child(even) td.pax { background: var(--navy); }
@@ -558,7 +558,7 @@ footer.page-footer {
 .surcharge-table td.accom-name,
 .surcharge-table td.sub { text-align: left; color: var(--ink-soft); }
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
-.surcharge-table .rate { font-weight: 700; color: var(--brand-dark); white-space: nowrap; }
+.surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
@@ -670,7 +670,11 @@ footer.page-footer {
      across a page boundary reads perfectly well; a price row torn in half
      does not.
      ---------------------------------------------------------------------- */
-  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  /* Every section stays whole: one that fits on a page moves to the next
+     page rather than leaving its tail there. A section taller than a page
+     still starts on a fresh page and then flows, repeating its table header
+     and never cutting a row. */
+  .card { break-inside: avoid; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
   .itinerary-card .card-body { padding: 0.85rem 1rem; }
   .card h2 {
     font-size: 0.92rem;
@@ -686,7 +690,7 @@ footer.page-footer {
   /* The units that genuinely cannot be cut. */
   .addon, .expect-item, .accom-item, .carrier-card, .leg,
   .price-table tr, .surcharge-table tr, .itin-table tr,
-  .deposit-box, .highlights-strip { break-inside: avoid; }
+  .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
      columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
@@ -726,6 +730,21 @@ footer.page-footer {
   .price-table thead th, .surcharge-table thead th { padding: 0.45rem 0.6rem; }
   .itin-table td { padding: 0.55rem 0.7rem; }
   .page-footer { padding: 0.75rem 0.25rem; }
+
+  /* Page one is the price page: hero, price table and Includes/Excludes
+     together, so a customer reads what the price buys without turning
+     over. These trims buy the space for that without shrinking prices. */
+  .hero { padding: 0.9rem 1.1rem 0.7rem; margin-bottom: 0.6rem; }
+  .hero h1 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+  .hero .route { margin-bottom: 0.45rem; }
+  .hero-footer { margin-top: 0.35rem; }
+  .highlights-strip { padding: 0.35rem 0.5rem; margin-bottom: 0.55rem; }
+  .price-table td { padding: 0.3rem 0.6rem; }
+  .price-table thead th { padding: 0.38rem 0.6rem; }
+  .price-footnotes { margin-top: 0.4rem; }
+  .split-two { font-size: 0.84rem; line-height: 1.35; gap: 1rem; }
+  .split-two li { margin-bottom: 0.12rem; }
+  .split-two h3 { margin-bottom: 0.3rem; }
 }
 
 </style>
@@ -792,6 +811,37 @@ footer.page-footer {
       <ul>        <li>Breakfast, Lunch &amp; Dinner        </li>        <li>Extra Hours Transport &amp; Tour Guide: 5,000 - 10,000 yen per hour        </li>        <li>Infant car seat (RM197 per day) — compulsory        </li>        <li>International Flight        </li>        <li>Personal Expenses        </li>        <li>Optional Activity        </li>        <li>Travel Insurance        </li>      </ul>
     </div>
   </div>
+</div><div class="card">
+  <h2>Peak Seasons Date &amp; Surcharge · Last Minute Surcharge</h2>  <div class="surcharge-wrap">
+    <table class="surcharge-table">
+      <thead>
+        <tr><th>Season</th><th>Travel Dates</th><th>Surcharge</th></tr>
+      </thead>
+      <tbody>        <tr>
+          <td class="lead">Peak Season</td>
+          <td class="sub">15 June - 1 Sept 2026, 1 Dec - 20 Dec 2026, 6 Jan - 19 Jan 2027, 6 Feb - 1 March 2027</td>
+          <td class="rate">Additional 10% of package price per pax</td>
+        </tr>        <tr>
+          <td class="lead">Christmas &amp; New Year Peak Season</td>
+          <td class="sub">20 Dec 2026 - 5 Jan 2027, 20 Jan - 5 Feb 2027</td>
+          <td class="rate">Additional 15% of package price per pax</td>
+        </tr>        <tr>
+          <td class="lead">Last Minute — booking 3 weeks before departure date</td>
+          <td class="sub">2 pax</td>
+          <td class="rate">Additional RM500 per pax</td>
+        </tr>        <tr>
+          <td class="lead">Last Minute — booking 3 weeks before departure date</td>
+          <td class="sub">3 pax &amp; above</td>
+          <td class="rate">Additional RM400 per pax</td>
+        </tr>      </tbody>
+    </table>
+  </div></div><div class="card">
+  <h2>Accommodation</h2>
+  <div class="accom-list">    <div class="accom-item">
+      <div class="city">Hotel</div>      <div>APA Hotel, Mystays or similar</div>
+    </div>    <div class="accom-item">
+      <div class="city">Apartment</div>      <div>Sapporo Town Area (subject to availability)</div>
+    </div>  </div>
 </div><div class="card itinerary-card">
   <div class="card-body">
   <h2>Travel Itinerary</h2>
@@ -869,13 +919,11 @@ footer.page-footer {
   <path d="M9 18h5" />
   <circle cx="16" cy="18" r="2" /></svg>
       <h3>Tour Guide &amp; Transport</h3>
-      <p>10 hours basis. 5,000 JPY per hour will be charged for each extra hour.</p>    </div>  </div>
+      <p>10 hours basis. 5,000 - 10,000 yen will be charged for each extra hour.</p>    </div>  </div>
 </div><div class="card notes-card">
-  <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>Itinerary, price and flight are subject to change accordingly.</li>    <li>Private driver &amp; guide is based on 10 hours basis. 5,000 - 10,000 yen will be charged for every extra hour usage. Payment must be made in cash.</li>    <li>A last minute surcharge applies if the booking is made less than 3 weeks before departure.</li>  </ul></div><div class="card">
+  <h2>Important Notes</h2>  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single supplement: additional RM1,200 - RM2,000/person.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>    <li>Last minute surcharge will be charged if the booking is made less than 3 weeks before departure (refer to the Last Minute Surcharge table).</li>    <li>Private driver &amp; guide is based on 10 hours basis. 5,000 - 10,000 yen will be charged for every extra hour usage. Payment must be made in cash.</li>    <li>Itinerary, price and flight are subject to change accordingly.</li>    <li>The itinerary stated may change on tour day without prior notice, subject to weather and current traffic conditions.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flights.</li>    <li>This package is valid until 31 January 2027 travel period.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
-  <div class="deposit-box">    <div><span class="figure">RM 500</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
+  <div class="deposit-box">    <div><span class="figure">RM 500</span> deposit per person upon confirmation</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
 </div>
   <footer class="page-footer">
     <span>PRIVATE TOUR HOKKAIDO - SAPPORO &middot; v3 &middot; last updated 2026-08-08 &middot; www.arbatravel.com</span>

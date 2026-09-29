@@ -491,7 +491,7 @@ footer.page-footer {
 }
 /* A honeymoon package names a room rather than a group size, which is too
    long to hold on one line. */
-.price-table.per-package .pax { white-space: normal; text-align: left; min-width: 14rem; }
+.price-table.per-package .pax { white-space: normal; min-width: 14rem; }
 /* The navy rail is one continuous column, so the zebra striping above must
    not tint it — it would read as a break in the rail. */
 .price-table tbody tr:nth-child(even) td.pax { background: var(--navy); }
@@ -558,7 +558,7 @@ footer.page-footer {
 .surcharge-table td.accom-name,
 .surcharge-table td.sub { text-align: left; color: var(--ink-soft); }
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
-.surcharge-table .rate { font-weight: 700; color: var(--brand-dark); white-space: nowrap; }
+.surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
@@ -670,7 +670,11 @@ footer.page-footer {
      across a page boundary reads perfectly well; a price row torn in half
      does not.
      ---------------------------------------------------------------------- */
-  .card { break-inside: auto; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
+  /* Every section stays whole: one that fits on a page moves to the next
+     page rather than leaving its tail there. A section taller than a page
+     still starts on a fresh page and then flows, repeating its table header
+     and never cutting a row. */
+  .card { break-inside: avoid; padding: 0.85rem 1rem; margin-bottom: 0.5rem; }
   .itinerary-card .card-body { padding: 0.85rem 1rem; }
   .card h2 {
     font-size: 0.92rem;
@@ -686,7 +690,7 @@ footer.page-footer {
   /* The units that genuinely cannot be cut. */
   .addon, .expect-item, .accom-item, .carrier-card, .leg,
   .price-table tr, .surcharge-table tr, .itin-table tr,
-  .deposit-box, .highlights-strip { break-inside: avoid; }
+  .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
      columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
@@ -726,6 +730,21 @@ footer.page-footer {
   .price-table thead th, .surcharge-table thead th { padding: 0.45rem 0.6rem; }
   .itin-table td { padding: 0.55rem 0.7rem; }
   .page-footer { padding: 0.75rem 0.25rem; }
+
+  /* Page one is the price page: hero, price table and Includes/Excludes
+     together, so a customer reads what the price buys without turning
+     over. These trims buy the space for that without shrinking prices. */
+  .hero { padding: 0.9rem 1.1rem 0.7rem; margin-bottom: 0.6rem; }
+  .hero h1 { font-size: 1.3rem; margin-bottom: 0.2rem; }
+  .hero .route { margin-bottom: 0.45rem; }
+  .hero-footer { margin-top: 0.35rem; }
+  .highlights-strip { padding: 0.35rem 0.5rem; margin-bottom: 0.55rem; }
+  .price-table td { padding: 0.3rem 0.6rem; }
+  .price-table thead th { padding: 0.38rem 0.6rem; }
+  .price-footnotes { margin-top: 0.4rem; }
+  .split-two { font-size: 0.84rem; line-height: 1.35; gap: 1rem; }
+  .split-two li { margin-bottom: 0.12rem; }
+  .split-two h3 { margin-bottom: 0.3rem; }
 }
 
 </style>
@@ -787,6 +806,41 @@ footer.page-footer {
       <ul>        <li>Private Driver &amp; Guide is base on 10 hours basis. Additional fees will be charged for every extra hour usage        </li>        <li>Return Flight Tickets        </li>        <li>Luggage, In Flight Meal &amp; Airport Tax        </li>        <li>Additional Fees or Tours        </li>        <li>Personal Expenses        </li>        <li>Travel Insurance        </li>      </ul>
     </div>
   </div>
+</div><div class="card">
+  <h2>Peak Season Dates &amp; Surcharge</h2>  <div class="surcharge-wrap">
+    <table class="surcharge-table">
+      <thead>
+        <tr><th>Season</th><th>Travel Dates</th><th>Surcharge</th></tr>
+      </thead>
+      <tbody>        <tr>
+          <td class="lead">Dragon Boat Festival</td>
+          <td class="sub">19 - 21 June 2026</td>
+          <td class="rate">RM30/pax/night</td>
+        </tr>        <tr>
+          <td class="lead">China Summer Holiday</td>
+          <td class="sub">Whole July &amp; August</td>
+          <td class="rate">RM300/pax</td>
+        </tr>        <tr>
+          <td class="lead">China Golden Week</td>
+          <td class="sub">1 Oct - 8 Oct 2026</td>
+          <td class="rate">RM300/pax</td>
+        </tr>        <tr>
+          <td class="lead">Christmas &amp; New Year</td>
+          <td class="sub">22 Dec 2026 - 5 Jan 2027</td>
+          <td class="rate">RM300/pax</td>
+        </tr>      </tbody>
+    </table>
+  </div>  <p class="addon-note">Blackout dates: Chinese New Year (14 Feb - 22 Feb 2026) and Labor Day (1 May - 5 May 2026).</p></div><div class="card">
+  <h2>Accommodation</h2>
+  <div class="accom-list">    <div class="accom-item">
+      <div class="city">Kunming</div>      <div class="stars">★★★★ (4-star)</div>      <div>Country Inn &amp; Suites by Radisson Hotel / Ramada Encore Hotel / Howard Johnson Hotel or similar</div>
+    </div>    <div class="accom-item">
+      <div class="city">Dali</div>      <div class="stars">★★★★ (4-star)</div>      <div>WenYue Hotel or similar</div>
+    </div>    <div class="accom-item">
+      <div class="city">Lijiang</div>      <div class="stars">★★★★ (4-star)</div>      <div>Kyriad Hotel or similar</div>
+    </div>    <div class="accom-item">
+      <div class="city">Shangri La</div>      <div class="stars">★★★★ (4-star)</div>      <div>LanOu Hotel or similar</div>
+    </div>  </div>
 </div><div class="card itinerary-card">
   <div class="card-body">
   <h2>Travel Itinerary</h2>
@@ -804,44 +858,44 @@ footer.page-footer {
   <tbody>    <tr>
       <td class="col-activities">
         <div class="day-title"><span class="day-num">Day 1</span>Kuala Lumpur - Kunming</div>        <ul class="activities">          <li>(Suggested Flight: AirAsia or Batik Air)          </li>          <li>Arrive in Kunming Changshui Intl’ Airport          </li>          <li>Airport Pickup          </li>          <li>Transfer to hotel in Kunming and check in          </li>          <li>Rest for the day          </li>        </ul>      </td>
-      <td>Private Transport</td>
+      <td>Private Airport Transfer</td>
       <td>-</td>
-      <td>4-Star Hotel</td>
+      <td>4-Star Hotel (Kunming)</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 2</span>Kunming - Dali [Bullet Train]</div>        <ul class="activities">          <li>After Breakfast, check out Hotel          </li>          <li>Transfer to Dali by (~2 Hour)          </li>          <li>Dali Foreigner Street &amp; Dali Ancient Town          </li>          <li>Dali Santorini (Include Return Buggy)          </li>          <li>Dinner and check in Hotel in Dali          </li>        </ul>      </td>
-      <td>Private Transport</td>
-      <td>Breakfast, Lunch, Dinner</td>
-      <td>4-Star Hotel</td>
+        <div class="day-title"><span class="day-num">Day 2</span>Kunming - Dali [Bullet Train]</div>        <ul class="activities">          <li>After Breakfast, check out Hotel          </li>          <li>Transfer to Dali by Bullet Train (~2 Hour)          </li>          <li>Dali Foreigner Street &amp; Dali Ancient Town          </li>          <li>Dali Santorini (Include Return Buggy)          </li>          <li>Dinner and check in Hotel in Dali          </li>        </ul>      </td>
+      <td>Private Transport, Bullet Train</td>
+      <td>International Breakfast, Lunch, Dinner</td>
+      <td>4-Star Hotel (Dali)</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 3</span>Dali - Lijiang</div>        <ul class="activities">          <li>After breakfast, check out Hotel          </li>          <li>Visit Dali Erhai Lake (Include Boat Tour)          </li>          <li>Transfer to Lijiang by private transport (~3Hour Drive)          </li>          <li>Lijiang Ancient City Tour (One of UNESCO best- preserved ancient towns in China)          </li>          <li>Dinner and check-in Hotel in Lijiang          </li>        </ul>      </td>
+        <div class="day-title"><span class="day-num">Day 3</span>Dali - Lijiang</div>        <ul class="activities">          <li>After breakfast, check out Hotel          </li>          <li>Visit Dali Erhai Lake (Include Boat Tour)          </li>          <li>Transfer to Lijiang by private transport (~3Hour Drive)          </li>          <li>Lijiang Ancient City Tour (One of UNESCO best-preserved ancient towns in China)          </li>          <li>Dinner and check-in Hotel in Lijiang          </li>        </ul>      </td>
       <td>Private Transport</td>
-      <td>Breakfast, Lunch, Dinner</td>
-      <td>4-Star Hotel</td>
+      <td>International Breakfast, Lunch, Dinner</td>
+      <td>4-Star Hotel (Lijiang)</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 4</span>Lijiang Tour</div>        <ul class="activities">          <li>Jade Dragon Snow Mountain (Enjoy scenic cable car ride up Glacier park at 4506M from sea level, higher than Mt. Kinabalu!)          </li>          <li>Lijiang Impression Show          </li>          <li>Blue Moon Valley &amp; White Water River (Incl Battery Car)          </li>          <li>Dongbaqu (A Cultural park of Naxi Heritage)          </li>          <li>Dry Sea (Vast grassland at the foot of Jade Dragon          </li>          <li>Snow Mountain)          </li>          <li>Lijiang Mosque          </li>          <li>Dinner and back to Hotel in Lijiang          </li>        </ul>      </td>
+        <div class="day-title"><span class="day-num">Day 4</span>Lijiang Tour</div>        <ul class="activities">          <li>Jade Dragon Snow Mountain (Enjoy scenic cable car ride up Glacier park at 4506M from sea level, higher than Mt. Kinabalu!)          </li>          <li>Lijiang Impression Show          </li>          <li>Blue Moon Valley &amp; White Water River (Incl Battery Car)          </li>          <li>Dongbaqu (A Cultural park of Naxi Heritage)          </li>          <li>Dry Sea (Vast grassland at the foot of Jade Dragon Snow Mountain)          </li>          <li>Lijiang Mosque          </li>          <li>Dinner and back to Hotel in Lijiang          </li>        </ul>      </td>
       <td>Private Transport</td>
-      <td>Breakfast, Lunch, Dinner</td>
-      <td>4-Star Hotel</td>
+      <td>International Breakfast, Packed Lunch, Dinner</td>
+      <td>4-Star Hotel (Lijiang)</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 5</span>Lijiang - Shangri La</div>        <ul class="activities">          <li>After breakfast, check out from hotel          </li>          <li>Black Dragon Pool (Scenic Lake with Snow Mountain          </li>          <li>Backdrop)          </li>          <li>Transfer to Shangri La by private transport (~2 Hour          </li>          <li>Drive)          </li>          <li>Tiger Leaping Gorge (Breathtaking canyon on the          </li>          <li>Jinsha River + include escalator)          </li>          <li>Dukezong Ancient Town          </li>          <li>After dinner, check in to hotel at Shangri La          </li>        </ul>      </td>
+        <div class="day-title"><span class="day-num">Day 5</span>Lijiang - Shangri La</div>        <ul class="activities">          <li>After breakfast, check out from hotel          </li>          <li>Black Dragon Pool (Scenic Lake with Snow Mountain Backdrop)          </li>          <li>Transfer to Shangri La by private transport (~2 Hour Drive)          </li>          <li>Tiger Leaping Gorge (Breathtaking canyon on the Jinsha River + include escalator)          </li>          <li>Dukezong Ancient Town          </li>          <li>After dinner, check in to hotel at Shangri La          </li>        </ul>      </td>
       <td>Private Transport</td>
-      <td>Breakfast, Lunch, Dinner</td>
-      <td>4-Star Hotel</td>
+      <td>International Breakfast, Lunch, Dinner</td>
+      <td>4-Star Hotel (Shangri La)</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 6</span>Shangri La - Kunming [Bullet Train]</div>        <ul class="activities">          <li>After breakfast, check out from hotel          </li>          <li>Transfer to Kunming by bullet train (~5-6 Hours)          </li>          <li>Nanping Pedestrian Street (Souvenir shopping)          </li>          <li>Visit Shuncheng Mosque (A historic mosque in          </li>          <li>Kunming that blends both Chinese &amp; Islamic architecture)          </li>          <li>After dinner, check in to hotel at Kunming          </li>        </ul>      </td>
-      <td>Private Transport</td>
-      <td>Breakfast, Lunch, Dinner</td>
-      <td>4-Star Hotel</td>
+        <div class="day-title"><span class="day-num">Day 6</span>Shangri La - Kunming [Bullet Train]</div>        <ul class="activities">          <li>After breakfast, check out from hotel          </li>          <li>Transfer to Kunming by bullet train (~5-6 Hours)          </li>          <li>Nanping Pedestrian Street (Souvenir shopping)          </li>          <li>Visit Shuncheng Mosque (A historic mosque in Kunming that blends both Chinese &amp; Islamic architecture)          </li>          <li>After dinner, check in to hotel at Kunming          </li>        </ul>      </td>
+      <td>Private Transport, Bullet Train</td>
+      <td>International Breakfast, Lunch, Dinner</td>
+      <td>4-Star Hotel (Kunming)</td>
     </tr>    <tr>
       <td class="col-activities">
-        <div class="day-title"><span class="day-num">Day 7</span>Kunming City Tour + Airport Transfer</div>        <ul class="activities">          <li>After breakfast, check out from hotel          </li>          <li>Transfer to Shilin Stone Forest (UNESCO Rated stunning limestone formations resembling a stone forest)          </li>          <li>Kunming Waterfall Park          </li>          <li>Visit Yongning Mosque Transport          </li>          <li>After dinner, transfer to airport for midnight flight          </li>          <li>Note:          </li>          <li>1.Guests with an evening flight will transfer to the airport after lunch &amp; the trip ends on Day 7.          </li>          <li>2.Return flights from Kunming to KUL depart either in the evening (~5:00 PM, Day 7) or early morning (~2:00 AM, Day 8). Kindly book the correct timing or consult with our travel consultant.          </li>        </ul>      </td>
-      <td>Private Transport</td>
-      <td>Breakfast, Lunch, Dinner</td>
+        <div class="day-title"><span class="day-num">Day 7</span>Kunming City Tour + Airport Transfer</div>        <ul class="activities">          <li>After breakfast, check out from hotel          </li>          <li>Transfer to Shilin Stone Forest (UNESCO Rated stunning limestone formations resembling a stone forest)          </li>          <li>Kunming Waterfall Park          </li>          <li>Visit Yongning Mosque          </li>          <li>After dinner, transfer to airport for midnight flight          </li>          <li>Note:            <ul class="sub-activities"><li>Guests with an evening flight will transfer to the airport after lunch &amp; the trip ends on Day 7.</li><li>Return flights from Kunming to KUL depart either in the evening (~5:00 PM, Day 7) or early morning (~2:00 AM, Day 8). Kindly book the correct timing or consult with our travel consultant.</li></ul>          </li>        </ul>      </td>
+      <td>Private Transport, Airport Transfer</td>
+      <td>International Breakfast, Lunch, Dinner</td>
       <td>-</td>
     </tr>  </tbody>
 </table>
@@ -850,24 +904,47 @@ footer.page-footer {
 </div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid">    <div class="expect-item">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2" />
-  <path d="M8 18V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v14" />
-  <path d="M10 20h4" />
-  <circle cx="16" cy="20" r="2" />
-  <circle cx="8" cy="20" r="2" /></svg>
-      <h3>Luggage Allocation</h3>
-      <p>Please bring a maximum of 1 luggage per pax, as it affects car capacity.</p>    </div>    <div class="expect-item">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" />
-  <path d="M12 16v-4" />
-  <path d="M12 8h.01" /></svg>
-      <h3>Not Mentioned in the Itinerary</h3>
-      <p>Anything not mentioned in the itinerary must be paid by the customer.</p>    </div>  </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z" /></svg>
+      <h3>High Altitude Areas</h3>
+      <p>High altitude areas like Jade Dragon Snow Mountain may impose altitude sickness.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+  <circle cx="12" cy="10" r="3" /></svg>
+      <h3>Distant Drop Off &amp; Pickup Point</h3>
+      <p>The drop-off point may not be directly at the entrance.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+  <path d="M16 3.128a4 4 0 0 1 0 7.744" />
+  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+  <circle cx="9" cy="7" r="4" /></svg>
+      <h3>Large Crowds</h3>
+      <p>Expect large crowds and queues in China, especially during holidays and peak travel seasons.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 22v-6.57" />
+  <path d="M12 11h.01" />
+  <path d="M12 7h.01" />
+  <path d="M14 15.43V22" />
+  <path d="M15 16a5 5 0 0 0-6 0" />
+  <path d="M16 11h.01" />
+  <path d="M16 7h.01" />
+  <path d="M8 11h.01" />
+  <path d="M8 7h.01" />
+  <rect x="4" y="2" width="16" height="20" rx="2" /></svg>
+      <h3>Multiple Hotels</h3>
+      <p>Guests will stay in multiple hotels as the trip covers several cities across Yunnan.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
+  <path d="M8 10h8" />
+  <path d="M8 18h8" />
+  <path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6" />
+  <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" /></svg>
+      <h3>Intercity Transfer</h3>
+      <p>Intercity transfers via bullet trains and private transport.</p>    </div>    <div class="expect-item">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" />
+  <circle cx="12" cy="12" r="2" />
+  <path d="M6 12h.01M18 12h.01" /></svg>
+      <h3>Communication &amp; Payment</h3>
+      <p>Download WeChat and set up E-wallet as some places may prefer cashless payments.</p>    </div>  </div>
 </div><div class="card notes-card">
-  <h2>Important Notes</h2>  <h3 class="notes-subhead">Booking Terms</h3>
-  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Late booking surcharge of RM50/booking will be charged if the booking is made less than 45 days before departure.</li>  </ul>  <h3 class="notes-subhead">Trip Requirements</h3>
-  <ul class="notes-list">    <li>All itinerary, flight, price or quotation is subject to change.</li>    <li>Final itinerary and hotel arrangements 14 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting flights.</li>  </ul></div><div class="card">
+  <h2>Important Notes</h2>  <ul class="notes-list">    <li>All prices are valid for 24 hours after quotation submission.</li>    <li>The price is for 2 to 3 persons per room.</li>    <li>Single supplement: additional RM700/person.</li>    <li>Fare is not applicable during peak seasons; please refer to the peak season surcharge.</li>    <li>Late booking surcharge of RM50/booking will apply for bookings made less than 45 days before the departure date.</li>    <li>This package is valid until the 31st December 2026 travel period.</li>    <li>Private transportation &amp; tour guide is based on 10 hours basis. Additional fees will be charged for every extra hour usage. Payment must be paid in cash.</li>    <li>Quotation, itinerary and price are subject to change accordingly.</li>    <li>Final itinerary and hotel arrangements will be confirmed at least 15 days before the trip.</li>    <li>Please check with our staff on the trip validity before booking any connecting domestic flights.</li>  </ul></div><div class="card">
   <h2>Deposit &amp; Full Payment</h2>
-  <div class="deposit-box">    <div><span class="figure">RM 500</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to departure for full payment</div>  </div>
+  <div class="deposit-box">    <div><span class="figure">RM 500</span> deposit per person</div>    <div><span class="figure">45 days</span> prior to arrival for full payment</div>  </div>
 </div>
   <footer class="page-footer">
     <span>PRIVATE TOUR YUNNAN 4 WILAYAH &middot; v1 &middot; last updated 2026-07-29 &middot; www.arbatravel.com</span>
