@@ -124,6 +124,10 @@ footer { text-align:center; font-size:0.78rem; color:#4a5568; padding-top:1.5rem
     });
     empty.style.display = shown ? 'none' : 'block';
   });
+  // ?q=bali opens the list already filtered, so a link from elsewhere (the
+  // KB House cards) lands on one destination's catalogs.
+  var q = new URLSearchParams(location.search).get('q');
+  if (q) { box.value = q; box.dispatchEvent(new Event('input')); }
 })();
 </script>
 </body>
