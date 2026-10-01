@@ -560,6 +560,15 @@ footer.page-footer {
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
 .surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
+/* Travel dates: one range per line, bold ink, so a season with five date
+   ranges reads as a list rather than a run-on line of pipes. */
+.surcharge-table .period .d, .surcharge-table .dates .d,
+.surcharge-table.seasons td.rate .d { display: block; }
+.surcharge-table thead th .period { font-weight: 700; opacity: 1; }
+.surcharge-table td.dates { font-weight: 700; color: var(--ink); line-height: 1.55; }
+.surcharge-table.seasons td.lead { white-space: normal; width: 28%; }
+.surcharge-table.seasons td.dates { width: 40%; min-width: 12rem; }
+.surcharge-table.seasons td.rate { white-space: normal; }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
    them (private transport, then activities), so only the shared disclaimer
@@ -812,7 +821,7 @@ footer.page-footer {
     <table class="surcharge-table">
       <thead>
         <tr>
-          <th colspan="2">Accommodation</th>          <th>Upgrade Surcharge</th>          <th>Peak Season Surcharge<span class="period">25 Dec 2025 - 5 Jan 2026 · 15 - 31 Mar 2026 · 25 Jun - 12 July 2026 · 25 Dec 2026 - 5 Jan 2027</span></th>        </tr>
+          <th colspan="2">Accommodation</th>          <th>Upgrade Surcharge</th>          <th>Peak Season Surcharge<span class="period"><span class="d">25 Dec 2025 - 5 Jan 2026</span><span class="d">15 - 31 Mar 2026</span><span class="d">25 Jun - 12 July 2026</span><span class="d">25 Dec 2026 - 5 Jan 2027</span></span></th>        </tr>
       </thead>
       <tbody>        <tr>
           <td class="accom-type">3 Star Hotel</td>

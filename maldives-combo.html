@@ -560,6 +560,15 @@ footer.page-footer {
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
 .surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
+/* Travel dates: one range per line, bold ink, so a season with five date
+   ranges reads as a list rather than a run-on line of pipes. */
+.surcharge-table .period .d, .surcharge-table .dates .d,
+.surcharge-table.seasons td.rate .d { display: block; }
+.surcharge-table thead th .period { font-weight: 700; opacity: 1; }
+.surcharge-table td.dates { font-weight: 700; color: var(--ink); line-height: 1.55; }
+.surcharge-table.seasons td.lead { white-space: normal; width: 28%; }
+.surcharge-table.seasons td.dates { width: 40%; min-width: 12rem; }
+.surcharge-table.seasons td.rate { white-space: normal; }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
    them (private transport, then activities), so only the shared disclaimer
@@ -806,26 +815,26 @@ footer.page-footer {
   </div>
 </div><div class="card">
   <h2>Peak Season Dates</h2>  <div class="surcharge-wrap">
-    <table class="surcharge-table">
+    <table class="surcharge-table seasons">
       <thead>
         <tr><th>Season</th><th>Travel Dates</th><th>Surcharge</th></tr>
       </thead>
       <tbody>        <tr>
           <td class="lead">High Season</td>
-          <td class="sub">09 Jan 2026 - 05 Apr 2026</td>
-          <td class="rate">Add on RM400 per person</td>
+          <td class="sub dates"><span class="d">09 Jan 2026 - 05 Apr 2026</span></td>
+          <td class="rate"><span class="d">Add on RM400 per person</span></td>
         </tr>        <tr>
           <td class="lead">Peak Season</td>
-          <td class="sub">06 Apr 2026 - 07 May 2026</td>
-          <td class="rate">Add on RM200 per person</td>
+          <td class="sub dates"><span class="d">06 Apr 2026 - 07 May 2026</span></td>
+          <td class="rate"><span class="d">Add on RM200 per person</span></td>
         </tr>        <tr>
           <td class="lead">Shoulder Season</td>
-          <td class="sub">01 Aug 2026 - 31 Aug 2026 · 01 Oct 2026 - 31 Oct 2026</td>
-          <td class="rate">Add on RM100 per person</td>
+          <td class="sub dates"><span class="d">01 Aug 2026 - 31 Aug 2026</span><span class="d">01 Oct 2026 - 31 Oct 2026</span></td>
+          <td class="rate"><span class="d">Add on RM100 per person</span></td>
         </tr>        <tr>
           <td class="lead">Super Peak Season</td>
-          <td class="sub">01 Nov 2026 - 31 Dec 2026</td>
-          <td class="rate">Price upon request</td>
+          <td class="sub dates"><span class="d">01 Nov 2026 - 31 Dec 2026</span></td>
+          <td class="rate"><span class="d">Price upon request</span></td>
         </tr>      </tbody>
     </table>
   </div></div><div class="card">

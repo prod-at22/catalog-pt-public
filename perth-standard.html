@@ -560,6 +560,15 @@ footer.page-footer {
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
 .surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
+/* Travel dates: one range per line, bold ink, so a season with five date
+   ranges reads as a list rather than a run-on line of pipes. */
+.surcharge-table .period .d, .surcharge-table .dates .d,
+.surcharge-table.seasons td.rate .d { display: block; }
+.surcharge-table thead th .period { font-weight: 700; opacity: 1; }
+.surcharge-table td.dates { font-weight: 700; color: var(--ink); line-height: 1.55; }
+.surcharge-table.seasons td.lead { white-space: normal; width: 28%; }
+.surcharge-table.seasons td.dates { width: 40%; min-width: 12rem; }
+.surcharge-table.seasons td.rate { white-space: normal; }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
    them (private transport, then activities), so only the shared disclaimer
@@ -812,7 +821,7 @@ footer.page-footer {
     <table class="surcharge-table">
       <thead>
         <tr>
-          <th colspan="2">Accommodation</th>          <th>Upgrade Surcharge</th>          <th>Peak Season Surcharge<span class="period">Autumn &amp; Winter Season (see dates below)</span></th>        </tr>
+          <th colspan="2">Accommodation</th>          <th>Upgrade Surcharge</th>          <th>Peak Season Surcharge<span class="period"><span class="d">Autumn &amp; Winter Season (see dates below)</span></span></th>        </tr>
       </thead>
       <tbody>        <tr>
           <td class="accom-type">3 Star Apartment</td>
@@ -825,22 +834,22 @@ footer.page-footer {
           <td class="accom-name">Mercure On Hay (with breakfast) <span class="similar">or similar</span></td>          <td class="rate">Add RM300/pax/night</td>          <td class="rate">RM220/pax/night</td>        </tr>      </tbody>
     </table>
   </div>  <div class="surcharge-wrap">
-    <table class="surcharge-table">
+    <table class="surcharge-table seasons">
       <thead>
         <tr><th>Season</th><th>Travel Dates</th><th>Surcharge</th></tr>
       </thead>
       <tbody>        <tr>
           <td class="lead">Autumn &amp; Winter Season</td>
-          <td class="sub">19 - 31 Mar 2026 | 1 - 20 April 2026 | 19 - 31 August 2026 | 1 - 15 July 2026</td>
-          <td class="rate">Refer to peak surcharge on accommodation table</td>
+          <td class="sub dates"><span class="d">19 - 31 Mar 2026</span><span class="d">1 - 20 April 2026</span><span class="d">19 - 31 August 2026</span><span class="d">1 - 15 July 2026</span></td>
+          <td class="rate"><span class="d">Refer to peak surcharge on accommodation table</span></td>
         </tr>        <tr>
           <td class="lead">Spring &amp; Summer Season</td>
-          <td class="sub">1 - 30 September 2026 | 1 - 30 November 2026 | 1 - 20 December 2026</td>
-          <td class="rate">Additional 5% per pax</td>
+          <td class="sub dates"><span class="d">1 - 30 September 2026</span><span class="d">1 - 30 November 2026</span><span class="d">1 - 20 December 2026</span></td>
+          <td class="rate"><span class="d">Additional 5% per pax</span></td>
         </tr>        <tr>
           <td class="lead">Christmas &amp; New Year</td>
-          <td class="sub">21 - 31 December 2026 | 1 - 31 January 2027 | 1 - 20 February 2027</td>
-          <td class="rate">Additional 10% per pax</td>
+          <td class="sub dates"><span class="d">21 - 31 December 2026</span><span class="d">1 - 31 January 2027</span><span class="d">1 - 20 February 2027</span></td>
+          <td class="rate"><span class="d">Additional 10% per pax</span></td>
         </tr>      </tbody>
     </table>
   </div></div><div class="card">

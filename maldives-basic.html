@@ -560,6 +560,15 @@ footer.page-footer {
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
 .surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
+/* Travel dates: one range per line, bold ink, so a season with five date
+   ranges reads as a list rather than a run-on line of pipes. */
+.surcharge-table .period .d, .surcharge-table .dates .d,
+.surcharge-table.seasons td.rate .d { display: block; }
+.surcharge-table thead th .period { font-weight: 700; opacity: 1; }
+.surcharge-table td.dates { font-weight: 700; color: var(--ink); line-height: 1.55; }
+.surcharge-table.seasons td.lead { white-space: normal; width: 28%; }
+.surcharge-table.seasons td.dates { width: 40%; min-width: 12rem; }
+.surcharge-table.seasons td.rate { white-space: normal; }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
    them (private transport, then activities), so only the shared disclaimer
@@ -806,30 +815,30 @@ footer.page-footer {
   </div>
 </div><div class="card">
   <h2>Peak Season Dates &amp; Surcharge / Last Minute Surcharge</h2>  <div class="surcharge-wrap">
-    <table class="surcharge-table">
+    <table class="surcharge-table seasons">
       <thead>
         <tr><th>Season</th><th>Travel Dates</th><th>Surcharge</th></tr>
       </thead>
       <tbody>        <tr>
           <td class="lead">High Season</td>
-          <td class="sub">11 January 2026 - 30 April 2026 · 1 November 2026 - 20 December 2026</td>
-          <td class="rate">Add on RM100 per person</td>
+          <td class="sub dates"><span class="d">11 January 2026 - 30 April 2026</span><span class="d">1 November 2026 - 20 December 2026</span></td>
+          <td class="rate"><span class="d">Add on RM100 per person</span></td>
         </tr>        <tr>
           <td class="lead">Peak Season</td>
-          <td class="sub">21 December 2026 - 10 January 2027</td>
-          <td class="rate">Add on RM200 per person</td>
+          <td class="sub dates"><span class="d">21 December 2026 - 10 January 2027</span></td>
+          <td class="rate"><span class="d">Add on RM200 per person</span></td>
         </tr>        <tr>
           <td class="lead">Christmas Eve</td>
-          <td class="sub">24 December</td>
-          <td class="rate">Add on RM600 per person</td>
+          <td class="sub dates"><span class="d">24 December</span></td>
+          <td class="rate"><span class="d">Add on RM600 per person</span></td>
         </tr>        <tr>
           <td class="lead">New Year Eve</td>
-          <td class="sub">31 December</td>
-          <td class="rate">Add on RM700 per person</td>
+          <td class="sub dates"><span class="d">31 December</span></td>
+          <td class="rate"><span class="d">Add on RM700 per person</span></td>
         </tr>        <tr>
           <td class="lead">Last Minute Surcharge</td>
-          <td class="sub">Booking 3 weeks before departure date</td>
-          <td class="rate">2 pax: Additional RM300 per group · 3-10 pax: Additional RM200 per group</td>
+          <td class="sub dates"><span class="d">Booking 3 weeks before departure date</span></td>
+          <td class="rate"><span class="d">2 pax: Additional RM300 per group</span><span class="d">3-10 pax: Additional RM200 per group</span></td>
         </tr>      </tbody>
     </table>
   </div></div><div class="card">

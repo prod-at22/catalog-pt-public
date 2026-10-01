@@ -560,6 +560,15 @@ footer.page-footer {
 .surcharge-table td.accom-name .similar { font-weight: 600; color: var(--ink); }
 .surcharge-table .rate { font-weight: 700; color: var(--ink); white-space: nowrap; }
 .surcharge-table .rate.none { font-weight: 400; color: var(--ink-soft); }
+/* Travel dates: one range per line, bold ink, so a season with five date
+   ranges reads as a list rather than a run-on line of pipes. */
+.surcharge-table .period .d, .surcharge-table .dates .d,
+.surcharge-table.seasons td.rate .d { display: block; }
+.surcharge-table thead th .period { font-weight: 700; opacity: 1; }
+.surcharge-table td.dates { font-weight: 700; color: var(--ink); line-height: 1.55; }
+.surcharge-table.seasons td.lead { white-space: normal; width: 28%; }
+.surcharge-table.seasons td.dates { width: 40%; min-width: 12rem; }
+.surcharge-table.seasons td.rate { white-space: normal; }
 
 /* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
    them (private transport, then activities), so only the shared disclaimer
@@ -825,18 +834,18 @@ footer.page-footer {
           <td class="accom-name">Muong Thanh Luxury Phu Quoc, Marina Seaside Boutique Phu Quoc</td>          <td class="rate">Add RM140/person/night</td>        </tr>      </tbody>
     </table>
   </div>  <div class="surcharge-wrap">
-    <table class="surcharge-table">
+    <table class="surcharge-table seasons">
       <thead>
         <tr><th>Season</th><th>Travel Dates</th><th>Surcharge</th></tr>
       </thead>
       <tbody>        <tr>
           <td class="lead">Last Minute — booking within 3 weeks of departure</td>
-          <td class="sub">2 pax</td>
-          <td class="rate">Additional RM400 per person</td>
+          <td class="sub dates"><span class="d">2 pax</span></td>
+          <td class="rate"><span class="d">Additional RM400 per person</span></td>
         </tr>        <tr>
           <td class="lead">Last Minute — booking within 3 weeks of departure</td>
-          <td class="sub">3 pax &amp; above</td>
-          <td class="rate">Additional RM300 per person</td>
+          <td class="sub dates"><span class="d">3 pax &amp; above</span></td>
+          <td class="rate"><span class="d">Additional RM300 per person</span></td>
         </tr>      </tbody>
     </table>
   </div>  <p class="addon-note">Blockout dates: Chinese New Year 2027, 17 February - 18 February 2027.</p></div><div class="card itinerary-card">
