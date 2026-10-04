@@ -333,9 +333,9 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
-  text-align: right;
+  text-align: center;
 }
-.addon-price-line { font-weight: 700; color: var(--brand-dark); font-size: 0.82rem; line-height: 1.35; }
+.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -345,6 +345,13 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 .expect-item svg { width: 32px; height: 32px; margin-bottom: 0.5rem; fill: none; stroke: #fff; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 .expect-item h3 { margin: 0 0 0.3rem; font-size: 0.88rem; color: #fff; }
 .expect-item p { margin: 0; font-size: 0.83rem; color: rgba(255,255,255,0.9); text-align: center; }
+/* Four tiles sit two over two rather than three and an orphan. */
+.expect-grid.n4 { max-width: calc(2 * 200px + 0.9rem); margin-left: auto; margin-right: auto; }
+/* Notes under a table: a bold &#34;Note:&#34; lead and a readable sentence. */
+.table-note { margin: 0.7rem 0 0; font-size: 0.85rem; color: var(--ink); font-weight: 600; line-height: 1.5; }
+.table-note b { font-weight: 800; color: var(--brand-dark); margin-right: 0.2rem; }
+.table-note ul { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+.table-note li { margin-bottom: 0.2rem; }
 .expect-tag {
   display: inline-block;
   margin-top: 0.5rem;
@@ -407,7 +414,7 @@ footer.page-footer {
   .addon-price-col {
     border-left: none;
     border-top: 3px solid #98a2ad;
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -536,7 +543,7 @@ footer.page-footer {
 .surcharge-table thead th:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.25); }
 .surcharge-table thead th .period {
   display: block;
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: 400;
   text-transform: none;
   letter-spacing: normal;
@@ -803,7 +810,8 @@ footer.page-footer {
           <td class="pax">6 - 7</td>          <td class="amount">RM3,397</td>          <td class="amount">RM3,197</td>          <td class="amount">RM2,997</td>        </tr>        <tr>
           <td class="pax">8 - 12</td>          <td class="amount">RM3,197</td>          <td class="amount">RM2,997</td>          <td class="amount">RM2,797</td>        </tr>      </tbody>
     </table>
-  </div>  <div class="price-footnotes">    <span class="infant">Infant: RM200</span>  </div></div><div class="card">
+  </div>  <div class="price-footnotes">    <span class="infant">Infant: RM200</span>  </div>
+</div><div class="card">
   <h2>Price Includes / Excludes</h2>
   <div class="split-two">
     <div class="includes">
@@ -831,7 +839,8 @@ footer.page-footer {
           <td class="rate"><span class="d">2 pax: Additional RM500 per pax</span><span class="d">3 pax &amp; above: Additional RM400 per pax</span></td>
         </tr>      </tbody>
     </table>
-  </div></div><div class="card">
+  </div>
+</div><div class="card">
   <h2>Accommodation</h2>
   <div class="accom-list">    <div class="accom-item">
       <div class="city">Osaka (Hotel/Apartment)</div>      <div>Smile Hotel or similar</div>
@@ -902,7 +911,7 @@ footer.page-footer {
     <div class="addon-info">
       <div class="addon-name">Kyoto Day Tour</div><div class="addon-meta">Includes: Private Transport, Tour Guide (10 hours basis)</div><div class="addon-meta">Excludes: Meals, Personal Expenses, Entrance Fee</div><div class="addon-meta">Duration: From 9am to 7pm</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">2 pax: RM697</div>      <div class="addon-price-line">3 pax: RM397</div>      <div class="addon-price-line">4 - 12 pax: RM297</div>    </div>
-  </div>  <p class="addon-note">*Can arrange to go to halal restaurant.</p></div></div><div class="card">
+  </div>  <p class="table-note"><b>Note:</b> *Can arrange to go to halal restaurant.</p></div></div><div class="card">
   <h2>Add-on Public Transport</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Osaka City Tour</div><div class="addon-meta">Includes: Public Transport Card, Tour Guide (10 hours basis)</div><div class="addon-meta">Excludes: Meals, Personal Expenses</div><div class="addon-meta">Duration: From 9am to 7pm</div>    </div>
@@ -928,9 +937,9 @@ footer.page-footer {
     <div class="addon-info">
       <div class="addon-name">Kyoto Day Tour</div><div class="addon-meta">Includes: Private Transport, Tour Guide (10 hours basis)</div><div class="addon-meta">Excludes: Meals, Personal Expenses, Entrance Fee</div><div class="addon-meta">Duration: From 9am to 7pm</div>    </div>
     <div class="addon-price-col">      <div class="addon-price-line">1 - 7 pax (Voxy/Noah): RM3300</div>      <div class="addon-price-line">8 - 9 pax (Hiace): RM3700</div>      <div class="addon-price-line">10 - 12 pax (Hiace): RM4400</div>      <div class="addon-price-line">Per Trip</div>    </div>
-  </div>  <p class="addon-note">*Can arrange to go to halal restaurant.</p></div></div><div class="card">
+  </div>  <p class="table-note"><b>Note:</b> *Can arrange to go to halal restaurant.</p></div></div><div class="card">
   <h2>What to Expect</h2>
-  <div class="expect-grid">    <div class="expect-item">
+  <div class="expect-grid n8">    <div class="expect-item">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" />
   <path d="M8 10h8" />
   <path d="M8 18h8" />

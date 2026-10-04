@@ -333,9 +333,9 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
-  text-align: right;
+  text-align: center;
 }
-.addon-price-line { font-weight: 700; color: var(--brand-dark); font-size: 0.82rem; line-height: 1.35; }
+.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -345,6 +345,13 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 .expect-item svg { width: 32px; height: 32px; margin-bottom: 0.5rem; fill: none; stroke: #fff; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
 .expect-item h3 { margin: 0 0 0.3rem; font-size: 0.88rem; color: #fff; }
 .expect-item p { margin: 0; font-size: 0.83rem; color: rgba(255,255,255,0.9); text-align: center; }
+/* Four tiles sit two over two rather than three and an orphan. */
+.expect-grid.n4 { max-width: calc(2 * 200px + 0.9rem); margin-left: auto; margin-right: auto; }
+/* Notes under a table: a bold &#34;Note:&#34; lead and a readable sentence. */
+.table-note { margin: 0.7rem 0 0; font-size: 0.85rem; color: var(--ink); font-weight: 600; line-height: 1.5; }
+.table-note b { font-weight: 800; color: var(--brand-dark); margin-right: 0.2rem; }
+.table-note ul { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+.table-note li { margin-bottom: 0.2rem; }
 .expect-tag {
   display: inline-block;
   margin-top: 0.5rem;
@@ -407,7 +414,7 @@ footer.page-footer {
   .addon-price-col {
     border-left: none;
     border-top: 3px solid #98a2ad;
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -536,7 +543,7 @@ footer.page-footer {
 .surcharge-table thead th:not(:last-child) { border-right: 1px solid rgba(255,255,255,0.25); }
 .surcharge-table thead th .period {
   display: block;
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: 400;
   text-transform: none;
   letter-spacing: normal;
@@ -808,7 +815,8 @@ footer.page-footer {
           <td class="pax">11 - 13</td>          <td class="amount">RM2,177</td>          <td class="amount">RM1,977</td>          <td class="amount">RM1,777</td>        </tr>        <tr>
           <td class="pax">14 - 16</td>          <td class="amount">RM2,147</td>          <td class="amount">RM1,947</td>          <td class="amount">RM1,747</td>        </tr>      </tbody>
     </table>
-  </div>  <div class="price-footnotes">    <span class="infant">Infant: FOC</span>  </div></div><div class="card">
+  </div>  <div class="price-footnotes">    <span class="infant">Infant: FOC</span>  </div>
+</div><div class="card">
   <h2>Price Includes / Excludes</h2>
   <div class="split-two">
     <div class="includes">
@@ -848,7 +856,8 @@ footer.page-footer {
           <td class="rate"><span class="d">Additional RM300 per person</span></td>
         </tr>      </tbody>
     </table>
-  </div>  <p class="addon-note">Blockout dates: Chinese New Year 2027, 17 February - 18 February 2027.</p></div><div class="card itinerary-card">
+  </div>  <p class="table-note"><b>Note:</b> Blockout dates: Chinese New Year 2027, 17 February - 18 February 2027.</p>
+</div><div class="card itinerary-card">
   <div class="card-body">
   <h2>Travel Itinerary</h2>
 <div class="itin-table-wrap">
@@ -898,7 +907,7 @@ footer.page-footer {
   </div>
 </div><div class="card">
   <h2>What to Expect</h2>
-  <div class="expect-grid">    <div class="expect-item">
+  <div class="expect-grid n6">    <div class="expect-item">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="12" x="2" y="6" rx="2" />
   <circle cx="12" cy="12" r="2" />
   <path d="M6 12h.01M18 12h.01" /></svg>
