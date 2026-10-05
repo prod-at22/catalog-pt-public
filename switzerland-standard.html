@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -922,23 +924,23 @@ footer.page-footer {
   <h2>Add-on</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Mount Titlis</div><div class="addon-meta">Includes: Admission to Mt. Titlis from Engelberg, Round trip cable-car tickets including Titlis ROTAIR, Glacier cave, Titlis Cliff walk, IceFlyer chairlift, Titlis Glacier Park including snow tubing (weather permitting)</div><div class="addon-meta">Duration: Open all year long · Operation hour: 8.30am - 5pm</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">16 years old and above: RM687</div>      <div class="addon-price-line">6-15 years old: RM347</div>      <div class="addon-price-line">5 years old and below: FREE</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">16 years old and above: RM687</span></div>      <div class="addon-price-line"><span class="addon-price-main">6-15 years old: RM347</span></div>      <div class="addon-price-line"><span class="addon-price-main">5 years old and below: FREE</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Iseltwald Bridge Fee</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM67</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM67</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Gornergrat Railways</div><div class="addon-meta">Includes: Round trip train from Zermatt to Gornergrat, Riffelalp, Riffelberg, Gornergrat</div><div class="addon-meta">Duration: Open all year long · Operation hour: 7.30am - 5.40pm</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">16 years old and above: RM837</div>      <div class="addon-price-line">6-15 years old: RM417</div>      <div class="addon-price-line">5 years old and below: FREE</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">16 years old and above: RM837</span></div>      <div class="addon-price-line"><span class="addon-price-main">6-15 years old: RM417</span></div>      <div class="addon-price-line"><span class="addon-price-main">5 years old and below: FREE</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Matterhorn Glacier Paradise (Zermatt)</div><div class="addon-meta">Includes: Admission to Matterhorn Glacier Paradise in Zermatt, Round trip by Matterhorn Glacier ride (cable-car), Entry to 360-Degree Viewing Platform, Admission to Glacier Ice Palace, Cinema Lounge, The Peak Shop</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">16 years old and above: RM687</div>      <div class="addon-price-line">9-15 years old: RM347</div>      <div class="addon-price-line">0-8 years old: FREE</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">16 years old and above: RM687</span></div>      <div class="addon-price-line"><span class="addon-price-main">9-15 years old: RM347</span></div>      <div class="addon-price-line"><span class="addon-price-main">0-8 years old: FREE</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Mount Rigi Pass</div><div class="addon-meta">Includes: Train Rides from Vitznau, Train Rides from Goldau, Cable Car from Weggis, Cable Car from Krabel</div><div class="addon-meta">Duration: Open all year long · Operation hour: 8am - 5pm</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">16 years old and above: RM497</div>      <div class="addon-price-line">6-15 years old: RM357</div>      <div class="addon-price-line">5 years old and below: FREE</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">16 years old and above: RM497</span></div>      <div class="addon-price-line"><span class="addon-price-main">6-15 years old: RM357</span></div>      <div class="addon-price-line"><span class="addon-price-main">5 years old and below: FREE</span></div>    </div>
   </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n6">    <div class="expect-item">

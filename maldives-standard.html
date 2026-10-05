@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -909,36 +911,36 @@ footer.page-footer {
   <h2>Add-ons (Kaani Hotels)</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Full Day Excursion Trip (shared tour)</div><div class="addon-meta">Includes: Snorkelling &amp; Swimming at famous spot, Lunch on Sand bank, Dolphin Sightseeing</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM250</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM250</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Real Break Trip (shared tour)</div><div class="addon-meta">Includes: Snorkelling with Nurse Shark, Ship Wreck Point, Island Hopping, Lunch on Sand Bank</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM350</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM350</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Whale Shark Trip (shared tour)</div><div class="addon-meta">Includes: Snorkelling &amp; Swimming, Whale Shark Point, Manta Rays Point</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM500</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM500</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Private Island Excursion (shared tour)</div><div class="addon-meta">Includes: Adaaran Club Rannalhi Resort or Fihalhohi Island Resort or Olhuveli Beach &amp; Spa Resort or Sunsiyam Olhuveli or Malahini Kuda Bandos</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM800</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM800</span></div>    </div>
   </div>  <p class="table-note"><b>Note:</b> *Shared Tour = Boat and activity sharing with other tourist.</p></div></div><div class="card">
   <h2>Add-ons (Arena Hotels)</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Full Day Adventure (shared tour)</div><div class="addon-meta">Includes: Housereef snorkelling at famous spot, Island Hopping - Gulhi &amp; Guraidhoo, Lunch @ Sand bank, Dolphin Sightseeing</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM320</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM320</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Shark Bay Snorkelling (shared tour)</div><div class="addon-meta">Includes: Snorkelling with Nurse Shark, Manta Rays Point, Lunch @ Sand Bank, Dolphin Sightseeing</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM270</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM270</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Whale Shark Expedition (shared tour)</div><div class="addon-meta">Includes: Snorkelling &amp; Swimming, Whale Shark Point, Island Hopping, Dolphin Cruise, Manta Rays Point, Lunch @ Local Island (Dhigurah)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM520</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM520</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Private Island Excursion (shared tour)</div><div class="addon-meta">Includes: Adaaran Club Rannalhi Resort or Fihalhohi Island Resort or Olhuveli Beach &amp; Spa Resort or Sunsiyam Olhuveli or Centara Ras Fushi or Adaaran Prestige Vadoo</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM800</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM800</span></div>    </div>
   </div>  <p class="table-note"><b>Note:</b> *Shared Tour = Boat and activity sharing with other tourist.</p></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n6">    <div class="expect-item">

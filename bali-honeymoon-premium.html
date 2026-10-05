@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -915,63 +917,63 @@ footer.page-footer {
   <h2>Additional Activities</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Kecak Dance, Uluwatu Temple</div><div class="addon-meta">Includes: Performance ticket, transportation for pick-up &amp; drop-off</div><div class="addon-meta">Excludes: Meals, personal expenses</div><div class="addon-meta">Duration: 1 hour performance</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM67/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM67/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Barong Dance, Ubud</div><div class="addon-meta">Includes: Performance ticket, transportation for pick-up &amp; drop-off</div><div class="addon-meta">Excludes: Meals, personal expenses</div><div class="addon-meta">Duration: 1 hour performance (depart 7am from hotel)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM67/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM67/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Uma Ceking Rice Terrace + Bali Swing</div><div class="addon-meta">Includes: Entrance ticket, swing ticket, transportation</div><div class="addon-meta">Excludes: Meals, other activities, personal expenses</div><div class="addon-meta">Duration: 1-2 hours</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM117/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM117/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Garuda Wisnu Kencana Cultural Park</div><div class="addon-meta">Includes: Entrance ticket &amp; Transportation</div><div class="addon-meta">Excludes: Meals, Other Activities, Personal Expenses</div><div class="addon-meta">Duration: 1-2 hours (Available during Nusa Dua Tour Only)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM67/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM67/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Banana Boat at Nusa Dua</div><div class="addon-meta">Includes: Watersport Activity Insurance + 1 Time Ride</div><div class="addon-meta">Excludes: Meals, Other Activities, Personal Expenses</div><div class="addon-meta">Duration: 1 hour</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM67/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM67/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Jet Ski Ride at Nusa Dua</div><div class="addon-meta">Includes: Watersport Activity Insurance + 1 Time Ride</div><div class="addon-meta">Excludes: Other Activities or Personal Expenses</div><div class="addon-meta">Duration: 1-2 hours</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM157/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM157/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Fly Fish at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 2 Time Fly</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 1-2 hours Activity</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM177/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM177/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Tubing Ride at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 1 Time Ride</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 1 hour Activity</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM127/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM127/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Parasailing Adventure at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 1 Time Ride</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 1 hour Activity</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM237/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM237/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Fly Board at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 15 Minutes Ride</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 15 minutes Ride</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM327/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM327/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Glass Bottom Boat + Turtle Island at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 1 hour Ride</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 1 hour Activity</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM197/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM197/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Snorkeling at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 1 hour Ride</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 1 hour Activity</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM157/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM157/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Sea Walking at Nusa Dua</div><div class="addon-meta">Includes: Activity Insurance + 40 Minutes Sea Walking</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div><div class="addon-meta">Duration: 40 Minutes</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM347/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM347/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Snorkeling Nusa Penida (Sharing Boat)</div><div class="addon-meta">Includes: Life Jacket + Snorkelling Gear + Sharing Boat Transfer; 3 Snorkelling Points (Greenbowl Bay, Gamat Bay, Crystal Bay)</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM107/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM107/pax</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Snorkeling Nusa Penida (Private Boat)</div><div class="addon-meta">Includes: Life Jacket + Snorkelling Gear + Private Boat Transfer; 4 Snorkelling Points (Manta Bay, Greenbowl Bay, Gamat Bay, Crystal Bay)</div><div class="addon-meta">Excludes: Other activities &amp; Personal expenses</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM297/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM297/pax</span></div>    </div>
   </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n6">    <div class="expect-item">

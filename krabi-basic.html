@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -898,11 +900,11 @@ footer.page-footer {
   <h2>Additional Activities</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Add on Kayaking Tour at Hong Island (on Day 3)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM70/adult</div>      <div class="addon-price-line">RM50/child</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM70/adult</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM50/child</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Day 2 Upgrade from 4 Islands tour to 7 Islands Sunset Cruise + Plankton (1pm-8pm)</div><div class="addon-meta">Includes: Yawasom Island, Chicken Island, Tup Island, Mor Island, Sunset Dinner at Poda Island, night snorkeling with bioluminescent plankton at Koh Raeng; Land Transfer &amp; Longtail boat (SIC basis), guide, snorkeling equipment, BBQ dinner</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM80/person</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM80/person</span></div>    </div>
   </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n5">    <div class="expect-item">

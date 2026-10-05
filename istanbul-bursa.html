@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -899,19 +901,19 @@ footer.page-footer {
   <h2>Additional Activities</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Uludag Snow Park (1D1N)</div><div class="addon-meta">Includes: Private Transport, Accommodation (Bursa City), Meals and Guide</div><div class="addon-meta">Excludes: Ski Activities, Personal Expenses</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">2 pax: RM800/pax</div>      <div class="addon-price-line">3 pax: RM600/pax</div>      <div class="addon-price-line">Above 4 pax: RM500/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">2 pax: RM800/pax</span></div>      <div class="addon-price-line"><span class="addon-price-main">3 pax: RM600/pax</span></div>      <div class="addon-price-line"><span class="addon-price-main">Above 4 pax: RM500/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Bosphorus Dinner Cruise</div><div class="addon-meta">Includes: Dinner, cruise along the Bosphorus, entertainment</div><div class="addon-meta">Excludes: Alcoholic drinks, personal expenses</div><div class="addon-meta">Duration: 2-3 hours</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM297/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM297/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Topkapi Palace Entrance</div><div class="addon-meta">Includes: Main Palace, Harem section, and Hagia Irene Church</div><div class="addon-meta">Excludes: Guided tour, food/drinks, and personal expenses</div><div class="addon-meta">Duration: 3-4 hours (recommended)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM277/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM277/pax</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Whirling Dervishes</div><div class="addon-meta">Includes: Entrance, performance show</div><div class="addon-meta">Excludes: Other activities, personal expenses</div><div class="addon-meta">Duration: 1 hour show</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM227/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM227/pax</span></div>    </div>
   </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n6">    <div class="expect-item">

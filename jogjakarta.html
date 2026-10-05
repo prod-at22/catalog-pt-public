@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -884,31 +886,31 @@ footer.page-footer {
   <h2>Additional Activities</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Jeep Gumuk Pasir</div><div class="addon-meta">Includes: Medium Route Jeep Ride (4 pax/jeep), Videos and Photos</div><div class="addon-meta">Excludes: Meals, Personal expenses</div><div class="addon-meta">Duration: 2 hours 30 minutes Ride</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM157/Jeep</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM157/Jeep</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">ATV Gumuk Pasir</div><div class="addon-meta">Includes: 1 ATV (2 pax/ATV)</div><div class="addon-meta">Excludes: Meals, Personal expenses</div><div class="addon-meta">Duration: 1 hour Ride</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM100/ATV</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM100/ATV</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Gondola Timang Beach</div><div class="addon-meta">Includes: Return Gondola Ride at Timang Beach (1 pax)</div><div class="addon-meta">Excludes: Meals, Personal expenses</div><div class="addon-meta">Duration: 15 minutes</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM60/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM60/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Borobudur Temple</div><div class="addon-meta">Includes: Entrance fee for Temple Ground Area or Structure Area</div><div class="addon-meta">Excludes: Meals, Personal expenses, Temple Structure Area</div><div class="addon-meta">Duration: 1 - 2 hour tour</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM130/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM130/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Horse Carriage Ride</div><div class="addon-meta">Includes: Horse Carriage Ride (max 6 pax/carriage) at Malioboro Area</div><div class="addon-meta">Excludes: Meals, Personal expenses</div><div class="addon-meta">Duration: 30 minutes</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM70/carriage</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM70/carriage</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Goa Pindul &amp; Cave Tubing</div><div class="addon-meta">Includes: Transport to Goa Pindul &amp; Jomblang Cave Tubing Activity</div><div class="addon-meta">Excludes: Meals, Personal expenses and Additional Activities</div><div class="addon-meta">Duration: 2 hours</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM75/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM75/pax</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Gamplong Studio Alam</div><div class="addon-meta">Includes: Entrance ticket to Gamplong Studio Alam</div><div class="addon-meta">Excludes: Meals, Personal expenses and Additional Activities</div><div class="addon-meta">Duration: 1 hour</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM10/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM10/pax</span></div>    </div>
   </div>  <p class="table-note"><b>Note:</b> Kindly note that all listed entrance fees and activity prices include applicable service charges and currency exchange differences, and may differ from Indonesia Ground handling (Local Rates).</p></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n6">    <div class="expect-item">

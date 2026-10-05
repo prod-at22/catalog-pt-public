@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -896,19 +898,19 @@ footer.page-footer {
   <h2>Add-on Private Day Tour</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Half/Full-Day City Tour</div><div class="addon-meta">Includes: Queen Victoria Market, DFO South Wharf, Flinders Station &amp; Federation Square (Degraves Street &amp; Flinders Lane, Princes Bridge, Hosier Lane), Brighton Beach Bathing Boxes, Shrine of Remembrance</div><div class="addon-meta">Duration: Half-Day Private Transport (5 hours) — may only cover half of the tour, customer to choose · Full-Day Private Transport (10 hours)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">Half-Day: RM800/transport</div>      <div class="addon-price-line">Full-Day: RM1,500/transport</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">Half-Day: RM800/transport</span></div>      <div class="addon-price-line"><span class="addon-price-main">Full-Day: RM1,500/transport</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Puffing Billy &amp; Dandenong Ranges</div><div class="addon-meta">Includes: Puffing Billy Steam Train: Belgrave - Lakeside Station (ride iconic heritage steam train), Dandenong/Royal Botanic Garden, Sassafras Village, Skyhigh Lookout (Vehicle Entrance Included)</div><div class="addon-meta">Excludes: Puffing Billy Train Ticket</div><div class="addon-meta">Duration: Private Transport (8 hours)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM1,500/transport</div>      <div class="addon-price-line">Puffing Billy Train Ticket:</div>      <div class="addon-price-line">Adult RM190/pax · Child RM95/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM1,500/transport</span></div>      <div class="addon-price-line"><span class="addon-price-main">Puffing Billy Train Ticket:</span></div>      <div class="addon-price-line"><span class="addon-price-main">Adult RM190/pax · Child RM95/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Mornington Peninsula</div><div class="addon-meta">Includes: Pure Peninsula Honey, Enchanted Garden Adventure (adventure park: garden mazes, tube slides, canopy walk), Red Hill Lavender Farm (seasonal), Sorrento Ocean Beach, Cape Schanck Boardwalk</div><div class="addon-meta">Excludes: Enchanted Garden Adventure Ticket</div><div class="addon-meta">Duration: Private Transport (8 hours)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM1,600/transport</div>      <div class="addon-price-line">Enchanted Garden Adventure Ticket:</div>      <div class="addon-price-line">Adult RM120/pax · Child RM90/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM1,600/transport</span></div>      <div class="addon-price-line"><span class="addon-price-main">Enchanted Garden Adventure Ticket:</span></div>      <div class="addon-price-line"><span class="addon-price-main">Adult RM120/pax · Child RM90/pax</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Winter Snow Trip</div><div class="addon-meta">Includes: Mt Buller / Mt Baw Baw (Winter Sports: Skiing, Snowboarding, Tobogganing, etc) OR Lake Mountain (Snow Play, Tobogganing); Vehicle Entrance Ticket &amp; Tyre Snow Chains Included</div><div class="addon-meta">Duration: Private Transport (12 hours)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM3,200/transport</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM3,200/transport</span></div>    </div>
   </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n7">    <div class="expect-item">

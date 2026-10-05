@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -890,39 +892,39 @@ footer.page-footer {
   <h2>Add On Activity</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Return Airport Transfer (Sharing Basis)</div><div class="addon-meta">Includes: From Kota Bharu Airport - Kuala Besut Jetty; From Kuala Besut Jetty - Kota Bharu Airport</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM65/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM65/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Return Private Boat Transfer (From Jetty Kuala Besut to Resort)</div><div class="addon-meta">Includes: Max 12 pax per private boat</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM957/Boat</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM957/Boat</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Private Boat Island Hopping Tour (5 Snorkelling Point)</div><div class="addon-meta">Includes: Max 12 pax per private boat; 5 Snorkelling Point: Shark Point, Fish Point, Nemo Point, Turtle Point, Teluk Keke</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM957/Boat</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM957/Boat</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Snorkelling Pulau Rawa</div><div class="addon-meta">Includes: Sharing boat with other tourist; minimum 4 pax to join this tour</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM120/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM120/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Scuba Diving (DSD)</div><div class="addon-meta">Includes: Scuba Gear &amp; Dive Master; minimum 1 pax to join this tour</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM300/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM300/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Scuba Diving (Fun Dive)</div><div class="addon-meta">Includes: Scuba Gear &amp; Dive Master; minimum 1 pax to join this tour</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM120/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM120/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Honeymoon Package Mimpi Resort Perhentian</div><div class="addon-meta">Includes: Honeymoon Bedroom Decoration, Candle Light Dinner for Couple</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM600/couple</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM600/couple</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Honeymoon Package Shari-la Resort Perhentian</div><div class="addon-meta">Includes: Honeymoon Bedroom Decoration, Candle Light Dinner for Couple</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM280/couple</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM280/couple</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Honeymoon Package Ombak Resort Perhentian</div><div class="addon-meta">Includes: Honeymoon Bedroom Decoration, Candle Light Dinner for Couple</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM380/couple</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM380/couple</span></div>    </div>
   </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n6">    <div class="expect-item">

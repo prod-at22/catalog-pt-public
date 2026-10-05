@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -930,35 +932,35 @@ footer.page-footer {
   <h2>Additional Tour or Activities</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Whakarewa The Living Maori Village Tour</div><div class="addon-meta">Includes: Whakarewa Maori Village guided Tour (1 hour)</div><div class="addon-meta">Excludes: Maori Dance, Geothermal Tour, Meals</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">Adult: RM150/pax (16 years old &amp; above)</div>      <div class="addon-price-line">Child/Youth: RM80/pax (5 - 15 years old)</div>      <div class="addon-price-line">Infant: FOC (0 - 4 years old)</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">Adult: RM150/pax</span><span class="addon-price-sub">(16 years old &amp; above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Child/Youth: RM80/pax</span><span class="addon-price-sub">(5 - 15 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Infant: FOC</span><span class="addon-price-sub">(0 - 4 years old)</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Hobbiton Movie Set Tour</div><div class="addon-meta">Includes: Hobbiton Movie Set Guided Tour (2.5 hours)</div><div class="addon-meta">Excludes: Meals and self expenses</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">Adult: RM320/pax (17 years old and above)</div>      <div class="addon-price-line">Youth: RM150/pax (11 - 16 years old)</div>      <div class="addon-price-line">Child: FOC (below 10 years old)</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">Adult: RM320/pax</span><span class="addon-price-sub">(17 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Youth: RM150/pax</span><span class="addon-price-sub">(11 - 16 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Child: FOC</span><span class="addon-price-sub">(below 10 years old)</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Agrodome Farm &amp; Animal Show</div><div class="addon-meta">Includes: Farm show and Experience 350-Acre Farm Tour</div><div class="addon-meta">Excludes: Meals and self expenses</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">Adult: RM180/pax (16 years old and above)</div>      <div class="addon-price-line">Youth: RM150/pax (3 - 15 years old)</div>      <div class="addon-price-line">Child: FOC (below 10 years old)</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">Adult: RM180/pax</span><span class="addon-price-sub">(16 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Youth: RM150/pax</span><span class="addon-price-sub">(3 - 15 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Child: FOC</span><span class="addon-price-sub">(below 10 years old)</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Hamilton Garden</div><div class="addon-meta">Includes: Enclosed Garden Entry Ticket</div><div class="addon-meta">Excludes: Meals, self expenses and Audio Guide</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">Adult: RM65/pax (Free &amp; Easy Self Tour)</div>      <div class="addon-price-line">Child: RM25/pax (Free &amp; Easy Self Tour)</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">Adult: RM65/pax</span><span class="addon-price-sub">(Free &amp; Easy Self Tour)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Child: RM25/pax</span><span class="addon-price-sub">(Free &amp; Easy Self Tour)</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Skyline Gondola Ride (Queenstown)</div><div class="addon-meta">Includes: Return Skyline Gondola Ride at Queenstown City</div><div class="addon-meta">Excludes: Luge Ride or additional activities</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM180/pax for Adult (15 years old and above)</div>      <div class="addon-price-line">RM120/pax for Youth (6 - 14 years old)</div>      <div class="addon-price-line">Free for Child below 5 years old</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM180/pax for Adult</span><span class="addon-price-sub">(15 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM120/pax for Youth</span><span class="addon-price-sub">(6 - 14 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Free for Child below 5 years old</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Milford Sound Nature Cruise</div><div class="addon-meta">Includes: Milford Sound Cruise Ticket Only</div><div class="addon-meta">Excludes: Meals on board and Coach Transfer</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM450/pax for Adult (15 years old and above)</div>      <div class="addon-price-line">RM250/pax for Youth (6 - 14 years old)</div>      <div class="addon-price-line">Free for Child below 5 years old</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM450/pax for Adult</span><span class="addon-price-sub">(15 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM250/pax for Youth</span><span class="addon-price-sub">(6 - 14 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Free for Child below 5 years old</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Milford Sound Coach + Nature Cruise</div><div class="addon-meta">Includes: Milford Sound Coach + Nature Cruise</div><div class="addon-meta">Excludes: Meals on board and Additional Tour</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM650/pax depart from Queenstown (depart 6:20am)</div>      <div class="addon-price-line">RM550/pax depart from Te Anau (depart 9:30am)</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM650/pax depart from Queenstown</span><span class="addon-price-sub">(depart 6:20am)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM550/pax depart from Te Anau</span><span class="addon-price-sub">(depart 9:30am)</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Maori Culture Performance at Whakarewa Village</div><div class="addon-meta">Includes: 30 Minutes shows at 12:30pm Daily</div><div class="addon-meta">Excludes: Guided Village Tour, Meals and Additional Tour</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">Adult: RM95/pax (16 years old &amp; above)</div>      <div class="addon-price-line">Child/Youth: RM60/pax (5 - 15 years old)</div>      <div class="addon-price-line">Infant: FOC (0 - 4 years old)</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">Adult: RM95/pax</span><span class="addon-price-sub">(16 years old &amp; above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Child/Youth: RM60/pax</span><span class="addon-price-sub">(5 - 15 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Infant: FOC</span><span class="addon-price-sub">(0 - 4 years old)</span></div>    </div>
   </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n9">    <div class="expect-item">

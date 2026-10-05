@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -918,23 +920,23 @@ footer.page-footer {
   <h2>Additional Activities</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Mandurah Dolphin &amp; Scenic Canal Cruise</div><div class="addon-meta">Includes: 1 hour Mandurah Cruise Tour &amp; Scenic View ticket</div><div class="addon-meta">Excludes: Lunch onboard or additional activities</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM140/pax for Adult (16 years old and above)</div>      <div class="addon-price-line">RM90/pax for Youth (3 - 15 years old)</div>      <div class="addon-price-line">Free for Child 2 years old &amp; below</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM140/pax for Adult</span><span class="addon-price-sub">(16 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM90/pax for Youth</span><span class="addon-price-sub">(3 - 15 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Free for Child 2 years old &amp; below</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Araluen Tulip Park (Late August to Early October only)</div><div class="addon-meta">Includes: Entrance ticket to Araluen Tulip Park</div><div class="addon-meta">Excludes: Lunch onboard or additional activities</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM85/pax for Adult (12 years old and above)</div>      <div class="addon-price-line">RM65/pax for Children (7 - 11 years old)</div>      <div class="addon-price-line">Free for Children 6 years old &amp; below</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM85/pax for Adult</span><span class="addon-price-sub">(12 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM65/pax for Children</span><span class="addon-price-sub">(7 - 11 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Free for Children 6 years old &amp; below</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Return Ferry Ticket to Rottnest Island</div><div class="addon-meta">Includes: Return Ferry Ticket from Fremantle</div><div class="addon-meta">Excludes: Shuttle, Activity at Rottnest &amp; Lunch</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM350/pax for Adult (13 years old and above)</div>      <div class="addon-price-line">RM250/pax for Children (4 - 12 years old)</div>      <div class="addon-price-line">Free for Children 3 years old &amp; below</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM350/pax for Adult</span><span class="addon-price-sub">(13 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM250/pax for Children</span><span class="addon-price-sub">(4 - 12 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Free for Children 3 years old &amp; below</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Return Shuttle to Rottnest Ferry Terminal</div><div class="addon-meta">Includes: Transport pickup &amp; drop off to Rottnest Ferry Terminal</div><div class="addon-meta">Excludes: Ferry Ticket &amp; Lunch</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM1800/transport</div>      <div class="addon-price-line">(Pickup &amp; Drop Off from/to Perth City Area)</div>      <div class="addon-price-line">*Transport capacity up to 10 pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM1800/transport</span></div>      <div class="addon-price-line"><span class="addon-price-sub">(Pickup &amp; Drop Off from/to Perth City Area)</span></div>      <div class="addon-price-line"><span class="addon-price-sub">*Transport capacity up to 10 pax</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Day Tour to Pinnacles Desert</div><div class="addon-meta">Includes: 10 hours Transport + Driver Guide + Entrance to Pinnacles</div><div class="addon-meta">Excludes: Extra hours, midnight hours and meals</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM3800/transport</div>      <div class="addon-price-line">(Pickup &amp; Drop Off from/to Perth City Area Only)</div>      <div class="addon-price-line">*Transport capacity up to 10 pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM3800/transport</span></div>      <div class="addon-price-line"><span class="addon-price-sub">(Pickup &amp; Drop Off from/to Perth City Area Only)</span></div>      <div class="addon-price-line"><span class="addon-price-sub">*Transport capacity up to 10 pax</span></div>    </div>
   </div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n8">    <div class="expect-item">

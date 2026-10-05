@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -918,23 +920,23 @@ footer.page-footer {
   <h2>Additional Activities</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Skyline Gondola Ride (Queenstown)</div><div class="addon-meta">Includes: Return Skyline Gondola Ride at Queenstown City</div><div class="addon-meta">Excludes: Luge Ride or additional activities</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM180/pax for Adult (15 years old and above)</div>      <div class="addon-price-line">RM120/pax for Youth (6 - 14 years old)</div>      <div class="addon-price-line">Free for Child below 5 years old</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM180/pax for Adult</span><span class="addon-price-sub">(15 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM120/pax for Youth</span><span class="addon-price-sub">(6 - 14 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Free for Child below 5 years old</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Milford Sound Nature Cruise</div><div class="addon-meta">Includes: Milford Sound Cruise Ticket Only</div><div class="addon-meta">Excludes: Meals on board and Coach Transfer</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM450/pax for Adult (15 years old and above)</div>      <div class="addon-price-line">RM250/pax for Youth (6 - 14 years old)</div>      <div class="addon-price-line">Free for Child below 5 years old</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM450/pax for Adult</span><span class="addon-price-sub">(15 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM250/pax for Youth</span><span class="addon-price-sub">(6 - 14 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Free for Child below 5 years old</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Milford Sound Coach + Nature Cruise</div><div class="addon-meta">Includes: Milford Sound Coach + Nature Cruise</div><div class="addon-meta">Excludes: Meals on board and Additional Tour</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM650/pax depart from Queenstown (depart 6:20am)</div>      <div class="addon-price-line">RM550/pax depart from Te Anau (depart 9:30am)</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM650/pax depart from Queenstown</span><span class="addon-price-sub">(depart 6:20am)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM550/pax depart from Te Anau</span><span class="addon-price-sub">(depart 9:30am)</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Shootover Jet Queenstown</div><div class="addon-meta">Includes: Individual Pass for 25 minutes Ride</div><div class="addon-meta">Excludes: Meals on board and Additional Tour</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM480/pax for Adult (16 years old and above)</div>      <div class="addon-price-line">RM120/pax for Youth (6 - 14 years old)</div>      <div class="addon-price-line">Free for Child below 5 years old</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM480/pax for Adult</span><span class="addon-price-sub">(16 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM120/pax for Youth</span><span class="addon-price-sub">(6 - 14 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Free for Child below 5 years old</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Fruit Picking at Jackson&#39;s Orchard in Cromwell</div><div class="addon-meta">Includes: Orchard Guided Tour for 45 minutes</div><div class="addon-meta">Excludes: Meals on board and Additional Fruits Purchased</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM480/pax for Adult (16 years old and above)</div>      <div class="addon-price-line">RM120/pax for Youth (6 - 14 years old)</div>      <div class="addon-price-line">Free for Child below 5 years old</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM480/pax for Adult</span><span class="addon-price-sub">(16 years old and above)</span></div>      <div class="addon-price-line"><span class="addon-price-main">RM120/pax for Youth</span><span class="addon-price-sub">(6 - 14 years old)</span></div>      <div class="addon-price-line"><span class="addon-price-main">Free for Child below 5 years old</span></div>    </div>
   </div>  <p class="table-note"><b>Note:</b> Fruit picking — guided orchard tours are available depending on the season: December: Cherry &amp; Peaches · January: Cherry, Apricot, Peaches &amp; Plum · February: Apricots, Peaches, Nectarines &amp; Plums · March: Apples &amp; Pears · April: Last Apples &amp; Pears.</p></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n9">    <div class="expect-item">

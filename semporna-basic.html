@@ -314,7 +314,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 /* Additional activities */
 .addon {
   display: grid;
-  grid-template-columns: 1fr 15.5rem;
+  grid-template-columns: 1fr 17rem;
   align-items: stretch;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -329,13 +329,15 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  gap: 0.45rem;
   padding: 0.7rem 0.85rem;
   background: var(--canvas);
   border-left: 3px solid #98a2ad;
   text-align: center;
 }
-.addon-price-line { font-weight: 800; color: var(--ink); font-size: 0.95rem; line-height: 1.4; }
+.addon-price-line { line-height: 1.35; }
+.addon-price-main { display: block; font-weight: 800; color: var(--ink); font-size: 0.92rem; }
+.addon-price-sub { display: block; font-weight: 500; color: var(--ink-soft); font-size: 0.76rem; }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
@@ -909,43 +911,43 @@ footer.page-footer {
   <h2>Additional Activities</h2>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Island Hopping (Full Day)</div><div class="addon-meta">Includes: 1 x island trip (Set A/B/C), snorkelling equipment, shared boat transfer, 1 x basic lunch box, jetty fee, guide. Meeting point: Seafest Jetty</div><div class="addon-meta">Duration: From 8am to 2@3pm</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM180/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM180/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Tawau Shopping Tour (Full Day)</div><div class="addon-meta">Includes: Private transport, driver guide, airport transfer</div><div class="addon-meta">Duration: 6-8 hours</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM120/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM120/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Timbun Mata Watersport (Half Day)</div><div class="addon-meta">Includes: Parasailing, jet ski, transparent kayak, banana boat, paddle boat, UFO donut, hiking, snorkelling, buffet lunch. Meeting point: Timbun Mata. 2 sessions (choose 1): 8am - 1pm or 1.30pm - 5pm</div><div class="addon-meta">Duration: 4-5 hours</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM300/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM300/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Seawalking</div><div class="addon-meta">Includes: Meeting point: Seafest Jetty. Minimum 2 pax. Recommended to do on the first day</div><div class="addon-meta">Duration: 45 mins</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM180/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM180/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Discovery Scuba Diving</div><div class="addon-meta">Includes: Diving equipment, 2 x dives, dive master. Recommended to do on the first day</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM280/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM280/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Fun Dive</div><div class="addon-meta">Includes: Diving equipment, 3 x dives, dive master. Recommended to do on the first day</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM330/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM330/pax</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Private Car Transfer (Tawau City/Hotel - Semporna)</div><div class="addon-meta">Includes: 1 way transfer (1 - 4 pax maximum)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM160/transport</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM160/transport</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Honeymoon Room Deco</div><div class="addon-meta">Includes: Room decoration (available in water chalets except Lato-Lato)</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM350/room</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM350/room</span></div>    </div>
   </div>  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Candlelight Dinner Only</div><div class="addon-meta">Includes: Meals + table decoration</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM280/pax</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM280/pax</span></div>    </div>
   </div><div class="addon-tail">  <div class="addon">
     <div class="addon-info">
       <div class="addon-name">Regular Size Cake</div><div class="addon-meta">Includes: For birthday celebration or candlelight dinner</div>    </div>
-    <div class="addon-price-col">      <div class="addon-price-line">RM120/cake</div>    </div>
+    <div class="addon-price-col">      <div class="addon-price-line"><span class="addon-price-main">RM120/cake</span></div>    </div>
   </div>  <div class="table-note"><b>Note:</b><ul><li>All add-on activities must be confirmed and paid at least 2 days before the activity&#39;s day.</li><li>Add-on activity is subject to availability and weather conditions.</li></ul></div></div></div><div class="card">
   <h2>What to Expect</h2>
   <div class="expect-grid n7">    <div class="expect-item">
