@@ -1,8 +1,10 @@
-# Mirror of the PT R&D Costing Hub (prod-at22/pt-calculator-hub). The catalog content lives there in
-# data/catalogs/, the builder in catalog-build/. Every 10 minutes this checks the hub; when a catalog
-# changed since the last mirror (.hub-sha) it rebuilds only those catalogs (+ index.html) and commits
-# them here — all of them when catalog-build/ changed. No token: the hub is public, and this workflow
-# writes only to this repo. "Run workflow" mirrors at once (slugs = rebuild just those, "all" = everything).
+# Mirror of the PT R&D Costing Hub (prod-at22/pt-calculator-hub) — the only source of these catalogs:
+# content in data/catalogs/, prices (Costing) and add-ons (Add On) in data/data.json, builder in
+# catalog-build/. The hub's Save starts this workflow at once (workflow_dispatch); the schedule is only a
+# fallback (GitHub runs it rarely). catalog-build/changed.py resolves every catalog at the last mirrored
+# hub commit (.hub-sha) and now, and only the catalogs whose page would differ are rebuilt — all of them
+# when catalog-build/ changed. No token: the hub is public, and this workflow writes only to this repo.
+# "Run workflow" mirrors at once (slugs = rebuild just those, "all" = everything).
 name: Mirror from PT R&D Costing Hub
 on:
   schedule: [{ cron: "*/10 * * * *" }]
@@ -24,7 +26,7 @@ jobs:
       - name: What changed in the hub
         id: pick
         run: |
-          new=$(git -C _hub log -1 --format=%H -- data/catalogs catalog-build)
+          new=$(git -C _hub log -1 --format=%H -- data/catalogs data/data.json catalog-build)
           last=$(cat .hub-sha 2>/dev/null || true)
           force="${{ inputs.slugs }}"
           echo "new=$new" >> "$GITHUB_OUTPUT"
@@ -34,12 +36,14 @@ jobs:
           fi
           if [ "$new" = "$last" ]; then echo "run=no" >> "$GITHUB_OUTPUT"; echo "up to date ($new)"; exit 0; fi
           echo "run=yes" >> "$GITHUB_OUTPUT"
-          if [ -z "$last" ] || ! git -C _hub cat-file -e "$last^{commit}" 2>/dev/null \
-             || git -C _hub diff --name-only "$last" "$new" | grep -q '^catalog-build/'; then
+          # catalogs whose page differs between the last mirror and now (prices + add-ons come from data.json)
+          out=$( [ -n "$last" ] && cd _hub && python3 catalog-build/changed.py "$last" "$new" || echo ALL )
+          if [ "$out" = "ALL" ]; then
             echo "slugs=" >> "$GITHUB_OUTPUT"; echo "rebuild all ($last → $new)"
           else
-            ch=$(git -C _hub diff --name-only --diff-filter=AM "$last" "$new" -- data/catalogs | grep -v index.json | sed -n 's|^data/catalogs/\(.*\)\.json$|\1|p' | tr '\n' ' ')
-            gone=$(git -C _hub diff --name-only --diff-filter=D "$last" "$new" -- data/catalogs | sed -n 's|^data/catalogs/\(.*\)\.json$|\1|p' | tr '\n' ' ')
+            ch=$(printf '%s\n' $out | grep -v '^-' | tr '\n' ' ' || true)   # pipefail: grep finds nothing → not an error
+            gone=$(printf '%s\n' $out | sed -n 's/^-//p' | tr '\n' ' ')
+            ch=$(echo $ch); gone=$(echo $gone)   # trim, so "nothing changed" is really empty
             echo "slugs=$ch" >> "$GITHUB_OUTPUT"; echo "gone=$gone" >> "$GITHUB_OUTPUT"; echo "changed: $ch · removed: $gone"
             [ -z "$ch" ] && [ -z "$gone" ] && echo "index=only" >> "$GITHUB_OUTPUT"
           fi
