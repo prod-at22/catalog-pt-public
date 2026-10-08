@@ -1,0 +1,70 @@
+# Mirror of the PT R&D Costing Hub (prod-at22/pt-calculator-hub). The catalog content lives there in
+# data/catalogs/, the builder in catalog-build/. Every 10 minutes this checks the hub; when a catalog
+# changed since the last mirror (.hub-sha) it rebuilds only those catalogs (+ index.html) and commits
+# them here — all of them when catalog-build/ changed. No token: the hub is public, and this workflow
+# writes only to this repo. "Run workflow" mirrors at once (slugs = rebuild just those, "all" = everything).
+name: Mirror from PT R&D Costing Hub
+on:
+  schedule: [{ cron: "*/10 * * * *" }]
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "Force rebuild of these catalogs (space-separated), or 'all'"
+        type: string
+        default: ""
+permissions: { contents: write }
+concurrency: { group: mirror, cancel-in-progress: false }
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with: { repository: prod-at22/pt-calculator-hub, path: _hub, fetch-depth: 0 }
+      - name: What changed in the hub
+        id: pick
+        run: |
+          new=$(git -C _hub log -1 --format=%H -- data/catalogs catalog-build)
+          last=$(cat .hub-sha 2>/dev/null || true)
+          force="${{ inputs.slugs }}"
+          echo "new=$new" >> "$GITHUB_OUTPUT"
+          if [ -n "$force" ]; then
+            [ "$force" = "all" ] && force=""
+            echo "run=yes" >> "$GITHUB_OUTPUT"; echo "slugs=$force" >> "$GITHUB_OUTPUT"; echo "forced: ${force:-all}"; exit 0
+          fi
+          if [ "$new" = "$last" ]; then echo "run=no" >> "$GITHUB_OUTPUT"; echo "up to date ($new)"; exit 0; fi
+          echo "run=yes" >> "$GITHUB_OUTPUT"
+          if [ -z "$last" ] || ! git -C _hub cat-file -e "$last^{commit}" 2>/dev/null \
+             || git -C _hub diff --name-only "$last" "$new" | grep -q '^catalog-build/'; then
+            echo "slugs=" >> "$GITHUB_OUTPUT"; echo "rebuild all ($last → $new)"
+          else
+            ch=$(git -C _hub diff --name-only --diff-filter=AM "$last" "$new" -- data/catalogs | grep -v index.json | sed -n 's|^data/catalogs/\(.*\)\.json$|\1|p' | tr '\n' ' ')
+            gone=$(git -C _hub diff --name-only --diff-filter=D "$last" "$new" -- data/catalogs | sed -n 's|^data/catalogs/\(.*\)\.json$|\1|p' | tr '\n' ' ')
+            echo "slugs=$ch" >> "$GITHUB_OUTPUT"; echo "gone=$gone" >> "$GITHUB_OUTPUT"; echo "changed: $ch · removed: $gone"
+            [ -z "$ch" ] && [ -z "$gone" ] && echo "index=only" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.pick.outputs.run == 'yes'
+        with: { python-version: "3.12" }
+      - name: Build
+        if: steps.pick.outputs.run == 'yes'
+        timeout-minutes: 40
+        env: { PT_SITE: "${{ github.workspace }}" }
+        run: |
+          pip install -q -r _hub/catalog-build/requirements.txt
+          for s in ${{ steps.pick.outputs.gone }}; do git rm -q --ignore-unmatch "$s.html" "$s.pdf"; done
+          if [ "${{ steps.pick.outputs.index }}" = "only" ]; then
+            echo "only the hub's index.json changed: nothing to render"
+          else
+            python -u _hub/catalog-build/build.py ${{ steps.pick.outputs.slugs }}
+          fi
+      - name: Commit
+        if: steps.pick.outputs.run == 'yes'
+        run: |
+          echo "${{ steps.pick.outputs.new }}" > .hub-sha
+          git config user.name "PT R&D Costing Hub"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- . ':!_hub'
+          if git diff --cached --quiet; then echo "nothing to publish"; exit 0; fi
+          git commit -q -m "Mirror from PT R&D Costing Hub ${{ steps.pick.outputs.new }}: ${{ steps.pick.outputs.slugs || 'all/index' }}"
+          git push
