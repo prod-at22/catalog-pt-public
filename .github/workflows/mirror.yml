@@ -1,4 +1,4 @@
-# Mirror of the PT R&D Costing Hub (prod-at22/pt-calculator-hub) — the only source of these catalogs:
+# Mirror of the PT R&D Costing Hub (prod-at22/rnd-hub) — the only source of these catalogs:
 # content in data/catalogs/, prices (Costing) and add-ons (Add On) in data/data.json, builder in
 # catalog-build/. The hub's Save starts this workflow at once (workflow_dispatch); the schedule is only a
 # fallback (GitHub runs it rarely). catalog-build/changed.py resolves every catalog at the last mirrored
@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
-        with: { repository: prod-at22/pt-calculator-hub, path: _hub, fetch-depth: 0 }
+        with: { repository: prod-at22/rnd-hub, path: _hub, fetch-depth: 0 }
       - name: What changed in the hub
         id: pick
         run: |
