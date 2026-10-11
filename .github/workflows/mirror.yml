@@ -45,7 +45,7 @@ jobs:
             gone=$(printf '%s\n' $out | sed -n 's/^-//p' | tr '\n' ' ')
             ch=$(echo $ch); gone=$(echo $gone)   # trim, so "nothing changed" is really empty
             echo "slugs=$ch" >> "$GITHUB_OUTPUT"; echo "gone=$gone" >> "$GITHUB_OUTPUT"; echo "changed: $ch · removed: $gone"
-            [ -z "$ch" ] && [ -z "$gone" ] && echo "index=only" >> "$GITHUB_OUTPUT"
+            if [ -z "$ch" ] && [ -z "$gone" ]; then echo "index=only" >> "$GITHUB_OUTPUT"; fi   # an if, so a non-empty list is not the step's exit code
           fi
       - uses: actions/setup-python@v5
         if: steps.pick.outputs.run == 'yes'
