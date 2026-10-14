@@ -3,7 +3,7 @@
 # catalog-build/. The hub's Save starts this workflow at once (workflow_dispatch); the schedule is only a
 # fallback (GitHub runs it rarely). catalog-build/changed.py resolves every catalog at the last mirrored
 # hub commit (.hub-sha) and now, and only the catalogs whose page would differ are rebuilt — all of them
-# when catalog-build/ changed. No token: the hub is public, and this workflow writes only to this repo.
+# when catalog-build/ changed. The hub repo is private: checkout reads it with secrets.PT_HUB_READ (fine-grained, pt-rnd-hub Contents: read); this workflow writes only to this repo.
 # "Run workflow" mirrors at once (slugs = rebuild just those, "all" = everything).
 name: Mirror from PT R&D Hub
 on:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
-        with: { repository: prod-at22/pt-rnd-hub, path: _hub, fetch-depth: 0 }
+        with: { repository: prod-at22/pt-rnd-hub, path: _hub, fetch-depth: 0, token: "${{ secrets.PT_HUB_READ || github.token }}" }
       - name: What changed in the hub
         id: pick
         run: |
