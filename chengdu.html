@@ -26,7 +26,7 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  font-family: &#34;Segoe UI&#34;, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
   color: var(--ink);
   background: var(--canvas);
   line-height: 1.5;
@@ -148,8 +148,8 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   margin-bottom: 1.25rem;
 }
 /* Travel Itinerary moves its padding onto an inner wrapper instead of
-   carrying it directly (see print media below for why: it's the one
-   card that's allowed to fragment across pages, and box-decoration-break
+   carrying it directly (see print media below for why: it&#39;s the one
+   card that&#39;s allowed to fragment across pages, and box-decoration-break
    would otherwise re-apply this padding in full on every fragment). */
 .itinerary-card { padding: 0; }
 .itinerary-card .card-body { padding: 1.5rem; }
@@ -242,7 +242,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 .itin-radio:nth-of-type(2):checked ~ .itin-panel-1,
 .itin-radio:nth-of-type(3):checked ~ .itin-panel-2,
 .itin-radio:nth-of-type(4):checked ~ .itin-panel-3 { display: block; }
-/* On screen the pill's own label already names the group, so the
+/* On screen the pill&#39;s own label already names the group, so the
    in-panel heading would just repeat it — shown only in print, where
    every panel renders at once with no pill to say which is which. */
 .itin-panel .itinerary-group-label { display: none; }
@@ -254,7 +254,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
   color: var(--brand-dark);
 }
 .itinerary-group-label:first-of-type { margin-top: 0; }
-/* Reproduces the source PDFs' own itinerary table — Activities, Transport,
+/* Reproduces the source PDFs&#39; own itinerary table — Activities, Transport,
    Meal, and Hotel as real columns, so those three details stay visible per
    day at a glance instead of shrinking into a small footer line. */
 .itin-table-wrap {
@@ -341,7 +341,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 .addon-disclaimer { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.6rem; font-style: italic; }
 
 /* What to expect. Flex (not grid) so an incomplete last row centers as a
-   group instead of left-aligning into the grid's next-available column. */
+   group instead of left-aligning into the grid&#39;s next-available column. */
 .expect-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.9rem; }
 .expect-item { flex: 0 0 200px; background: var(--brand); border-radius: 8px; padding: 1rem 0.85rem; text-align: center; }
 .expect-item svg { width: 32px; height: 32px; margin-bottom: 0.5rem; fill: none; stroke: #fff; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
@@ -349,7 +349,7 @@ table.diff-table thead .diff-current { color: var(--brand-dark); }
 .expect-item p { margin: 0; font-size: 0.83rem; color: rgba(255,255,255,0.9); text-align: center; }
 /* Four tiles sit two over two rather than three and an orphan. */
 .expect-grid.n4 { max-width: calc(2 * 200px + 0.9rem); margin-left: auto; margin-right: auto; }
-/* Notes under a table: a bold "Note:" lead and a readable sentence. */
+/* Notes under a table: a bold &#34;Note:&#34; lead and a readable sentence. */
 .table-note { margin: 0.7rem 0 0; font-size: 0.85rem; color: var(--ink); font-weight: 600; line-height: 1.5; }
 .table-note b { font-weight: 800; color: var(--brand-dark); margin-right: 0.2rem; }
 .table-note ul { margin: 0.3rem 0 0; padding-left: 1.2rem; }
@@ -428,17 +428,17 @@ footer.page-footer {
    blocks below cover what only a Private Tour catalog has: a per-pax-band
    price table, the accommodation-upgrade / peak-season surcharge grid, and
    the Knowledge Base link in the toolbar. There is deliberately no flight
-   section here — a PT package is quoted Ground & Tipping, with the
+   section here — a PT package is quoted Ground &amp; Tipping, with the
    international flight sitting in Price Excludes.
    ========================================================================== */
 
 /* The toolbar carries exactly one action: Download PDF. A link to the
    destination Knowledge Base used to sit beside it, and was removed —
-   the KB sites are internal TC reference, and this page's URL is what
+   the KB sites are internal TC reference, and this page&#39;s URL is what
    gets sent to customers. */
 .toolbar .actions { display: flex; align-items: center; gap: 0.5rem; }
 
-/* Hero facts carry one more item than GT's (Duration, Basis, Valid Until),
+/* Hero facts carry one more item than GT&#39;s (Duration, Basis, Valid Until),
    so they wrap on narrow screens instead of squeezing. */
 .hero .facts .fact-sm b { font-size: 1rem; font-weight: 600; }
 
@@ -455,7 +455,7 @@ footer.page-footer {
    Rows are NOT always monotonically decreasing — e.g. Seoul jumps back up at
    10 pax, where the package switches from a driver-guide to a separate
    driver plus guide. That is real, not a typo; nothing here highlights a
-   "best" row, because which band is best is the customer's to judge.
+   &#34;best&#34; row, because which band is best is the customer&#39;s to judge.
    -------------------------------------------------------------------------- */
 .price-wrap {
   border: 1px solid var(--line);
@@ -520,7 +520,7 @@ footer.page-footer {
 .price-note { margin: 0.6rem 0 0; font-size: 0.82rem; color: var(--ink-soft); font-style: italic; }
 
 /* --------------------------------------------------------------------------
-   Surcharge — accommodation upgrade & peak season
+   Surcharge — accommodation upgrade &amp; peak season
    --------------------------------------------------------------------------
    Read as a lookup rather than a list: pick your accommodation row, read
    across to the season you are travelling in. The season columns carry the
@@ -579,7 +579,7 @@ footer.page-footer {
 .surcharge-table.seasons td.dates { width: 40%; min-width: 12rem; }
 .surcharge-table.seasons td.rate { white-space: normal; }
 
-/* Add-on blocks reuse GT's .addon markup verbatim; PT just renders two of
+/* Add-on blocks reuse GT&#39;s .addon markup verbatim; PT just renders two of
    them (private transport, then activities), so only the shared disclaimer
    spacing needs anything here. */
 .addon-note { font-size: 0.8rem; color: var(--ink-soft); margin-top: 0.6rem; }
@@ -624,8 +624,8 @@ footer.page-footer {
     break-inside: avoid;
     /* Belt-and-braces for the rare card too tall to fit on any one page —
        Chromium will fragment it despite the avoid rule above, and this
-       keeps every fragment's border complete instead of Chromium's
-       default "slice" behavior, which drops the closing edges on a
+       keeps every fragment&#39;s border complete instead of Chromium&#39;s
+       default &#34;slice&#34; behavior, which drops the closing edges on a
        continuation fragment (worse with rounded corners). */
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
@@ -635,11 +635,11 @@ footer.page-footer {
   /* Travel Itinerary is the one card built to split cleanly: its table
      repeats the header row on every page it spans, and each day stays on
      one page rather than breaking mid-row — so unlike every other card,
-     it's allowed to flow across as many pages as it needs. */
+     it&#39;s allowed to flow across as many pages as it needs. */
   .itinerary-card { break-inside: auto; }
   .itin-table thead { display: table-header-group; }
   .itin-table tr { break-inside: avoid; }
-  /* A seasonal itinerary_groups catalog (e.g. Chengdu's Spring/Summer/
+  /* A seasonal itinerary_groups catalog (e.g. Chengdu&#39;s Spring/Summer/
      Autumn vs Winter) always starts its second-and-later group on a
      fresh page in print, rather than letting it run on wherever the
      first group happened to end — keeping the two seasons visually
@@ -647,12 +647,12 @@ footer.page-footer {
   .itin-panel:not(:first-of-type) { break-before: page; }
   /* On screen the hero sits flush under the sticky toolbar, so squaring
      its top corners looks attached rather than floating — hence the
-     web-only 0 0 radius radius above. In print there's no toolbar, just
+     web-only 0 0 radius radius above. In print there&#39;s no toolbar, just
      page margin on every side, so a top-square hero reads as unfinished
      instead; round every corner here. */
   .hero { border-radius: var(--radius); }
   a[href]:after { content: none !important; }
-  /* A printed page can't be clicked, so show every itinerary group in
+  /* A printed page can&#39;t be clicked, so show every itinerary group in
      full rather than just whichever pill was selected on screen — with
      the pill bar gone, each panel needs its own heading back. */
   .itin-pill { display: none; }
@@ -682,7 +682,7 @@ footer.page-footer {
      That rule was written for cards built out of tiles and boxes, where a
      split strands a header-less fragment on the next page. The fix is to
      move the guarantee down a level — let a card flow, but keep the things
-     that actually must not break (a single add-on row, a "What to Expect"
+     that actually must not break (a single add-on row, a &#34;What to Expect&#34;
      tile, one table row) whole, and keep every heading attached to what
      follows it. A long Includes list or Important Notes section splitting
      across a page boundary reads perfectly well; a price row torn in half
@@ -711,7 +711,7 @@ footer.page-footer {
   .deposit-box, .highlights-strip, .addon-tail { break-inside: avoid; }
 
   /* Includes/Excludes is the one card that must stay whole. It is two
-     columns read side by side, and its "INCLUDES" / "EXCLUDES" labels sit
+     columns read side by side, and its &#34;INCLUDES&#34; / &#34;EXCLUDES&#34; labels sit
      at the top — split it and the continuation page shows two unlabelled
      lists of similar-looking bullet points, where mistaking one column for
      the other inverts the meaning of every line. The tables that do split
@@ -719,7 +719,7 @@ footer.page-footer {
   .split-two { break-inside: avoid; }
 
   /* Never let the footer start a page on its own — it stranded the Maldives
-     catalog's last page at 7% full. */
+     catalog&#39;s last page at 7% full. */
   .page-footer { break-before: avoid; }
 
   /* The hero is sized for a screen landing; in a printed catalog that much
