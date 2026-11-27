@@ -578,6 +578,8 @@ footer.page-footer {
 .surcharge-table.seasons td.lead { white-space: normal; width: 28%; }
 .surcharge-table.seasons td.dates { width: 40%; min-width: 12rem; }
 .surcharge-table.seasons td.rate { white-space: normal; }
+/* dates only (no Surcharge column): the label keeps its width, the dates take the rest */
+.surcharge-table.seasons.dates-only td.dates { width: auto; }
 
 /* Add-on blocks reuse GT's .addon markup verbatim; PT just renders two of
    them (private transport, then activities), so only the shared disclaimer
@@ -831,17 +833,11 @@ footer.page-footer {
       </thead>
       <tbody>        <tr>
           <td class="lead">Peak Season</td>
-          <td class="sub dates"><span class="d">20 December 2026 - 3 January 2027</span><span class="d">1 - 28 February 2027</span><span class="d">15 July 2027 - 15 August 2027</span></td>
-          <td class="rate"><span class="d">Add on RM200 per person per night</span></td>
-        </tr>        <tr>
+          <td class="sub dates"><span class="d">20 December 2026 - 3 January 2027</span><span class="d">1 - 28 February 2027</span><span class="d">15 July 2027 - 15 August 2027</span></td>          <td class="rate"><span class="d">Add on RM200 per person per night</span></td>        </tr>        <tr>
           <td class="lead">Last Minute Surcharge</td>
-          <td class="sub dates"><span class="d">Booking 3 weeks before departure date</span></td>
-          <td class="rate"><span class="d">2 pax: Additional RM700 per person</span><span class="d">3 pax &amp; Above: Additional RM500 per person</span></td>
-        </tr>        <tr>
+          <td class="sub dates"><span class="d">Booking 3 weeks before departure date</span></td>          <td class="rate"><span class="d">2 pax: Additional RM700 per person</span><span class="d">3 pax &amp; Above: Additional RM500 per person</span></td>        </tr>        <tr>
           <td class="lead">Surcharge Travel Date 2027</td>
-          <td class="sub dates"><span class="d">January - June</span></td>
-          <td class="rate"><span class="d">Add RM370/pax</span></td>
-        </tr>      </tbody>
+          <td class="sub dates"><span class="d">January - June</span></td>          <td class="rate"><span class="d">Add RM370/pax</span></td>        </tr>      </tbody>
     </table>
   </div>
 </div><div class="card">
